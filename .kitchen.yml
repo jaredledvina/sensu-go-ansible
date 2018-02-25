@@ -1,15 +1,28 @@
 ---
 driver:
-  name: vagrant
+  name: docker
+  require_chef_omnibus: false
+  use_sudo: false
 
 provisioner:
-  name: chef_solo
+  name: ansible_playbook
+  hosts: localhost
+  ansible_version: 2.4.3
+  require_pip: true
+  ansible_verbose: true
+  ansible_verbosity: 2
+  ansible_diff: true
+  ansible_extra_flags: <%= ENV['ANSIBLE_EXTRA_FLAGS'] %>
+  idempotency_test: true
+  require_chef_for_busser: false
+  require_ruby_for_busser: false
+  sudo_command: sudo -E -H
 
 platforms:
-  - name: ubuntu-14.04
-  - name: centos-7.2
+  - name: debian-9
+
+verifier:
+  name: serverspec
 
 suites:
   - name: default
-    run_list:
-    attributes:
