@@ -105,6 +105,7 @@ DEPENDENCIES
   kitchen-ansible (= 0.48.1)!
   kitchen-docker (= 2.6.0)!
   kitchen-verifier-serverspec (= 0.6.10)!
+  net-ssh (= 4.2.0)!
   serverspec (= 2.41.3)!
   test-kitchen (= 1.20.0)!
 
