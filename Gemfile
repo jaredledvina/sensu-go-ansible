@@ -6,4 +6,5 @@ source "https://rubygems.org" do
     gem 'kitchen-verifier-serverspec', '0.6.10'
     gem 'serverspec', '2.41.3'
     gem 'test-kitchen', '1.20.0'
+    gem 'net-ssh', '4.2.0'
 end
