@@ -7,7 +7,7 @@ driver:
 provisioner:
   name: ansible_playbook
   hosts: all
-  ansible_version: 2.4.3
+  ansible_version: <%= ENV['ANSIBLE_VERSION'] || '2.4.3' %>
   require_pip: true
   ansible_verbose: true
   ansible_verbosity: 2
