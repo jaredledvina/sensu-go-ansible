@@ -1,2 +1,3 @@
 ---
-# tasks file for sensu2-ansible
+- include_tasks: configure_repo.yml
+  when: sensu2_manage_repo

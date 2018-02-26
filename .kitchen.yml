@@ -6,13 +6,13 @@ driver:
 
 provisioner:
   name: ansible_playbook
-  hosts: localhost
+  hosts: all
   ansible_version: 2.4.3
   require_pip: true
   ansible_verbose: true
   ansible_verbosity: 2
   ansible_diff: true
-  ansible_extra_flags: <%= ENV['ANSIBLE_EXTRA_FLAGS'] %>
+  ansible_extra_flags: <%= ENV['ANSIBLE_EXTRA_FLAGS'] || nil %>
   idempotency_test: true
   require_chef_for_busser: false
   require_ruby_for_busser: false
@@ -22,7 +22,7 @@ platforms:
   - name: debian-9
 
 verifier:
-  name: serverspec
+  name: inspec
 
 suites:
   - name: default

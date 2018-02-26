@@ -2,6 +2,3 @@
 - hosts: localhost
   roles:
     - sensu2-ansible
-  tasks:
-    - debug:
-        msg: HELLO WORLD

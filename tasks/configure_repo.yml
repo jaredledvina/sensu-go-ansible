@@ -1,0 +1,19 @@
+---
+- name: Ensure packages for Sensu2 repos are installed
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ sensu2_repo_packages }}"
+
+- name: Ensure Sensu2 repo key is configured
+  apt_key:
+    url: https://packagecloud.io/sensu/prerelease/gpgkey
+    id: "{{ sensu2_key_id }}"
+
+- name: Configure Sensu2 apt repos
+  apt_repository:
+    filename: "{{ item.key }}-sensu2"
+    repo: "{{ item.key }} {{ item.value }}"
+    update_cache: yes
+  with_dict: "{{ sensu2_repos }}"
+

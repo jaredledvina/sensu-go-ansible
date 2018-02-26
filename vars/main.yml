@@ -1,2 +1,11 @@
 ---
-# vars file for sensu2-ansible
+sensu2_manage_repo: True
+sensu2_repo_packages:
+  - curl
+  - gnupg
+  - debian-archive-keyring
+  - apt-transport-https
+sensu2_repos:
+  deb: https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
+  deb-src: https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
+sensu2_key_id: 2D2C2621EAF2386A
