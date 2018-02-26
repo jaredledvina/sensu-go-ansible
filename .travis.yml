@@ -1,7 +1,15 @@
 ---
 language: python
 python: "2.7"
-sudo: false
+sudo: required
+
+services:
+  - docker
+
+addons:
+  apt:
+    packages:
+      - docker-ce
 
 before_install:
   - gem update --system
