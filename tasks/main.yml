@@ -1,3 +1,12 @@
 ---
 - include_tasks: repo/{{ ansible_pkg_mgr }}.yml
   when: sensu2_manage_repo
+
+- import_tasks: install/backend.yml
+  when: sensu2_install_backend
+
+- import_tasks: install/agent.yml
+  when: sensu2_install_agent
+
+- import_tasks: install/cli.yml
+  when: sensu2_install_cli

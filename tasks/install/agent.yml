@@ -1,0 +1,5 @@
+---
+- name: Ensure Sensu2 agent is installed
+  package:
+    name: "{{ sensu2_agent_package }}"
+    state: present

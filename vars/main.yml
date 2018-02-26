@@ -9,3 +9,10 @@ sensu2_repos:
   deb: https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
   deb-src: https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
 sensu2_key_id: 2D2C2621EAF2386A
+
+sensu2_install_backend: True
+sensu2_backend_package: sensu-backend
+sensu2_install_agent: True
+sensu2_agent_package: sensu-agent
+sensu2_install_cli: True
+sensu2_cli_package: sensu-cli
