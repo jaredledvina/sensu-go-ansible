@@ -6,3 +6,9 @@
     group: "{{ sensu2_config_group }}"
     mode: "{{ sensu2_config_mode }}"
   notify: restart sensu-agent
+
+- name: Cleanup example agent config
+  file:
+    path: /etc/sensu/agent.yml.example
+    state: absent
+  when: sensu2_agent_cleanup_example

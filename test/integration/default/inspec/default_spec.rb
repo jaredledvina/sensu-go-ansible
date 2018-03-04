@@ -38,6 +38,10 @@ describe file('/etc/sensu/') do
   its('mode') { should cmp '0750' }
 end
 
+describe file('/etc/sensu/backend.yml.example') do
+  it { should_not exist }
+end
+
 describe file('/etc/sensu/backend.yml') do
   its('owner') { should eq 'sensu' }
   its('owner') { should eq 'sensu' }
@@ -46,6 +50,10 @@ end
 
 describe yaml('/etc/sensu/backend.yml') do
   its('state-dir') { should eq '/var/lib/sensu' }
+end
+
+describe file('/etc/sensu/agent.yml.example') do
+  it { should_not exist }
 end
 
 describe file('/etc/sensu/agent.yml') do

@@ -21,6 +21,7 @@ sensu2_install_backend: True
 sensu2_manage_backend_service: True
 sensu2_backend_enabled: True
 sensu2_backend_state: started
+sensu2_backend_cleanup_example: True
 sensu2_config_backend: True
 sensu2_backend_config_file: /etc/sensu/backend.yml
 sensu2_backend_config:
@@ -31,6 +32,7 @@ sensu2_install_agent: True
 sensu2_manage_agent_service: True
 sensu2_agent_enabled: True
 sensu2_agent_state: started
+sensu2_agent_cleanup_example: True
 sensu2_config_agent: True
 sensu2_agent_config_file: /etc/sensu/agent.yml
 sensu2_agent_config:
