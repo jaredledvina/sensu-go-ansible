@@ -5,9 +5,6 @@
     state: "{{ sensu2_backend_state }}"
   register: sensu2_backend_service_state
 
-- debug:
-    var: sensu2_backend_service_state
-
 - name: Wait for sensu-backend to be online
   wait_for:
     port: 8081
