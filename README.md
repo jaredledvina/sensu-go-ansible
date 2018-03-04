@@ -24,7 +24,7 @@ Example Playbook
 ```
     - hosts: servers
       roles:
-         - jaredledvina.sensu2-alpha
+         - jaredledvina.sensu2-ansible
 ```
 
 License
