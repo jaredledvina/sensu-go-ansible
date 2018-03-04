@@ -20,6 +20,12 @@ provisioner:
 
 platforms:
   - name: debian-9
+    driver_config:
+      run_command: /lib/systemd/systemd
+      privileged: true
+      provision_command:
+        - sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
+        - systemctl enable ssh.service
 
 verifier:
   name: inspec

@@ -30,3 +30,27 @@ end
 describe package('sensu-cli') do
   it { should be_installed }
 end
+
+describe file('/etc/sensu/backend.yml') do
+  its('owner') { should eq 'sensu' }
+  its('owner') { should eq 'sensu' }
+  its('mode') { should cmp '0640' }
+end
+
+describe file('/etc/sensu/agent.yml') do
+  its('owner') { should eq 'sensu' }
+  its('owner') { should eq 'sensu' }
+  its('mode') { should cmp '0640' }
+end
+
+describe service('sensu-backend') do
+  it { should be_enabled }
+  it { should be_installed }
+  it { should be_running }
+end
+
+describe service('sensu-agent') do
+  it { should be_enabled }
+  it { should be_installed }
+  it { should be_running }
+end

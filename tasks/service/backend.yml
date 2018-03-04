@@ -1,0 +1,6 @@
+- name: Ensure sensu-backend service state
+  service:
+    name: sensu-backend
+    enabled: "{{ sensu2_backend_enabled }}"
+    state: "{{ sensu2_backend_state }}"
+

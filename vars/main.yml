@@ -10,9 +10,33 @@ sensu2_repos:
   deb-src: https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
 sensu2_key_id: 2D2C2621EAF2386A
 
-sensu2_install_backend: True
+sensu2_config_owner: sensu
+sensu2_config_group: sensu
+sensu2_config_mode: 0640
+
 sensu2_backend_package: sensu-backend
-sensu2_install_agent: True
+sensu2_install_backend: True
+sensu2_manage_backend_service: True
+sensu2_backend_enabled: True
+sensu2_backend_state: started
+sensu2_config_backend: True
+sensu2_backend_config_file: /etc/sensu/backend.yml
+sensu2_backend_config:
+  state-dir: /var/lib/sensu
+
 sensu2_agent_package: sensu-agent
-sensu2_install_cli: True
+sensu2_install_agent: True
+sensu2_manage_agent_service: True
+sensu2_agent_enabled: True
+sensu2_agent_state: started
+sensu2_agent_enabled: True
+sensu2_agent_state: started
+sensu2_config_agent: True
+sensu2_agent_config_file: /etc/sensu/agent.yml
+sensu2_agent_config:
+  backend-url:
+    - ws://127.0.0.1:8081
+  cache-dir: /var/cache/sensu/sensu-agent
+
 sensu2_cli_package: sensu-cli
+sensu2_install_cli: True

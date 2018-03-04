@@ -1,0 +1,7 @@
+- name: Ensure sensu-backend config is setup
+  template:
+    src: backend.yml.j2
+    dest: "{{ sensu2_backend_config_file }}"
+    owner: "{{ sensu2_config_owner }}"
+    group: "{{ sensu2_config_group }}"
+    mode: "{{ sensu2_config_mode }}"
