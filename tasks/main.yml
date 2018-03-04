@@ -11,6 +11,8 @@
 - import_tasks: install/cli.yml
   when: sensu2_install_cli
 
+- import_tasks: config/main.yml
+
 - import_tasks: config/backend.yml
   when: sensu2_config_backend
 

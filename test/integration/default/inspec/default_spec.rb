@@ -31,16 +31,32 @@ describe package('sensu-cli') do
   it { should be_installed }
 end
 
+describe file('/etc/sensu/') do
+  it { should be_directory }
+  its('owner') { should eq 'sensu' }
+  its('owner') { should eq 'sensu' }
+  its('mode') { should cmp '0750' }
+end
+
 describe file('/etc/sensu/backend.yml') do
   its('owner') { should eq 'sensu' }
   its('owner') { should eq 'sensu' }
   its('mode') { should cmp '0640' }
 end
 
+describe yaml('/etc/sensu/backend.yml') do
+  its('state-dir') { should eq '/var/lib/sensu' }
+end
+
 describe file('/etc/sensu/agent.yml') do
   its('owner') { should eq 'sensu' }
   its('owner') { should eq 'sensu' }
   its('mode') { should cmp '0640' }
+end
+
+describe yaml('/etc/sensu/agent.yml') do
+  its(['backend-url', 0]) { should eq 'ws://127.0.0.1:8081' }
+  its('cache-dir') { should eq '/var/cache/sensu/sensu-agent' }
 end
 
 describe service('sensu-backend') do

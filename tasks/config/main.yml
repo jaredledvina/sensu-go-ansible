@@ -1,0 +1,7 @@
+---
+- name: Ensure config directory is setup
+  file:
+    path: "{{ sensu2_config_dir }}"
+    owner: "{{ sensu2_config_owner }}"
+    group: "{{ sensu2_config_group }}"
+    mode: "{{ sensu2_config_dir_mode }}"
