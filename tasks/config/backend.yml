@@ -5,3 +5,4 @@
     owner: "{{ sensu2_config_owner }}"
     group: "{{ sensu2_config_group }}"
     mode: "{{ sensu2_config_mode }}"
+  notify: restart sensu-backend

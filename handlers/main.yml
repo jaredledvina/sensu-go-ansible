@@ -1,2 +1,16 @@
 ---
-# handlers file for sensu2-ansible
+- name: restart sensu-backend
+  service:
+    name: sensu-backend
+    state: restarted
+  notify: wait for sensu-backend to accept connections
+
+- name: wait for sensu-backend to accept connections
+  wait_for:
+    port: 8081
+    delay: 30
+
+- name: restart sensu-agent
+  service:
+    name: sensu-agent
+    state: restarted
