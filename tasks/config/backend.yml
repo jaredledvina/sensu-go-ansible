@@ -1,3 +1,21 @@
+- name: Ensure /etc/default/sensu-backend is configured
+  template:
+    src: default-sensu-backend.j2
+    dest: /etc/default/sensu-backend
+    owner: "{{ sensu2_config_owner }}"
+    group: "{{ sensu2_config_group }}"
+    mode: "{{ sensu2_config_mode }}"
+  when: sensu2_default_sensu_backend_config
+
+- name: Ensure /etc/sysconfig/sensu-backend is configured
+  template:
+    src: sysconfig-sensu-backend.j2
+    dest: /etc/sysconfig/sensu-backend
+    owner: "{{ sensu2_config_owner }}"
+    group: "{{ sensu2_config_group }}"
+    mode: "{{ sensu2_config_mode }}"
+  when: sensu2_sysconfig_sensu_backend_config
+
 - name: Ensure sensu-backend config is setup
   template:
     src: backend.yml.j2

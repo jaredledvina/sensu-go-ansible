@@ -31,6 +31,22 @@ describe package('sensu-cli') do
   it { should be_installed }
 end
 
+describe file('/etc/default/sensu-agent') do
+  it { should_not exist }
+end
+
+describe file('/etc/sysconfig/sensu-agent') do
+  it { should_not exist }
+end
+
+describe file('/etc/default/sensu-backend') do
+  it { should_not exist }
+end
+
+describe file('/etc/sysconfig/sensu-backend') do
+  it { should_not exist }
+end
+
 describe file('/etc/sensu/') do
   it { should be_directory }
   its('owner') { should eq 'sensu' }

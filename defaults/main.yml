@@ -23,6 +23,8 @@ sensu2_backend_enabled: True
 sensu2_backend_state: started
 sensu2_backend_cleanup_example: True
 sensu2_config_backend: True
+sensu2_default_sensu_backend_config: {}
+sensu2_sysconfig_sensu_backend_config: {}
 sensu2_backend_config_file: /etc/sensu/backend.yml
 sensu2_backend_config:
   state-dir: /var/lib/sensu
@@ -34,6 +36,8 @@ sensu2_agent_enabled: True
 sensu2_agent_state: started
 sensu2_agent_cleanup_example: True
 sensu2_config_agent: True
+sensu2_default_sensu_agent_config: {}
+sensu2_sysconfig_sensu_agent_config: {}
 sensu2_agent_config_file: /etc/sensu/agent.yml
 sensu2_agent_config:
   backend-url:
