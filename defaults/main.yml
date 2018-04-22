@@ -1,48 +1,59 @@
 ---
 sensu2_manage_repo: True
 sensu2_repo_packages:
-  - curl
-  - gnupg
-  - debian-archive-keyring
-  - apt-transport-https
+  apt:
+    - curl
+    - gnupg
+    - debian-archive-keyring
+    - apt-transport-https
 sensu2_repos:
-  deb: https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
-  deb-src: https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
+  apt:
+    deb: https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
+    deb-src: https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
 sensu2_key_id: 2D2C2621EAF2386A
 
-sensu2_config_dir: /etc/sensu
-sensu2_config_owner: sensu
-sensu2_config_group: sensu
-sensu2_config_mode: 0640
-sensu2_config_dir_mode: 0750
+# List of specific Sensu 2 components to install and manage
+sensu2_components:
+  - backend
+  - agent
+  - cli
 
-sensu2_backend_package: sensu-backend
-sensu2_install_backend: True
-sensu2_manage_backend_service: True
-sensu2_backend_enabled: True
-sensu2_backend_state: started
-sensu2_backend_cleanup_example: True
-sensu2_config_backend: True
-sensu2_default_sensu_backend_config: {}
-sensu2_sysconfig_sensu_backend_config: {}
-sensu2_backend_config_file: /etc/sensu/backend.yml
-sensu2_backend_config:
-  state-dir: /var/lib/sensu
+sensu2_config_dir:
+  path: /etc/sensu
+  owner: sensu
+  group: sensu
+  mode: '0750' #Quoted to work around: https://github.com/ansible/ansible/pull/32738
+sensu2_configs_override: {}
+sensu2_configs:
+  DEFAULT:
+    owner: sensu
+    group: sensu
+    file_mode: '0640' #Quoted to work around: https://github.com/ansible/ansible/pull/32738
+    dir_mode: '0750' #Quoted to work around: https://github.com/ansible/ansible/pull/32738
+  backend:
+    file:
+      name: backend.yml
+    #default:
+      #owner: test
+      #file_mode: '0400'
+    #sysconfig:
+      #group: test2
+    cleanup_example: true
+    config:
+      state-dir: /var/lib/sensu
+  agent:
+    file:
+      name: agent.yml
+    cleanup_example: true
+    config:
+      backend-url:
+        - ws://127.0.0.1:8081
+      cache-dir: /var/cache/sensu/sensu-agent
 
-sensu2_agent_package: sensu-agent
-sensu2_install_agent: True
-sensu2_manage_agent_service: True
-sensu2_agent_enabled: True
-sensu2_agent_state: started
-sensu2_agent_cleanup_example: True
-sensu2_config_agent: True
-sensu2_default_sensu_agent_config: {}
-sensu2_sysconfig_sensu_agent_config: {}
-sensu2_agent_config_file: /etc/sensu/agent.yml
-sensu2_agent_config:
-  backend-url:
-    - ws://127.0.0.1:8081
-  cache-dir: /var/cache/sensu/sensu-agent
-
-sensu2_cli_package: sensu-cli
-sensu2_install_cli: True
+sensu2_services:
+  backend:
+    enabled: True
+    state: started
+  agent:
+    enabled: True
+    state: started

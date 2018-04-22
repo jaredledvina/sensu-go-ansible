@@ -1,5 +1,0 @@
----
-- name: Ensure Sensu2 CLI is installed
-  package:
-    name: "{{ sensu2_cli_package }}"
-    state: present

@@ -1,0 +1,4 @@
+{{ ansible_managed | comment }}
+{% for key, value in sensu2_configs[component]['sysconfig']|dictsort %}
+{{ key|upper|trim }}="{{ value|lower|trim }}"
+{% endfor %}

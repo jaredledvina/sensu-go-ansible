@@ -3,7 +3,7 @@
   apt:
     name: "{{ item }}"
     state: present
-  with_items: "{{ sensu2_repo_packages }}"
+  with_items: "{{ sensu2_repo_packages[ansible_pkg_mgr] }}"
 
 - name: Ensure Sensu2 repo key is configured
   apt_key:
@@ -15,5 +15,5 @@
     filename: "{{ item.key }}-sensu2"
     repo: "{{ item.key }} {{ item.value }}"
     update_cache: yes
-  with_dict: "{{ sensu2_repos }}"
+  with_dict: "{{ sensu2_repos[ansible_pkg_mgr] }}"
 

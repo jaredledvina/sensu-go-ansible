@@ -1,5 +1,5 @@
 ---
 - name: Ensure Sensu2 backend is installed
   package:
-    name: "{{ sensu2_backend_package }}"
+    name: "sensu-{{ component }}"
     state: present

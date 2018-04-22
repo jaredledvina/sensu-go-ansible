@@ -1,12 +1,14 @@
 - name: Ensure sensu-backend service state
   service:
     name: sensu-backend
-    enabled: "{{ sensu2_backend_enabled }}"
-    state: "{{ sensu2_backend_state }}"
+    enabled: "{{ sensu2_services.backend.enabled }}"
+    state: "{{ sensu2_services.backend.state }}"
   register: sensu2_backend_service_state
 
 - name: Wait for sensu-backend to be online
   wait_for:
     port: 8081
     delay: 30
-  when: sensu2_backend_service_state | changed
+  when:
+    - sensu2_services.backend.state == 'started'
+    - sensu2_backend_service_state | changed

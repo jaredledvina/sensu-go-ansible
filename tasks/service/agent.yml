@@ -1,6 +1,6 @@
 - name: Ensure sensu-agent service state
   service:
     name: sensu-agent
-    enabled: "{{ sensu2_agent_enabled }}"
-    state: "{{ sensu2_agent_state }}"
+    enabled: "{{ sensu2_services.agent.enabled }}"
+    state: "{{ sensu2_services.agent.state }}"
 

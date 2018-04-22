@@ -1,8 +1,9 @@
 ---
 driver:
-  name: docker
-  require_chef_omnibus: false
-  use_sudo: false
+  name: vagrant
+
+platforms:
+  - name: debian-9
 
 provisioner:
   name: ansible_playbook
@@ -17,15 +18,6 @@ provisioner:
   require_chef_for_busser: false
   require_ruby_for_busser: false
   sudo_command: sudo -E -H
-
-platforms:
-  - name: debian-9
-    driver_config:
-      run_command: /lib/systemd/systemd
-      privileged: true
-      provision_command:
-        - sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
-        - systemctl enable ssh.service
 
 verifier:
   name: inspec
