@@ -11,4 +11,4 @@
     delay: 30
   when:
     - sensu2_services.backend.state == 'started'
-    - sensu2_backend_service_state | changed
+    - sensu2_backend_service_state is changed
