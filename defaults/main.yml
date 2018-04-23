@@ -6,11 +6,23 @@ sensu2_repo_packages:
     - gnupg
     - debian-archive-keyring
     - apt-transport-https
+  yum:
+    - pygpgme
+    - yum-utils
 sensu2_repos:
   apt:
-    deb: https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
-    deb-src: https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
-sensu2_key_id: 2D2C2621EAF2386A
+    key_url: https://packagecloud.io/sensu/prerelease/gpgkey
+    key_id: 2D2C2621EAF2386A
+    deb: deb https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
+    deb-src: deb-src https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
+  yum:
+    gpgcheck: no
+    repo_gpgcheck: yes
+    sslverify: yes
+    metadata_expire: 300
+    gpgkey: https://packagecloud.io/sensu/prerelease/gpgkey
+    rpm: https://packagecloud.io/sensu/prerelease/el/$releasever/$basearch
+    rpm-src: https://packagecloud.io/sensu/prerelease/el/$releasever/SRPMS
 
 # List of specific Sensu 2 components to install and manage
 sensu2_components:

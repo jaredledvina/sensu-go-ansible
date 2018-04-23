@@ -4,11 +4,17 @@ driver:
 
 platforms:
   - name: debian-9
+  - name: centos-7
+
+# See https://github.com/test-kitchen/test-kitchen/issues/1075#issuecomment-283188928
+# Fixes tests via Vagrant for CentOS 7
+transport:
+  max_ssh_sessions: 6
 
 provisioner:
   name: ansible_playbook
   hosts: all
-  ansible_version: <%= ENV['ANSIBLE_VERSION'] || '2.4.3' %>
+  ansible_version: <%= ENV['ANSIBLE_VERSION'] || '2.5.1' %>
   require_pip: true
   ansible_verbose: true
   ansible_verbosity: 2

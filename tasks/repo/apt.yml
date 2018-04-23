@@ -7,13 +7,20 @@
 
 - name: Ensure Sensu2 repo key is configured
   apt_key:
-    url: https://packagecloud.io/sensu/prerelease/gpgkey
-    id: "{{ sensu2_key_id }}"
+    url: "{{ sensu2_repos[ansible_pkg_mgr]['key_url'] }}"
+    id: "{{ sensu2_repos[ansible_pkg_mgr]['key_id'] }}"
 
 - name: Configure Sensu2 apt repos
   apt_repository:
-    filename: "{{ item.key }}-sensu2"
-    repo: "{{ item.key }} {{ item.value }}"
+    filename: sensu_prerelease
+    repo: "{{ sensu2_repos[ansible_pkg_mgr]['deb'] }}"
     update_cache: yes
-  with_dict: "{{ sensu2_repos[ansible_pkg_mgr] }}"
+  when: sensu2_repos[ansible_pkg_mgr]['deb'] is defined
+
+- name: Configure Sensu2 apt source repos
+  apt_repository:
+    filename: sensu_prerelease
+    repo: "{{ sensu2_repos[ansible_pkg_mgr]['deb-src'] }}"
+    update_cache: yes
+  when: sensu2_repos[ansible_pkg_mgr]['deb-src'] is defined
 

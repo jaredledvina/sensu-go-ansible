@@ -1,0 +1,49 @@
+---
+- name: Ensure packages for Sensu2 repos are installed
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ sensu2_repo_packages[ansible_pkg_mgr] }}"
+
+- name: Configure Sensu2 GPG key in the RPM keyring
+  rpm_key:
+    key: "{{ sensu2_repos[ansible_pkg_mgr]['gpgkey'] }}"
+    state: present
+  register: sensu2_import_key
+
+- name: Configure Sensu2 yum repos
+  yum_repository:
+    file: sensu_prerelease
+    name: sensu_prerelease
+    description: packagecloud.io mirrors for Sensu2
+    baseurl: "{{ sensu2_repos[ansible_pkg_mgr]['rpm'] }}"
+    gpgcheck: "{{ sensu2_repos[ansible_pkg_mgr]['gpgcheck'] }}"
+    gpgkey: "{{ sensu2_repos[ansible_pkg_mgr]['gpgkey'] }}"
+    repo_gpgcheck: "{{ sensu2_repos[ansible_pkg_mgr]['repo_gpgcheck'] }}"
+    sslverify: "{{ sensu2_repos[ansible_pkg_mgr]['sslverify'] }}"
+    metadata_expire: "{{ sensu2_repos[ansible_pkg_mgr]['metadata_expire'] }}"
+  when: sensu2_repos[ansible_pkg_mgr]['rpm'] is defined
+
+- name: Configure Sensu2 yum source repos
+  yum_repository:
+    file: sensu_prerelease
+    name: sensu_prerelease-source
+    description: packagecloud.io mirrors for Sensu2 Source RPMS
+    baseurl: "{{ sensu2_repos[ansible_pkg_mgr]['rpm-src'] }}"
+    gpgkey: "{{ sensu2_repos[ansible_pkg_mgr]['gpgkey'] }}"
+    gpgcheck: "{{ sensu2_repos[ansible_pkg_mgr]['gpgcheck'] }}"
+    repo_gpgcheck: "{{ sensu2_repos[ansible_pkg_mgr]['repo_gpgcheck'] }}"
+    sslverify: "{{ sensu2_repos[ansible_pkg_mgr]['sslverify'] }}"
+    metadata_expire: "{{ sensu2_repos[ansible_pkg_mgr]['metadata_expire'] }}"
+  when: sensu2_repos[ansible_pkg_mgr]['rpm-src'] is defined
+
+# HACK: https://github.com/ansible/ansible/issues/20711#issuecomment-306260869
+# Can be removed once we're running w/ a version of Ansible that has https://github.com/ansible/ansible/pull/35989
+- name: Make yum cache to import GPG keys
+  command: "yum -q makecache -y --disablerepo='*' --enablerepo='{{ item }}'"
+  warn: False
+  when: sensu2_import_key.changed
+  with_items:
+    - sensu_prerelease
+    - sensu_prerelease-source
+
