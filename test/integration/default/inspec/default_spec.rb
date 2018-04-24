@@ -15,8 +15,17 @@ if os.debian?
   describe package('apt-transport-https') do
     it { should be_installed }
   end
+end
 
+if os.name == 'debian'
   describe apt('https://packagecloud.io/sensu/prerelease/debian/') do
+    it { should exist }
+    it { should be_enabled }
+  end
+end
+
+if os.name == 'ubuntu'
+  describe apt('https://packagecloud.io/sensu/prerelease/ubuntu/') do
     it { should exist }
     it { should be_enabled }
   end

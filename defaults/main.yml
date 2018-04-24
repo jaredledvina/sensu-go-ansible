@@ -13,8 +13,8 @@ sensu2_repos:
   apt:
     key_url: https://packagecloud.io/sensu/prerelease/gpgkey
     key_id: 2D2C2621EAF2386A
-    deb: deb https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
-    deb-src: deb-src https://packagecloud.io/sensu/prerelease/{{ ansible_os_family | lower }}/ {{ ansible_distribution_release | lower }} main
+    deb: deb https://packagecloud.io/sensu/prerelease/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
+    deb-src: deb-src https://packagecloud.io/sensu/prerelease/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
   yum:
     gpgcheck: no
     repo_gpgcheck: yes
