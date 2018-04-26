@@ -42,9 +42,8 @@
 - name: Make yum cache to import GPG keys
   command: "yum -q makecache -y --disablerepo='*' --enablerepo='{{ item }}'"
   args:
-    warn: False
+    warn: false
   when: sensu2_import_key.changed
   with_items:
     - sensu_prerelease
     - sensu_prerelease-source
-

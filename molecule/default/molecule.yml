@@ -41,8 +41,6 @@ platforms:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
-provisioner:
-provisioner:
   name: ansible
   lint:
     name: ansible-lint

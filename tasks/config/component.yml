@@ -1,4 +1,6 @@
-- set_fact:
+---
+- name: Merge sensu2_configs_override w/ defaults
+  set_fact:
     sensu2_final_configs: "{{ sensu2_configs | combine(sensu2_configs_override) }}"
 
 - name: Ensure /etc/default/sensu-{{ component }} is configured

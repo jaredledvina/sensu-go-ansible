@@ -1,13 +1,14 @@
+---
 galaxy_info:
   author: Jared Ledvina
   description: Deploy the Sensu 2 Alpha
   license: MIT
-  min_ansible_version: 2.4
+  min_ansible_version: 2.5
   github_branch: master
   platforms:
-  - name: Debian
-    versions:
-     - 9
+    - name: Debian
+      versions:
+        - 9
   galaxy_tags:
     - sensu
     - sensu2

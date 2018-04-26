@@ -1,5 +1,5 @@
 ---
-sensu2_manage_repo: True
+sensu2_manage_repo: true
 sensu2_repo_packages:
   apt:
     - curl
@@ -16,9 +16,9 @@ sensu2_repos:
     deb: deb https://packagecloud.io/sensu/prerelease/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
     deb-src: deb-src https://packagecloud.io/sensu/prerelease/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
   yum:
-    gpgcheck: no
-    repo_gpgcheck: yes
-    sslverify: yes
+    gpgcheck: false
+    repo_gpgcheck: true
+    sslverify: true
     metadata_expire: 300
     gpgkey: https://packagecloud.io/sensu/prerelease/gpgkey
     rpm: https://packagecloud.io/sensu/prerelease/el/$releasever/$basearch
@@ -34,22 +34,17 @@ sensu2_config_dir:
   path: /etc/sensu
   owner: sensu
   group: sensu
-  mode: '0750' #Quoted to work around: https://github.com/ansible/ansible/pull/32738
+  mode: '0750'  # Quoted to work around: https://github.com/ansible/ansible/pull/32738
 sensu2_configs_override: {}
 sensu2_configs:
   DEFAULT:
     owner: sensu
     group: sensu
-    file_mode: '0640' #Quoted to work around: https://github.com/ansible/ansible/pull/32738
-    dir_mode: '0750' #Quoted to work around: https://github.com/ansible/ansible/pull/32738
+    file_mode: '0640'  # Quoted to work around: https://github.com/ansible/ansible/pull/32738
+    dir_mode: '0750'  # Quoted to work around: https://github.com/ansible/ansible/pull/32738
   backend:
     file:
       name: backend.yml
-    #default:
-      #owner: test
-      #file_mode: '0400'
-    #sysconfig:
-      #group: test2
     cleanup_example: true
     config:
       state-dir: /var/lib/sensu
@@ -64,8 +59,8 @@ sensu2_configs:
 
 sensu2_services:
   backend:
-    enabled: True
+    enabled: true
     state: started
   agent:
-    enabled: True
+    enabled: true
     state: started

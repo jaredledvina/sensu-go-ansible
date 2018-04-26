@@ -24,4 +24,3 @@
   when:
     - "'agent' in sensu2_components"
     - sensu2_services.agent is defined
-

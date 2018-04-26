@@ -1,3 +1,4 @@
+---
 - name: Ensure sensu-backend service state
   service:
     name: sensu-backend

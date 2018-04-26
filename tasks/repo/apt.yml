@@ -14,13 +14,12 @@
   apt_repository:
     filename: sensu_prerelease
     repo: "{{ sensu2_repos[ansible_pkg_mgr]['deb'] }}"
-    update_cache: yes
+    update_cache: true
   when: sensu2_repos[ansible_pkg_mgr]['deb'] is defined
 
 - name: Configure Sensu2 apt source repos
   apt_repository:
     filename: sensu_prerelease
     repo: "{{ sensu2_repos[ansible_pkg_mgr]['deb-src'] }}"
-    update_cache: yes
+    update_cache: true
   when: sensu2_repos[ansible_pkg_mgr]['deb-src'] is defined
-
