@@ -33,4 +33,4 @@
   file:
     path: "{{ sensu2_config_dir.path }}/{{ component }}.yml.example"
     state: absent
-  when: "{{ sensu2_final_configs[component]['cleanup_example'] }}"
+  when: sensu2_final_configs[component]['cleanup_example']
