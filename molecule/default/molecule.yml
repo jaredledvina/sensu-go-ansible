@@ -7,61 +7,41 @@ lint:
   name: yamllint
 platforms:
   - name: debian-8
-    image: debian:8
-    pre_run: apt-get update -q && apt-get install -y --force-yes systemd
-    env:
-      container: docker
-    command: /lib/systemd/systemd
+    image: dokken/debian-8
+    command: /bin/systemd
     capabilities:
       - SYS_ADMIN
-    tmpfs:
-      - /run
-      - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
   - name: debian-9
-    image: debian:9
-    pre_run: apt-get update -q && apt-get install -y --force-yes systemd
-    env:
-      container: docker
-    command: /lib/systemd/systemd
+    image: dokken/debian-9
+    command: /bin/systemd
     capabilities:
       - SYS_ADMIN
-    tmpfs:
-      - /run
-      - /tmp
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  - name: centos-6
-    image: centos:6
-    pre_run: yum -y install initscripts && yum clean all
-  - name: centos-7
-    image: centos:7
-    env:
-      container: docker
-    command: /sbin/init
-    capabilities:
-      - SYS_ADMIN
-    tmpfs:
-      - /run
-      - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
   - name: ubuntu-14.04
-    image: ubuntu:14.04
-  - name: ubuntu-16.04
-    image: ubuntu:16.04
-    env:
-      container: docker
+    image: dokken/ubuntu-14.04
     command: /sbin/init
+  - name: ubuntu-16.04
+    image: dokken/ubuntu-16.04
+    command: /bin/systemd
     capabilities:
       - SYS_ADMIN
-    tmpfs:
-      - /run
-      - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-
+  - name: centos-6
+    image: dokken/centos-6
+    command: /sbin/init
+  - name: centos-7
+    image: dokken/centos-7
+    command: /usr/lib/systemd/systemd
+    capabilities:
+      - SYS_ADMIN
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+provisioner:
+provisioner:
 provisioner:
   name: ansible
   lint:

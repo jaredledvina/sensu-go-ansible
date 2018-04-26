@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   gather_facts: false
-  no_log: no #"{{ not lookup('env', 'MOLECULE_DEBUG') | bool }}"
+  no_log: "{{ not lookup('env', 'MOLECULE_DEBUG') | bool }}"
   tasks:
     - name: Log into a Docker registry
       docker_login:
@@ -62,9 +62,6 @@
         ulimits: "{{ item.ulimits | default(omit) }}"
         networks: "{{ item.networks | default(omit) }}"
         dns_servers: "{{ item.dns_servers | default(omit) }}"
-        tmpfs: "{{ item.tmpfs | default(omit) }}"
-        capabilities: "{{ item.capabilities | default(omit) }}"
-        env: "{{ item.env | default(omit) }}"
       register: server
       with_items: "{{ molecule_yml.platforms }}"
       async: 7200
