@@ -8,14 +8,14 @@ lint:
 platforms:
   - name: debian-8
     image: dokken/debian-8
-    command: /bin/systemd
+    command: /lib/systemd/systemd
     capabilities:
       - SYS_ADMIN
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
   - name: debian-9
     image: dokken/debian-9
-    command: /bin/systemd
+    command: /lib/systemd/systemd
     capabilities:
       - SYS_ADMIN
     volumes:
