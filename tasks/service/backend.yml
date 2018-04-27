@@ -2,7 +2,7 @@
 - name: Ensure sensu-backend service state
   service:
     name: sensu-backend
-    enabled: "{{ sensu2_services.backend.enabled }}"
+    enabled: "{{ sensu2_services.backend.enabled | default(omit)}}"
     state: "{{ sensu2_services.backend.state }}"
   register: sensu2_backend_service_state
 

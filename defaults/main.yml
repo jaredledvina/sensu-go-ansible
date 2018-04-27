@@ -59,8 +59,8 @@ sensu2_configs:
 
 sensu2_services:
   backend:
-    enabled: true
+    #enabled: true
     state: started
   agent:
-    enabled: true
+    #enabled: true
     state: started
