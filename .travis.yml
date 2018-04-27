@@ -9,7 +9,7 @@ addons:
     packages:
       - docker-ce
 install:
-  - pip install --user pipenv
+  - pip install pipenv
   - pipenv install --two --dev
 script:
   - pipenv run molecule test
