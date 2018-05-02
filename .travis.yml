@@ -1,4 +1,5 @@
 ---
+dist: trusty
 language: python
 python: "2.7"
 sudo: required
@@ -12,7 +13,7 @@ install:
   - pip install pipenv
   - pipenv install --two --dev
 script:
-  - pipenv run molecule test
+  - pipenv run molecule test --scenario-name default --driver-name docker --destroy always
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
