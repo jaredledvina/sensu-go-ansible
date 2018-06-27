@@ -9,6 +9,9 @@ sensu2_repo_packages:
   yum:
     - pygpgme
     - yum-utils
+  dnf:
+    - python
+    - python-dnf
 sensu2_repos:
   apt:
     key_url: https://packagecloud.io/sensu/prerelease/gpgkey
@@ -23,6 +26,15 @@ sensu2_repos:
     gpgkey: https://packagecloud.io/sensu/prerelease/gpgkey
     rpm: https://packagecloud.io/sensu/prerelease/el/$releasever/$basearch
     rpm-src: https://packagecloud.io/sensu/prerelease/el/$releasever/SRPMS
+  dnf:
+    gpgcheck: false
+    repo_gpgcheck: true
+    sslverify: true
+    metadata_expire: 300
+    gpgkey: https://packagecloud.io/sensu/prerelease/gpgkey
+    rpm: https://packagecloud.io/sensu/prerelease/el/$releasever/$basearch
+    rpm-src: https://packagecloud.io/sensu/prerelease/el/$releasever/SRPMS
+
 
 # List of specific Sensu 2 components to install and manage
 sensu2_components:
