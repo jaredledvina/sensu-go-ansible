@@ -1,7 +1,8 @@
-sensu2-ansible
+sensu-go-ansible
 ==============
 
-This role allows for the deployment of the [Sensu 2 alpha](https://github.com/sensu/sensu-go).
+This role allows for the deployment and management of
+[Sensu 2](https://github.com/sensu/sensu-go).
 
 Requirements
 ------------
@@ -24,7 +25,7 @@ Example Playbook
 ```
     - hosts: servers
       roles:
-         - jaredledvina.sensu2-ansible
+         - jaredledvina.sensu-go-ansible
 ```
 
 License
