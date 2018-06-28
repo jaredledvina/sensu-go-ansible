@@ -14,26 +14,26 @@ sensu2_repo_packages:
     - python-dnf
 sensu2_repos:
   apt:
-    key_url: https://packagecloud.io/sensu/prerelease/gpgkey
+    key_url: https://packagecloud.io/sensu/nightly/gpgkey
     key_id: 2D2C2621EAF2386A
-    deb: deb https://packagecloud.io/sensu/prerelease/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
-    deb-src: deb-src https://packagecloud.io/sensu/prerelease/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
+    deb: deb https://packagecloud.io/sensu/nightly/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
+    deb-src: deb-src https://packagecloud.io/sensu/nightly/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
   yum:
     gpgcheck: false
     repo_gpgcheck: true
     sslverify: true
     metadata_expire: 300
-    gpgkey: https://packagecloud.io/sensu/prerelease/gpgkey
-    rpm: https://packagecloud.io/sensu/prerelease/el/$releasever/$basearch
-    rpm-src: https://packagecloud.io/sensu/prerelease/el/$releasever/SRPMS
+    gpgkey: https://packagecloud.io/sensu/nightly/gpgkey
+    rpm: https://packagecloud.io/sensu/nightly/el/$releasever/$basearch
+    rpm-src: https://packagecloud.io/sensu/nightly/el/$releasever/SRPMS
   dnf:
     gpgcheck: false
     repo_gpgcheck: true
     sslverify: true
     metadata_expire: 300
-    gpgkey: https://packagecloud.io/sensu/prerelease/gpgkey
-    rpm: https://packagecloud.io/sensu/prerelease/{{ ansible_distribution | lower }}/{{ ansible_distribution_release | lower }}/$basearch
-    rpm-src: https://packagecloud.io/sensu/prerelease/{{ ansible_distribution | lower }}/{{ ansible_distribution_release | lower }}/SRPMS
+    gpgkey: https://packagecloud.io/sensu/nightly/gpgkey
+    rpm: https://packagecloud.io/sensu/nightly/{{ ansible_distribution | lower }}/{{ ansible_distribution_release | lower }}/$basearch
+    rpm-src: https://packagecloud.io/sensu/nightly/{{ ansible_distribution | lower }}/{{ ansible_distribution_release | lower }}/SRPMS
 
 
 # List of specific Sensu 2 components to install and manage
