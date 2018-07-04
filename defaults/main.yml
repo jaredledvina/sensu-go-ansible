@@ -32,8 +32,8 @@ sensu2_repos:
     sslverify: true
     metadata_expire: 300
     gpgkey: https://packagecloud.io/sensu/nightly/gpgkey
-    rpm: https://packagecloud.io/sensu/nightly/{{ ansible_distribution | lower }}/{{ ansible_distribution_release | lower }}/$basearch
-    rpm-src: https://packagecloud.io/sensu/nightly/{{ ansible_distribution | lower }}/{{ ansible_distribution_release | lower }}/SRPMS
+    rpm: https://packagecloud.io/sensu/nightly/el/7/$basearch
+    rpm-src: https://packagecloud.io/sensu/nightly/el/7/SRPMS
 
 
 # List of specific Sensu 2 components to install and manage
