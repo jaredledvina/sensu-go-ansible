@@ -18,14 +18,14 @@ if os.debian?
 end
 
 if os.name == 'debian'
-  describe apt('https://packagecloud.io/sensu/prerelease/debian/') do
+  describe apt('https://packagecloud.io/sensu/nightly/debian/') do
     it { should exist }
     it { should be_enabled }
   end
 end
 
 if os.name == 'ubuntu'
-  describe apt('https://packagecloud.io/sensu/prerelease/ubuntu/') do
+  describe apt('https://packagecloud.io/sensu/nightly/ubuntu/') do
     it { should exist }
     it { should be_enabled }
   end
