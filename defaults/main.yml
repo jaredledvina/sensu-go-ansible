@@ -15,7 +15,7 @@ sensu2_repo_packages:
 sensu2_repos:
   apt:
     key_url: https://packagecloud.io/sensu/nightly/gpgkey
-    key_id: 2D2C2621EAF2386A
+    key_id: EE2D88BF8ACCB428
     deb: deb https://packagecloud.io/sensu/nightly/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
     deb-src: deb-src https://packagecloud.io/sensu/nightly/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
   yum:
