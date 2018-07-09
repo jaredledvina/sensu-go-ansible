@@ -49,17 +49,6 @@ provisioner:
   lint:
     name: ansible-lint
   inventory:
-    group_vars:
-      all:
-        sensu_master: true
-        sensu_include_dashboard: true
-        rabbitmq_server: true
-        redis_server: true
-        rabbitmq_host: "{{ ansible_hostname }}"
-        redis_host: "{{ ansible_hostname }}"
-        sensu_api_host: "{{ ansible_hostname }}"
-        ansible_default_ipv4:
-          address: 127.0.0.1
     host_vars:
       fedora-26:
         inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.16/el/7/inspec-2.2.16-1.el7.x86_64.rpm
