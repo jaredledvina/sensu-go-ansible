@@ -69,6 +69,7 @@ sensu2_configs:
         - ws://127.0.0.1:8081
       cache-dir: /var/cache/sensu/sensu-agent
 
+sensu2_services_override: {}
 sensu2_services:
   backend:
     enabled: true
