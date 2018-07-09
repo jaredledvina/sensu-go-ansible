@@ -12,6 +12,7 @@ sensu2_repo_packages:
   dnf:
     - python
     - python-dnf
+sensu2_repos_overrides: {}
 sensu2_repos:
   apt:
     key_url: https://packagecloud.io/sensu/nightly/gpgkey
