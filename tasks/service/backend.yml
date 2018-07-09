@@ -1,7 +1,7 @@
 ---
 - name: Merge sensu2_services_override w/ defaults
   set_fact:
-    sensu2_final_services: "{{ sensu2_services | combine(sensu2_services_override) }}"
+    sensu2_final_services: "{{ sensu2_services | combine(sensu2_services_override, recursive=True) }}"
 
 - name: Ensure sensu-backend service state
   service:

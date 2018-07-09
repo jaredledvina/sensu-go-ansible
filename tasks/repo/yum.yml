@@ -1,7 +1,7 @@
 ---
 - name: Merge sensu2_configs_override w/ defaults
   set_fact:
-    sensu2_final_repos: "{{ sensu2_repos | combine(sensu2_repos_overrides) }}"
+    sensu2_final_repos: "{{ sensu2_repos | combine(sensu2_repos_overrides, recursive=True) }}"
 
 - name: Ensure packages for Sensu2 repos are installed
   yum:

@@ -1,7 +1,7 @@
 ---
 - name: Merge sensu2_configs_override w/ defaults
   set_fact:
-    sensu2_final_configs: "{{ sensu2_configs | combine(sensu2_configs_override) }}"
+    sensu2_final_configs: "{{ sensu2_configs | combine(sensu2_configs_override, recursive=True) }}"
 
 - name: Ensure /etc/default/sensu-{{ component }} is configured
   template:
