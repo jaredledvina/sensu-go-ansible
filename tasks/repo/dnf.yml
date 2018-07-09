@@ -1,7 +1,7 @@
 ---
 - name: Merge sensu2_configs_override w/ defaults
   set_fact:
-    sensu2_final_repos: "{{ sensu2_repos | combine(sensu2_repos_override) }}"
+    sensu2_final_repos: "{{ sensu2_repos | combine(sensu2_repos_overrides) }}"
 
 - name: Ensure packages for Sensu2 repos are installed
   dnf:
