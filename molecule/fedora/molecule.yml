@@ -51,14 +51,14 @@ provisioner:
   inventory:
     host_vars:
       fedora-26:
-        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.16/el/7/inspec-2.2.16-1.el7.x86_64.rpm
-        inspec_download_sha256sum: 2fdf2000630c38828c3172d471a61ecc4b8ff58ce9bee9a5543a99434be30e83
+        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.34/el/7/inspec-2.2.34-1.el7.x86_64.rpm
+        inspec_download_sha256sum: c3d3fcb89b746f6378e27c0b318f61a8cda8784f4354306a866c70b945d52cec
       fedora-27:
-        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.16/el/7/inspec-2.2.16-1.el7.x86_64.rpm
-        inspec_download_sha256sum: 2fdf2000630c38828c3172d471a61ecc4b8ff58ce9bee9a5543a99434be30e83
+        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.34/el/7/inspec-2.2.34-1.el7.x86_64.rpm
+        inspec_download_sha256sum: c3d3fcb89b746f6378e27c0b318f61a8cda8784f4354306a866c70b945d52cec
       fedora-28:
-        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.16/el/7/inspec-2.2.16-1.el7.x86_64.rpm
-        inspec_download_sha256sum: 2fdf2000630c38828c3172d471a61ecc4b8ff58ce9bee9a5543a99434be30e83
+        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.34/el/7/inspec-2.2.34-1.el7.x86_64.rpm
+        inspec_download_sha256sum: c3d3fcb89b746f6378e27c0b318f61a8cda8784f4354306a866c70b945d52cec
 verifier:
   name: inspec
   directory: ../shared/tests/

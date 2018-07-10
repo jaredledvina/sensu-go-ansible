@@ -50,14 +50,14 @@ provisioner:
   inventory:
     host_vars:
       ubuntu-14.04:
-        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.16/ubuntu/14.04/inspec_2.2.16-1_amd64.deb
-        inspec_download_sha256sum: c65a9ee4a38dac46760caf2500b4504ba49845423420be685aa8ea20ea52f3b4
+        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.34/ubuntu/14.04/inspec_2.2.34-1_amd64.deb
+        inspec_download_sha256sum: 5a8c6253b90d44e1e4059f495f1fdfa4c0491ce75ecf9fc37fc905c26f5a43d7
       ubuntu-16.04:
-        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.16/ubuntu/16.04/inspec_2.2.16-1_amd64.deb
-        inspec_download_sha256sum: c65a9ee4a38dac46760caf2500b4504ba49845423420be685aa8ea20ea52f3b4
+        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.34/ubuntu/16.04/inspec_2.2.34-1_amd64.deb
+        inspec_download_sha256sum: 5a8c6253b90d44e1e4059f495f1fdfa4c0491ce75ecf9fc37fc905c26f5a43d7
       ubuntu-18.04:
-        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.16/ubuntu/18.04/inspec_2.2.16-1_amd64.deb
-        inspec_download_sha256sum: c65a9ee4a38dac46760caf2500b4504ba49845423420be685aa8ea20ea52f3b4
+        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.34/ubuntu/18.04/inspec_2.2.34-1_amd64.deb
+        inspec_download_sha256sum: 5a8c6253b90d44e1e4059f495f1fdfa4c0491ce75ecf9fc37fc905c26f5a43d7
 verifier:
   name: inspec
   directory: ../shared/tests/
