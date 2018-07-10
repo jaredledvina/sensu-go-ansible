@@ -32,8 +32,11 @@ if os.name == 'ubuntu'
 end
 
 if os.redhat?
-  describe package('pygpgme') do
-    it { should be_installed }
+  # AmazonLinux 1 ships with python27-pygpgme skip testing for it
+  unless os.name == 'amazon' && os.release == '2018.03'
+    describe package('pygpgme') do
+      it { should be_installed }
+    end
   end
 
   describe package('yum-utils') do

@@ -24,7 +24,7 @@ provisioner:
   name: ansible
   config_options:
     defaults:
-      callback_whitelist: timer,profile_tasks
+      callback_whitelist: yaml,timer,profile_tasks
       fact_caching: jsonfile
       fact_caching_connection: ./cache
       poll_interval: 3
