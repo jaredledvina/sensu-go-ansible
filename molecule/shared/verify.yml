@@ -34,9 +34,9 @@
 
     - name: Download Inspec
       get_url:
-        url: "{{ inspec_downloads.inspec_version.url }}"
+        url: "{{ inspec_downloads[inspec_version]['url'] }}"
         dest: "{{ inspec_download_source_dir }}"
-        sha256sum: "{{ inspec_downloads.inspec_version.sha256 }}"
+        sha256sum: "{{ inspec_downloads[inspec_version]['sha256'] }}"
         mode: 0755
       register: inspec_download
 
