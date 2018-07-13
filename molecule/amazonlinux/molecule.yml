@@ -46,15 +46,13 @@ provisioner:
           yum:
             rpm: https://packagecloud.io/sensu/nightly/el/6/x86_64
             rpm-src: https://packagecloud.io/sensu/nightly/el/6/SRPMS
-        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.34/el/6/inspec-2.2.34-1.el6.x86_64.rpm
-        inspec_download_sha256sum: f507dbaf5632a67ee2e6e112aea7f726c0a3251b4f29b247b320fb1132a1aa41
+        inspec_version: el6
       amazonlinux-2:
         sensu2_repos_overrides:
           yum:
             rpm: https://packagecloud.io/sensu/nightly/el/7/x86_64
             rpm-src: https://packagecloud.io/sensu/nightly/el/7/SRPMS
-        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.34/el/7/inspec-2.2.34-1.el7.x86_64.rpm
-        inspec_download_sha256sum: c3d3fcb89b746f6378e27c0b318f61a8cda8784f4354306a866c70b945d52cec
+        inspec_version: el7
 verifier:
   name: inspec
   directory: ../shared/tests/

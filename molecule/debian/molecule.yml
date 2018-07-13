@@ -43,11 +43,9 @@ provisioner:
   inventory:
     host_vars:
       debian-8:
-        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.34/ubuntu/16.04/inspec_2.2.34-1_amd64.deb
-        inspec_download_sha256sum: 5a8c6253b90d44e1e4059f495f1fdfa4c0491ce75ecf9fc37fc905c26f5a43d7
+        inspec_version: ubuntu1604
       debian-9:
-        inspec_download_url: https://packages.chef.io/files/stable/inspec/2.2.34/ubuntu/16.04/inspec_2.2.34-1_amd64.deb
-        inspec_download_sha256sum: 5a8c6253b90d44e1e4059f495f1fdfa4c0491ce75ecf9fc37fc905c26f5a43d7
+        inspec_version: ubuntu1604
 verifier:
   name: inspec
   directory: ../shared/
