@@ -28,10 +28,21 @@ None
 Example Playbook
 ----------------
 
-```
-    - hosts: servers
+```yaml
+    - hosts: sensu-backend-servers
       roles:
-         - jaredledvina.sensu-go-ansible
+         - role: jaredledvina.sensu-go-ansible
+
+    - hosts: sensu-agent-severs:
+      roles:
+        - role: jaredledvina.sensu-go-ansible
+	  sensu2_components:
+	    - agent
+	  sensu2_configs_override:
+	    agent:
+	      config:
+	        backend-url:
+		  - ws://sensu-backend-server:8081
 ```
 
 Testing
