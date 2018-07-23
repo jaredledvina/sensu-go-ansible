@@ -14,10 +14,10 @@ Role Variables
 
 See `defaults/main.yml` for everything that's configurable.
 Please note that unless you've [configured `hash_behaviour` to `merge`](https://docs.ansible.com/ansible/latest/reference_appendices/config.html#default-hash-behaviour)
-configuring any of the hash variables with **override** the entire default variable. 
+configuring any of the hash variables will **override** the entire default variable. 
 
 Most variables expose an `_overrides: {}` variable that is merged automatically
-in this role for selectively updating each variable. It's strongly reccomended 
+in this role for selectively updating each variable. It's strongly recommended 
 that the `overrides` variable be used.
 
 Dependencies
