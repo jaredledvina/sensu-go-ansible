@@ -7,7 +7,7 @@ This role allows for the deployment and management of
 Requirements
 ------------
 
-* Ansible 2.5 or higher
+* Ansible 2.6 or higher
 
 Role Variables
 --------------
