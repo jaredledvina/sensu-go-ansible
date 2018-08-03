@@ -1,5 +1,5 @@
 ---
-- name: Ensure config directory is setup
+- name: Ensure config directory is set up
   file:
     path: "{{ sensu2_config_dir.path }}"
     owner: "{{ sensu2_config_dir.owner}}"
