@@ -31,7 +31,7 @@
       package:
         name: "{{ item }}"
         state: present
-      with_items: "{{ inspec_package_deps "}}
+      with_items: "{{ inspec_package_deps }}"
 
     - name: Download Inspec
       get_url:
