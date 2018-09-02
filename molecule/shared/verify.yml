@@ -24,7 +24,6 @@
         sha256: 2a5f025918d70e1db518732c4d12d5cec6c94679f3f5da2557f36d5e94ca2e12
     inspec_package_deps:
       - lsof
-      - iproute
       - net-tools
   tasks:
     - name: Install system dependencies for Inspec
