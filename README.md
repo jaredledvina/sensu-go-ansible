@@ -1,8 +1,32 @@
 sensu-go-ansible
-==============
+================
 
 This role allows for the deployment and management of
 [Sensu 2](https://github.com/sensu/sensu-go).
+
+Work in progress
+----------------
+
+While the initial role completely handles installing and running Sensu 2's
+`sensu-agent`, `sensu-backend`, and `sensuctl` there is still a lot of work
+left to do.
+
+[] Adding/Deleting/Modifying Checks
+[] Adding/Deleting/Modifying organizations/environments
+[] Adding/Deleting/Modifying roles
+[] Adding/Deleting/Modifying filters
+[] Adding/Deleting/Modifying mutators
+[] Adding/Deleting/Modifying handlers
+[] Adding/Deleting/Modifying silences
+[] Adding/Deleting/Modifying hooks
+
+The current focus is adding/deleting/modifying checks. Currently, there's a 
+work in progress Ansible module included in `library/` for this. Until the Sensu
+2 API is versioned/documented/stable, we are wrapping `sensuctl` for our 
+interactions with Sensu 2. 
+
+If you'd like to contribute, please review [CONTRIBUTING.md](https://github.com/jaredledvina/sensu-go-ansible/blob/master/CONTRIBUTING.md) and open an issue to discuss your 
+idea.
 
 Requirements
 ------------
@@ -36,13 +60,13 @@ Example Playbook
     - hosts: sensu-agent-severs:
       roles:
         - role: jaredledvina.sensu-go-ansible
-	  sensu2_components:
-	    - agent
-	  sensu2_configs_override:
-	    agent:
-	      config:
-	        backend-url:
-		  - ws://sensu-backend-server:8081
+          sensu2_components:
+            - agent
+          sensu2_configs_override:
+            agent:
+              config:
+                backend-url:
+                  - ws://sensu-backend-server:8081
 ```
 
 Testing
