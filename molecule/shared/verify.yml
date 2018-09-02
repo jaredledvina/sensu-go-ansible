@@ -8,20 +8,20 @@
     inspec_test_directory: "/tmp/molecule/inspec"
     inspec_downloads:
       el6:
-        url: https://packages.chef.io/files/stable/inspec/2.2.35/el/6/inspec-2.2.35-1.el6.x86_64.rpm
-        sha256: 824d2a4fa801206c2ba10bca2b2a04783f6e6a3690a59e0618b2c7232036b01f
+        url: https://packages.chef.io/files/stable/inspec/2.2.78/el/6/inspec-2.2.78-1.el6.x86_64.rpm
+        sha256: e0f44ce6462f10bf8ca91cf0097773bdedd672fcadf75894dc846b18cf0fde96
       el7:
-        url: https://packages.chef.io/files/stable/inspec/2.2.35/el/7/inspec-2.2.35-1.el7.x86_64.rpm
-        sha256: 610c60132ac28f2f54e7d17a9b7afeaec3e11912c1463584495e0e4e81667200
+        url: https://packages.chef.io/files/stable/inspec/2.2.78/el/7/inspec-2.2.78-1.el7.x86_64.rpm
+        sha256: e06a34ceb493a1bedd64ce32570eab66ad09b4fd375903a33c81b37c3b8a4871
       ubuntu1404:
-        url: https://packages.chef.io/files/stable/inspec/2.2.35/ubuntu/14.04/inspec_2.2.35-1_amd64.deb
-        sha256: 2cff0ee43eae1dcca8591b947f9175a6771964e8017af99be9adfb5e581a06e0
+        url: https://packages.chef.io/files/stable/inspec/2.2.78/ubuntu/14.04/inspec_2.2.78-1_amd64.deb
+        sha256: 2a5f025918d70e1db518732c4d12d5cec6c94679f3f5da2557f36d5e94ca2e12
       ubuntu1604:
-        url: https://packages.chef.io/files/stable/inspec/2.2.35/ubuntu/16.04/inspec_2.2.35-1_amd64.deb
-        sha256: 2cff0ee43eae1dcca8591b947f9175a6771964e8017af99be9adfb5e581a06e0
+        url: https://packages.chef.io/files/stable/inspec/2.2.78/ubuntu/16.04/inspec_2.2.78-1_amd64.deb
+        sha256: 2a5f025918d70e1db518732c4d12d5cec6c94679f3f5da2557f36d5e94ca2e12
       ubuntu1804:
-        url: https://packages.chef.io/files/stable/inspec/2.2.35/ubuntu/18.04/inspec_2.2.35-1_amd64.deb
-        sha256: 2cff0ee43eae1dcca8591b947f9175a6771964e8017af99be9adfb5e581a06e0
+        url: https://packages.chef.io/files/stable/inspec/2.2.78/ubuntu/18.04/inspec_2.2.78-1_amd64.deb
+        sha256: 2a5f025918d70e1db518732c4d12d5cec6c94679f3f5da2557f36d5e94ca2e12
   tasks:
     - name: Install system dependencies for Inspec
       package:
