@@ -88,6 +88,7 @@ The following Operating Systems are automatically tested:
 - [Fedora - 28](https://docs.fedoraproject.org/f28/release-notes/)
 - [Ubuntu - 14.04 (Trusty Tahr)](http://releases.ubuntu.com/14.04/)
 - [Ubuntu - 16.04 (Xenial Xerus)](http://releases.ubuntu.com/16.04/)
+- [Ubuntu - 18.04 (Bionic Beaver)](http://releases.ubuntu.com/18.04/)
 
 Caveats
 -------
