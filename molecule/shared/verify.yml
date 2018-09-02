@@ -29,7 +29,7 @@
         state: present
       with_items:
         - lsof
-        - iproute
+        - iproute2
         - net-tools
 
     - name: Download Inspec
