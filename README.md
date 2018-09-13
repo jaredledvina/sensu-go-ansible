@@ -11,14 +11,21 @@ While the initial role completely handles installing and running Sensu 2's
 `sensu-agent`, `sensu-backend`, and `sensuctl` there is still a lot of work
 left to do.
 
-[] Adding/Deleting/Modifying Checks
-[] Adding/Deleting/Modifying organizations/environments
-[] Adding/Deleting/Modifying roles
-[] Adding/Deleting/Modifying filters
-[] Adding/Deleting/Modifying mutators
-[] Adding/Deleting/Modifying handlers
-[] Adding/Deleting/Modifying silences
-[] Adding/Deleting/Modifying hooks
+- [] Adding/Deleting/Modifying Checks
+
+- [] Adding/Deleting/Modifying organizations/environments
+
+- [] Adding/Deleting/Modifying roles
+
+- [] Adding/Deleting/Modifying filters
+
+- [] Adding/Deleting/Modifying mutators
+
+- [] Adding/Deleting/Modifying handlers
+
+- [] Adding/Deleting/Modifying silences
+
+- [] Adding/Deleting/Modifying hooks
 
 The current focus is adding/deleting/modifying checks. Currently, there's a 
 work in progress Ansible module included in `library/` for this. Until the Sensu
