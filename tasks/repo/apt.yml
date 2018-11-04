@@ -5,9 +5,8 @@
 
 - name: Ensure packages for Sensu2 repos are installed
   apt:
-    name: "{{ item }}"
+    name: "{{ sensu_go_repo_packages[ansible_pkg_mgr] }}"
     state: present
-  with_items: "{{ sensu_go_repo_packages[ansible_pkg_mgr] }}"
 
 - name: Ensure Sensu2 repo key is configured
   apt_key:
