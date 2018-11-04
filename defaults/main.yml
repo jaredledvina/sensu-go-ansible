@@ -38,7 +38,7 @@ sensu2_repos:
 
 
 sensu2_install_components: true
-# List of specific Sensu 2 components to install and manage
+# List of specific Sensu Go components to install and manage
 sensu2_components:
   - backend
   - agent

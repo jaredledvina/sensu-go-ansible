@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Jared Ledvina
-  description: Deploy the Sensu 2 Go
+  description: Deploy the Sensu Go
   license: MIT
   min_ansible_version: 2.6
   github_branch: master

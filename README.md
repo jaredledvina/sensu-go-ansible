@@ -2,12 +2,12 @@ sensu-go-ansible
 ================
 
 This role allows for the deployment and management of
-[Sensu 2](https://github.com/sensu/sensu-go).
+[Sensu Go](https://github.com/sensu/sensu-go).
 
 Work in progress
 ----------------
 
-While the initial role completely handles installing and running Sensu 2's
+While the initial role completely handles installing and running Sensu Go's
 `sensu-agent`, `sensu-backend`, and `sensuctl` there is still a lot of work
 left to do.
 
@@ -29,8 +29,8 @@ left to do.
 
 The current focus is adding/deleting/modifying checks. Currently, there's a 
 work in progress Ansible module included in `library/` for this. Until the Sensu
-2 API is versioned/documented/stable, we are wrapping `sensuctl` for our 
-interactions with Sensu 2. 
+Go API is versioned/documented/stable, we are wrapping `sensuctl` for our 
+interactions with Sensu Go. 
 
 If you'd like to contribute, please review [CONTRIBUTING.md](https://github.com/jaredledvina/sensu-go-ansible/blob/master/CONTRIBUTING.md) and open an issue to discuss your 
 idea.

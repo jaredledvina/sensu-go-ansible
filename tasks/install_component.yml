@@ -1,5 +1,5 @@
 ---
-- name: Ensure Sensu 2 component is installed
+- name: Ensure Sensu Go component is installed
   package:
     name: "sensu-{{ component }}"
     state: present

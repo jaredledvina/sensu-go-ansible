@@ -76,7 +76,7 @@ tests are the corner-stone to ensuring that all future changes are backwards
 compatible and function as expected across all operating systems.
 
 Currently, we use [Inspec](https://www.inspec.io/) as the integration tests
-verifier. The eventual goal is that all Sensu 2 configuration management repo's
+verifier. The eventual goal is that all Sensu Go configuration management repo's
 consume a standard Inspec profile that ensures that across all of the individual
 tools, each is satisfying a baseline configuration standard.
 
