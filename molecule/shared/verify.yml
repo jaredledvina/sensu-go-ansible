@@ -8,20 +8,20 @@
     inspec_test_directory: "/tmp/molecule/inspec"
     inspec_downloads:
       el6:
-        url: https://packages.chef.io/files/stable/inspec/2.2.78/el/6/inspec-2.2.78-1.el6.x86_64.rpm
-        sha256: e0f44ce6462f10bf8ca91cf0097773bdedd672fcadf75894dc846b18cf0fde96
+        url: https://packages.chef.io/files/stable/inspec/3.0.25/el/6/inspec-3.0.25-1.el6.x86_64.rpm
+        sha256: 2ebece63787ebb4e6d1b2f853e54e4215c895e83eed9b77c517dc6c8d69190d0
       el7:
-        url: https://packages.chef.io/files/stable/inspec/2.2.78/el/7/inspec-2.2.78-1.el7.x86_64.rpm
-        sha256: e06a34ceb493a1bedd64ce32570eab66ad09b4fd375903a33c81b37c3b8a4871
+        url: https://packages.chef.io/files/stable/inspec/3.0.25/el/7/inspec-3.0.25-1.el7.x86_64.rpm
+        sha256: fbfa6de5bfcebd5f4a3129dae30589023c5451d2a4467303089ed34817e21f85
       ubuntu1404:
-        url: https://packages.chef.io/files/stable/inspec/2.2.78/ubuntu/14.04/inspec_2.2.78-1_amd64.deb
-        sha256: 2a5f025918d70e1db518732c4d12d5cec6c94679f3f5da2557f36d5e94ca2e12
+        url: https://packages.chef.io/files/stable/inspec/3.0.25/ubuntu/14.04/inspec_3.0.25-1_amd64.deb
+        sha256: 548529417f53ae4078e65a5b4a0fa2b4265a55e323c19772628d96c2771b64c2
       ubuntu1604:
-        url: https://packages.chef.io/files/stable/inspec/2.2.78/ubuntu/16.04/inspec_2.2.78-1_amd64.deb
-        sha256: 2a5f025918d70e1db518732c4d12d5cec6c94679f3f5da2557f36d5e94ca2e12
+        url: https://packages.chef.io/files/stable/inspec/3.0.25/ubuntu/16.04/inspec_3.0.25-1_amd64.deb
+        sha256: 548529417f53ae4078e65a5b4a0fa2b4265a55e323c19772628d96c2771b64c2
       ubuntu1804:
-        url: https://packages.chef.io/files/stable/inspec/2.2.78/ubuntu/18.04/inspec_2.2.78-1_amd64.deb
-        sha256: 2a5f025918d70e1db518732c4d12d5cec6c94679f3f5da2557f36d5e94ca2e12
+        url: https://packages.chef.io/files/stable/inspec/3.0.25/ubuntu/18.04/inspec_3.0.25-1_amd64.deb
+        sha256: 548529417f53ae4078e65a5b4a0fa2b4265a55e323c19772628d96c2771b64c2
     inspec_package_deps:
       - lsof
       - net-tools
