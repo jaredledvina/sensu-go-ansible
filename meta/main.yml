@@ -24,6 +24,7 @@ galaxy_info:
         - 26
         - 27
         - 28
+        - 29
   galaxy_tags:
     - sensu
     - sensu_go

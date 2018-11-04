@@ -63,6 +63,8 @@ provisioner:
         inspec_version: el7
       fedora-28:
         inspec_version: el7
+      fedora-29:
+        inspec_version: el7
 verifier:
   name: inspec
   directory: ../shared/tests/
