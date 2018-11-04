@@ -64,11 +64,11 @@ Example Playbook
 ```yaml
     - hosts: sensu-backend-servers
       roles:
-         - role: jaredledvina.sensu-go-ansible
+         - role: jaredledvina.sensu_go_ansible
 
     - hosts: sensu-agent-severs:
       roles:
-        - role: jaredledvina.sensu-go-ansible
+        - role: jaredledvina.sensu_go_ansible
           sensu_go_components:
             - agent
           sensu_go_configs_override:
