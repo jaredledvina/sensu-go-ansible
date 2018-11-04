@@ -1,6 +1,6 @@
 ---
-sensu2_manage_repo: true
-sensu2_repo_packages:
+sensu_go_manage_repo: true
+sensu_go_repo_packages:
   apt:
     - curl
     - gnupg
@@ -12,8 +12,8 @@ sensu2_repo_packages:
   dnf:
     - python
     - python-dnf
-sensu2_repos_overrides: {}
-sensu2_repos:
+sensu_go_repos_overrides: {}
+sensu_go_repos:
   apt:
     key_url: https://packagecloud.io/sensu/nightly/gpgkey
     key_id: EE2D88BF8ACCB428
@@ -37,20 +37,20 @@ sensu2_repos:
     rpm-src: https://packagecloud.io/sensu/nightly/el/7/SRPMS
 
 
-sensu2_install_components: true
+sensu_go_install_components: true
 # List of specific Sensu Go components to install and manage
-sensu2_components:
+sensu_go_components:
   - backend
   - agent
   - cli
 
-sensu2_config_dir:
+sensu_go_config_dir:
   path: /etc/sensu
   owner: sensu
   group: sensu
   mode: '0750'  # Quoted to work around: https://github.com/ansible/ansible/pull/32738
-sensu2_configs_override: {}
-sensu2_configs:
+sensu_go_configs_override: {}
+sensu_go_configs:
   DEFAULT:
     owner: sensu
     group: sensu
@@ -71,8 +71,8 @@ sensu2_configs:
         - ws://127.0.0.1:8081
       cache-dir: /var/cache/sensu/sensu-agent
 
-sensu2_services_override: {}
-sensu2_services:
+sensu_go_services_override: {}
+sensu_go_services:
   backend:
     enabled: true
     state: started

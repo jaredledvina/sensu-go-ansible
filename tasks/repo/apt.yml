@@ -1,29 +1,29 @@
 ---
-- name: Merge sensu2_configs_override w/ defaults
+- name: Merge sensu_go_configs_override w/ defaults
   set_fact:
-    sensu2_final_repos: "{{ sensu2_repos | combine(sensu2_repos_overrides, recursive=True) }}"
+    sensu_go_final_repos: "{{ sensu_go_repos | combine(sensu_go_repos_overrides, recursive=True) }}"
 
 - name: Ensure packages for Sensu2 repos are installed
   apt:
     name: "{{ item }}"
     state: present
-  with_items: "{{ sensu2_repo_packages[ansible_pkg_mgr] }}"
+  with_items: "{{ sensu_go_repo_packages[ansible_pkg_mgr] }}"
 
 - name: Ensure Sensu2 repo key is configured
   apt_key:
-    url: "{{ sensu2_final_repos[ansible_pkg_mgr]['key_url'] }}"
-    id: "{{ sensu2_final_repos[ansible_pkg_mgr]['key_id'] }}"
+    url: "{{ sensu_go_final_repos[ansible_pkg_mgr]['key_url'] }}"
+    id: "{{ sensu_go_final_repos[ansible_pkg_mgr]['key_id'] }}"
 
 - name: Configure Sensu2 apt repos
   apt_repository:
     filename: sensu_prerelease
-    repo: "{{ sensu2_final_repos[ansible_pkg_mgr]['deb'] }}"
+    repo: "{{ sensu_go_final_repos[ansible_pkg_mgr]['deb'] }}"
     update_cache: true
-  when: sensu2_final_repos[ansible_pkg_mgr]['deb'] is defined
+  when: sensu_go_final_repos[ansible_pkg_mgr]['deb'] is defined
 
 - name: Configure Sensu2 apt source repos
   apt_repository:
     filename: sensu_prerelease
-    repo: "{{ sensu2_final_repos[ansible_pkg_mgr]['deb-src'] }}"
+    repo: "{{ sensu_go_final_repos[ansible_pkg_mgr]['deb-src'] }}"
     update_cache: true
-  when: sensu2_final_repos[ansible_pkg_mgr]['deb-src'] is defined
+  when: sensu_go_final_repos[ansible_pkg_mgr]['deb-src'] is defined

@@ -67,9 +67,9 @@ Example Playbook
     - hosts: sensu-agent-severs:
       roles:
         - role: jaredledvina.sensu-go-ansible
-          sensu2_components:
+          sensu_go_components:
             - agent
-          sensu2_configs_override:
+          sensu_go_configs_override:
             agent:
               config:
                 backend-url:
@@ -105,14 +105,14 @@ override the following variables on those host(s):
 
 Amazon Linux:
 ```
-sensu2_repos_overrides:
+sensu_go_repos_overrides:
   yum:
     rpm: https://packagecloud.io/sensu/nightly/el/6/x86_64
     rpm-src: https://packagecloud.io/sensu/nightly/el/6/SRPMS
 ```
 Amazon Linux 2:
 ```
-sensu2_repos_overrides:
+sensu_go_repos_overrides:
   yum:
     rpm: https://packagecloud.io/sensu/nightly/el/7/x86_64
     rpm-src: https://packagecloud.io/sensu/nightly/el/7/SRPMS

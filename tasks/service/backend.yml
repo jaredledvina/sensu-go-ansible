@@ -1,19 +1,19 @@
 ---
-- name: Merge sensu2_services_override w/ defaults
+- name: Merge sensu_go_services_override w/ defaults
   set_fact:
-    sensu2_final_services: "{{ sensu2_services | combine(sensu2_services_override, recursive=True) }}"
+    sensu_go_final_services: "{{ sensu_go_services | combine(sensu_go_services_override, recursive=True) }}"
 
 - name: Ensure sensu-backend service state
   service:
     name: sensu-backend
-    enabled: "{{ sensu2_final_services.backend.enabled | default(omit)}}"
-    state: "{{ sensu2_final_services.backend.state }}"
-  register: sensu2_backend_service_state
+    enabled: "{{ sensu_go_final_services.backend.enabled | default(omit)}}"
+    state: "{{ sensu_go_final_services.backend.state }}"
+  register: sensu_go_backend_service_state
 
 - name: Wait for sensu-backend to be online
   wait_for:
     port: 8081
     delay: 30
   when:
-    - sensu2_services.backend.state == 'started'
-    - sensu2_backend_service_state is changed
+    - sensu_go_services.backend.state == 'started'
+    - sensu_go_backend_service_state is changed

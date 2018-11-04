@@ -42,13 +42,13 @@ provisioner:
   inventory:
     host_vars:
       amazonlinux-1:
-        sensu2_repos_overrides:
+        sensu_go_repos_overrides:
           yum:
             rpm: https://packagecloud.io/sensu/nightly/el/6/x86_64
             rpm-src: https://packagecloud.io/sensu/nightly/el/6/SRPMS
         inspec_version: el6
       amazonlinux-2:
-        sensu2_repos_overrides:
+        sensu_go_repos_overrides:
           yum:
             rpm: https://packagecloud.io/sensu/nightly/el/7/x86_64
             rpm-src: https://packagecloud.io/sensu/nightly/el/7/SRPMS

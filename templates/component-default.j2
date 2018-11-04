@@ -1,4 +1,4 @@
 {{ ansible_managed | comment }}
-{% for key, value in sensu2_configs[component]['default']|dictsort %}
+{% for key, value in sensu_go_configs[component]['default']|dictsort %}
 {{ key|upper|trim }}="{{ value|lower|trim }}"
 {% endfor %}

@@ -26,6 +26,6 @@ galaxy_info:
         - 28
   galaxy_tags:
     - sensu
-    - sensu2
+    - sensu_go
     - monitoring
 dependencies: []

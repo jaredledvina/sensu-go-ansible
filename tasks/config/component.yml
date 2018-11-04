@@ -1,38 +1,38 @@
 ---
-- name: Merge sensu2_configs_override w/ defaults
+- name: Merge sensu_go_configs_override w/ defaults
   set_fact:
-    sensu2_final_configs: "{{ sensu2_configs | combine(sensu2_configs_override, recursive=True) }}"
+    sensu_go_final_configs: "{{ sensu_go_configs | combine(sensu_go_configs_override, recursive=True) }}"
 
 - name: Ensure /etc/default/sensu-{{ component }} is configured
   template:
     src: component-default.j2
     dest: "/etc/default/sensu-{{ component }}"
-    owner: "{{ sensu2_final_configs[component]['default']['owner'] | default(sensu2_final_configs.DEFAULT.owner) }}"
-    group: "{{ sensu2_final_configs[component]['default']['group'] | default(sensu2_final_configs.DEFAULT.group) }}"
-    mode: "{{ sensu2_final_configs[component]['default']['mode'] | default(sensu2_final_configs.DEFAULT.file_mode) }}"
-  when: sensu2_final_configs[component]['default'] is defined
+    owner: "{{ sensu_go_final_configs[component]['default']['owner'] | default(sensu_go_final_configs.DEFAULT.owner) }}"
+    group: "{{ sensu_go_final_configs[component]['default']['group'] | default(sensu_go_final_configs.DEFAULT.group) }}"
+    mode: "{{ sensu_go_final_configs[component]['default']['mode'] | default(sensu_go_final_configs.DEFAULT.file_mode) }}"
+  when: sensu_go_final_configs[component]['default'] is defined
 
 - name: Ensure /etc/sysconfig/sensu-{{component }} is configured
   template:
     src: component-sysconfig.j2
     dest: "/etc/sysconfig/sensu-{{ component }}"
-    owner: "{{ sensu2_final_configs[component]['sysconfig']['owner'] | default(sensu2_final_configs.DEFAULT.owner) }}"
-    group: "{{ sensu2_final_configs[component]['sysconfig']['group'] | default(sensu2_final_configs.DEFAULT.group) }}"
-    mode: "{{ sensu2_final_configs[component]['sysconfig']['mode'] | default(sensu2_final_configs.DEFAULT.file_mode) }}"
-  when: sensu2_final_configs[component]['sysconfig'] is defined
+    owner: "{{ sensu_go_final_configs[component]['sysconfig']['owner'] | default(sensu_go_final_configs.DEFAULT.owner) }}"
+    group: "{{ sensu_go_final_configs[component]['sysconfig']['group'] | default(sensu_go_final_configs.DEFAULT.group) }}"
+    mode: "{{ sensu_go_final_configs[component]['sysconfig']['mode'] | default(sensu_go_final_configs.DEFAULT.file_mode) }}"
+  when: sensu_go_final_configs[component]['sysconfig'] is defined
 
 - name: Ensure sensu-{{ component }} config is setup
   template:
     src: component.yml.j2
-    dest: "{{ sensu2_config_dir.path }}/{{ sensu2_final_configs[component]['file']['name'] }}"
-    owner: "{{ sensu2_final_configs[component]['file']['owner'] | default(sensu2_final_configs['DEFAULT']['owner'])}}"
-    group: "{{ sensu2_final_configs[component]['file']['group'] | default(sensu2_final_configs['DEFAULT']['group']) }}"
-    mode: "{{ sensu2_final_configs[component]['file']['mode'] | default(sensu2_final_configs['DEFAULT']['file_mode']) }}"
-  when: sensu2_final_configs[component]['config'] is defined
+    dest: "{{ sensu_go_config_dir.path }}/{{ sensu_go_final_configs[component]['file']['name'] }}"
+    owner: "{{ sensu_go_final_configs[component]['file']['owner'] | default(sensu_go_final_configs['DEFAULT']['owner'])}}"
+    group: "{{ sensu_go_final_configs[component]['file']['group'] | default(sensu_go_final_configs['DEFAULT']['group']) }}"
+    mode: "{{ sensu_go_final_configs[component]['file']['mode'] | default(sensu_go_final_configs['DEFAULT']['file_mode']) }}"
+  when: sensu_go_final_configs[component]['config'] is defined
   notify: "restart sensu-{{ component }}"
 
 - name: Cleanup example agent config
   file:
-    path: "{{ sensu2_config_dir.path }}/{{ component }}.yml.example"
+    path: "{{ sensu_go_config_dir.path }}/{{ component }}.yml.example"
     state: absent
-  when: sensu2_final_configs[component]['cleanup_example']
+  when: sensu_go_final_configs[component]['cleanup_example']

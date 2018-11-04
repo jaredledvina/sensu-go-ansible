@@ -1,26 +1,26 @@
 ---
 - include_tasks: repo/{{ ansible_pkg_mgr }}.yml
-  when: sensu2_manage_repo
+  when: sensu_go_manage_repo
 
 - include_tasks: install_component.yml
-  with_items: "{{ sensu2_components }}"
-  when: sensu2_install_components
+  with_items: "{{ sensu_go_components }}"
+  when: sensu_go_install_components
   loop_control:
     loop_var: component
 
 - import_tasks: config/main.yml
 
 - include_tasks: config/component.yml
-  with_items: "{{ sensu2_components | reject('equalto', 'cli') | list }}"
+  with_items: "{{ sensu_go_components | reject('equalto', 'cli') | list }}"
   loop_control:
     loop_var: component
 
 - import_tasks: service/backend.yml
   when:
-    - "'backend' in sensu2_components"
-    - sensu2_services.backend is defined
+    - "'backend' in sensu_go_components"
+    - sensu_go_services.backend is defined
 
 - import_tasks: service/agent.yml
   when:
-    - "'agent' in sensu2_components"
-    - sensu2_services.agent is defined
+    - "'agent' in sensu_go_components"
+    - sensu_go_services.agent is defined

@@ -1,45 +1,45 @@
 ---
-- name: Merge sensu2_configs_override w/ defaults
+- name: Merge sensu_go_configs_override w/ defaults
   set_fact:
-    sensu2_final_repos: "{{ sensu2_repos | combine(sensu2_repos_overrides, recursive=True) }}"
+    sensu_go_final_repos: "{{ sensu_go_repos | combine(sensu_go_repos_overrides, recursive=True) }}"
 
 - name: Ensure packages for Sensu2 repos are installed
   yum:
     name: "{{ item }}"
     state: present
-  with_items: "{{ sensu2_repo_packages[ansible_pkg_mgr] }}"
+  with_items: "{{ sensu_go_repo_packages[ansible_pkg_mgr] }}"
 
 - name: Configure Sensu2 GPG key in the RPM keyring
   rpm_key:
-    key: "{{ sensu2_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
+    key: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
     state: present
-  register: sensu2_import_key
+  register: sensu_go_import_key
 
 - name: Configure Sensu2 yum repos
   yum_repository:
     file: sensu_prerelease
     name: sensu_prerelease
     description: packagecloud.io mirrors for Sensu2
-    baseurl: "{{ sensu2_final_repos[ansible_pkg_mgr]['rpm'] }}"
-    gpgcheck: "{{ sensu2_final_repos[ansible_pkg_mgr]['gpgcheck'] }}"
-    gpgkey: "{{ sensu2_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
-    repo_gpgcheck: "{{ sensu2_final_repos[ansible_pkg_mgr]['repo_gpgcheck'] }}"
-    sslverify: "{{ sensu2_final_repos[ansible_pkg_mgr]['sslverify'] }}"
-    metadata_expire: "{{ sensu2_final_repos[ansible_pkg_mgr]['metadata_expire'] }}"
-  when: sensu2_final_repos[ansible_pkg_mgr]['rpm'] is defined
+    baseurl: "{{ sensu_go_final_repos[ansible_pkg_mgr]['rpm'] }}"
+    gpgcheck: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgcheck'] }}"
+    gpgkey: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
+    repo_gpgcheck: "{{ sensu_go_final_repos[ansible_pkg_mgr]['repo_gpgcheck'] }}"
+    sslverify: "{{ sensu_go_final_repos[ansible_pkg_mgr]['sslverify'] }}"
+    metadata_expire: "{{ sensu_go_final_repos[ansible_pkg_mgr]['metadata_expire'] }}"
+  when: sensu_go_final_repos[ansible_pkg_mgr]['rpm'] is defined
 
 - name: Configure Sensu2 yum source repos
   yum_repository:
     file: sensu_prerelease
     name: sensu_prerelease-source
     description: packagecloud.io mirrors for Sensu2 Source RPMS
-    baseurl: "{{ sensu2_final_repos[ansible_pkg_mgr]['rpm-src'] }}"
-    gpgkey: "{{ sensu2_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
-    gpgcheck: "{{ sensu2_final_repos[ansible_pkg_mgr]['gpgcheck'] }}"
-    repo_gpgcheck: "{{ sensu2_final_repos[ansible_pkg_mgr]['repo_gpgcheck'] }}"
-    sslverify: "{{ sensu2_final_repos[ansible_pkg_mgr]['sslverify'] }}"
-    metadata_expire: "{{ sensu2_final_repos[ansible_pkg_mgr]['metadata_expire'] }}"
-  when: sensu2_final_repos[ansible_pkg_mgr]['rpm-src'] is defined
+    baseurl: "{{ sensu_go_final_repos[ansible_pkg_mgr]['rpm-src'] }}"
+    gpgkey: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
+    gpgcheck: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgcheck'] }}"
+    repo_gpgcheck: "{{ sensu_go_final_repos[ansible_pkg_mgr]['repo_gpgcheck'] }}"
+    sslverify: "{{ sensu_go_final_repos[ansible_pkg_mgr]['sslverify'] }}"
+    metadata_expire: "{{ sensu_go_final_repos[ansible_pkg_mgr]['metadata_expire'] }}"
+  when: sensu_go_final_repos[ansible_pkg_mgr]['rpm-src'] is defined
 
 # HACK: https://github.com/ansible/ansible/issues/20711#issuecomment-306260869
 # Can be removed once we're running w/ a version of Ansible that has https://github.com/ansible/ansible/pull/35989
@@ -47,7 +47,7 @@
   command: "yum -q makecache -y --disablerepo='*' --enablerepo='{{ item }}'"
   args:
     warn: false
-  when: sensu2_import_key.changed
+  when: sensu_go_import_key.changed
   with_items:
     - sensu_prerelease
     - sensu_prerelease-source

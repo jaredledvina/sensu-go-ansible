@@ -1,10 +1,10 @@
 ---
-- name: Merge sensu2_services_override w/ defaults
+- name: Merge sensu_go_services_override w/ defaults
   set_fact:
-    sensu2_final_services: "{{ sensu2_services | combine(sensu2_services_override, recursive=True) }}"
+    sensu_go_final_services: "{{ sensu_go_services | combine(sensu_go_services_override, recursive=True) }}"
 
 - name: Ensure sensu-agent service state
   service:
     name: sensu-agent
-    enabled: "{{ sensu2_final_services.agent.enabled | default(omit) }}"
-    state: "{{ sensu2_final_services.agent.state }}"
+    enabled: "{{ sensu_go_final_services.agent.enabled | default(omit) }}"
+    state: "{{ sensu_go_final_services.agent.state }}"
