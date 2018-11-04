@@ -8,7 +8,7 @@
 - name: wait for sensu-backend to accept connections
   wait_for:
     port: 8081
-    delay: 30
+    connect_timeout: 1
 
 - name: restart sensu-agent
   service:
