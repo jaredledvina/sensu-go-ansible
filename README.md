@@ -1,6 +1,8 @@
 sensu-go-ansible
 ================
 
+[![Build Status](https://travis-ci.com/jaredledvina/sensu-go-ansible.svg?branch=master)](https://travis-ci.com/jaredledvina/sensu-go-ansible)
+
 This role allows for the deployment and management of
 [Sensu Go](https://github.com/sensu/sensu-go).
 
