@@ -3,24 +3,24 @@
   set_fact:
     sensu_go_final_repos: "{{ sensu_go_repos | combine(sensu_go_repos_overrides, recursive=True) }}"
 
-- name: Ensure packages for Sensu2 repos are installed
+- name: Ensure packages for Sensu Go repos are installed
   apt:
     name: "{{ sensu_go_repo_packages[ansible_pkg_mgr] }}"
     state: present
 
-- name: Ensure Sensu2 repo key is configured
+- name: Ensure Sensu Go repo key is configured
   apt_key:
     url: "{{ sensu_go_final_repos[ansible_pkg_mgr]['key_url'] }}"
     id: "{{ sensu_go_final_repos[ansible_pkg_mgr]['key_id'] }}"
 
-- name: Configure Sensu2 apt repos
+- name: Configure Sensu Go apt repos
   apt_repository:
     filename: sensu_prerelease
     repo: "{{ sensu_go_final_repos[ansible_pkg_mgr]['deb'] }}"
     update_cache: true
   when: sensu_go_final_repos[ansible_pkg_mgr]['deb'] is defined
 
-- name: Configure Sensu2 apt source repos
+- name: Configure Sensu Go apt source repos
   apt_repository:
     filename: sensu_prerelease
     repo: "{{ sensu_go_final_repos[ansible_pkg_mgr]['deb-src'] }}"

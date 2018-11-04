@@ -3,22 +3,22 @@
   set_fact:
     sensu_go_final_repos: "{{ sensu_go_repos | combine(sensu_go_repos_overrides, recursive=True) }}"
 
-- name: Ensure packages for Sensu2 repos are installed
+- name: Ensure packages for Sensu Go repos are installed
   yum:
     name: "{{ sensu_go_repo_packages[ansible_pkg_mgr] }}"
     state: present
 
-- name: Configure Sensu2 GPG key in the RPM keyring
+- name: Configure Sensu Go GPG key in the RPM keyring
   rpm_key:
     key: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
     state: present
   register: sensu_go_import_key
 
-- name: Configure Sensu2 yum repos
+- name: Configure Sensu Go yum repos
   yum_repository:
     file: sensu_prerelease
     name: sensu_prerelease
-    description: packagecloud.io mirrors for Sensu2
+    description: packagecloud.io mirrors for Sensu Go
     baseurl: "{{ sensu_go_final_repos[ansible_pkg_mgr]['rpm'] }}"
     gpgcheck: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgcheck'] }}"
     gpgkey: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
@@ -27,11 +27,11 @@
     metadata_expire: "{{ sensu_go_final_repos[ansible_pkg_mgr]['metadata_expire'] }}"
   when: sensu_go_final_repos[ansible_pkg_mgr]['rpm'] is defined
 
-- name: Configure Sensu2 yum source repos
+- name: Configure Sensu Go yum source repos
   yum_repository:
     file: sensu_prerelease
     name: sensu_prerelease-source
-    description: packagecloud.io mirrors for Sensu2 Source RPMS
+    description: packagecloud.io mirrors for Sensu Go Source RPMS
     baseurl: "{{ sensu_go_final_repos[ansible_pkg_mgr]['rpm-src'] }}"
     gpgkey: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
     gpgcheck: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgcheck'] }}"
