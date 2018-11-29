@@ -161,10 +161,10 @@
         },
         "docker-pycreds": {
             "hashes": [
-                "sha256:0a941b290764ea7286bd77f54c0ace43b86a8acd6eb9ead3de9840af52384079",
-                "sha256:8b0e956c8d206f832b06aa93a710ba2c3bcbacb5a314449c040b0b814355bbff"
+                "sha256:6ce3270bcaf404cc4c3e27e4b6c70d3521deae82fb508767870fdbf772d584d4",
+                "sha256:7266112468627868005106ec19cd0d722702d2b7d5912a28e19b826c3d37af49"
             ],
-            "version": "==0.3.0"
+            "version": "==0.4.0"
         },
         "enum34": {
             "hashes": [
@@ -188,7 +188,7 @@
                 "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
                 "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
             ],
-            "markers": "python_version < '3.3'",
+            "markers": "python_version < '3'",
             "version": "==1.0.22"
         },
         "jinja2": {
@@ -593,7 +593,7 @@
                 "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
                 "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
             ],
-            "markers": "python_version < '3.3'",
+            "markers": "python_version < '3'",
             "version": "==1.0.22"
         },
         "jinja2": {
