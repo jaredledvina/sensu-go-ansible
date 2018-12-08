@@ -1,5 +1,19 @@
 # Change Log
 
+## [Unreleased](https://github.com/jaredledvina/sensu-go-ansible/tree/HEAD)
+
+[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/0.1.0...HEAD)
+
+**Merged pull requests:**
+
+- Bump ansible from 2.7.3 to 2.7.4 [\#20](https://github.com/jaredledvina/sensu-go-ansible/pull/20) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump docker-pycreds from 0.3.0 to 0.4.0 [\#19](https://github.com/jaredledvina/sensu-go-ansible/pull/19) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump pytest from 3.10.1 to 4.0.1 [\#18](https://github.com/jaredledvina/sensu-go-ansible/pull/18) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible from 2.7.1 to 2.7.2 [\#16](https://github.com/jaredledvina/sensu-go-ansible/pull/16) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump cryptography from 2.3.1 to 2.4.1 [\#14](https://github.com/jaredledvina/sensu-go-ansible/pull/14) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump requests from 2.20.0 to 2.20.1 [\#12](https://github.com/jaredledvina/sensu-go-ansible/pull/12) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump markupsafe from 1.0 to 1.1.0 [\#11](https://github.com/jaredledvina/sensu-go-ansible/pull/11) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [0.1.0](https://github.com/jaredledvina/sensu-go-ansible/tree/0.1.0) (2018-11-05)
 
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/146a31b8764bb78e91e3de81bf7715495118aca1...0.1.0)
