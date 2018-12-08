@@ -138,7 +138,7 @@ def run_module():
     sensuctl = Sensuctl(module)
     # Fetch the existing checks so we know what we're working with
     checks = sensuctl.checks_list(module)
-    check_names = [check['name'] for check in checks]
+    check_names = [check['metadata']['name'] for check in checks]
 
     if module.params['state'] == 'list':
         result['checks'] = checks
