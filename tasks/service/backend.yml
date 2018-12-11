@@ -5,7 +5,7 @@
 
 - name: Ensure sensu-backend service state
   service:
-    name: sensu-backend
+    name: sensu-go-backend
     enabled: "{{ sensu_go_final_services.backend.enabled | default(omit)}}"
     state: "{{ sensu_go_final_services.backend.state }}"
   register: sensu_go_backend_service_state
