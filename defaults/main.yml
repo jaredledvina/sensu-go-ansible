@@ -15,26 +15,26 @@ sensu_go_repo_packages:
 sensu_go_repos_overrides: {}
 sensu_go_repos:
   apt:
-    key_url: https://packagecloud.io/sensu/nightly/gpgkey
-    key_id: EE2D88BF8ACCB428
-    deb: deb https://packagecloud.io/sensu/nightly/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
-    deb-src: deb-src https://packagecloud.io/sensu/nightly/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
+    key_url: https://packagecloud.io/sensu/stable/gpgkey
+    key_id: 44DC87DBAC6CD012
+    deb: deb https://packagecloud.io/sensu/stable/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
+    deb-src: deb-src https://packagecloud.io/sensu/stable/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
   yum:
     gpgcheck: false
     repo_gpgcheck: true
     sslverify: true
     metadata_expire: 300
-    gpgkey: https://packagecloud.io/sensu/nightly/gpgkey
-    rpm: https://packagecloud.io/sensu/nightly/el/$releasever/$basearch
-    rpm-src: https://packagecloud.io/sensu/nightly/el/$releasever/SRPMS
+    gpgkey: https://packagecloud.io/sensu/stable/gpgkey
+    rpm: https://packagecloud.io/sensu/stable/el/$releasever/$basearch
+    rpm-src: https://packagecloud.io/sensu/stable/el/$releasever/SRPMS
   dnf:
     gpgcheck: false
     repo_gpgcheck: true
     sslverify: true
     metadata_expire: 300
-    gpgkey: https://packagecloud.io/sensu/nightly/gpgkey
-    rpm: https://packagecloud.io/sensu/nightly/el/7/$basearch
-    rpm-src: https://packagecloud.io/sensu/nightly/el/7/SRPMS
+    gpgkey: https://packagecloud.io/sensu/stable/gpgkey
+    rpm: https://packagecloud.io/sensu/stable/el/7/$basearch
+    rpm-src: https://packagecloud.io/sensu/stable/el/7/SRPMS
 
 
 sensu_go_install_components: true

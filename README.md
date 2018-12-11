@@ -112,15 +112,15 @@ Amazon Linux:
 ```
 sensu_go_repos_overrides:
   yum:
-    rpm: https://packagecloud.io/sensu/nightly/el/6/x86_64
-    rpm-src: https://packagecloud.io/sensu/nightly/el/6/SRPMS
+    rpm: https://packagecloud.io/sensu/stable/el/6/x86_64
+    rpm-src: https://packagecloud.io/sensu/stable/el/6/SRPMS
 ```
 Amazon Linux 2:
 ```
 sensu_go_repos_overrides:
   yum:
-    rpm: https://packagecloud.io/sensu/nightly/el/7/x86_64
-    rpm-src: https://packagecloud.io/sensu/nightly/el/7/SRPMS
+    rpm: https://packagecloud.io/sensu/stable/el/7/x86_64
+    rpm-src: https://packagecloud.io/sensu/stable/el/7/SRPMS
 ```
 
 
