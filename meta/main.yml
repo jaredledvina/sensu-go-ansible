@@ -12,20 +12,8 @@ galaxy_info:
         - 7
     - name: Ubuntu
       versions:
-#        - trusty - Unsupported, no Sensu Go packges
         - vivid
         - bionic
-# Unsupported, no Sensu Go packages
-#    - name: Debian
-#      versions:
-#        - jessie
-#        - stretch
-#    - name: Fedora
-#      versions:
-#        - 26
-#        - 27
-#        - 28
-#        - 29
   galaxy_tags:
     - sensu
     - sensugo
