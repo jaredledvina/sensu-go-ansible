@@ -8,20 +8,20 @@
     inspec_test_directory: "/tmp/molecule/inspec"
     inspec_downloads:
       el6:
-        url: https://packages.chef.io/files/stable/inspec/3.0.64/el/6/inspec-3.0.64-1.el6.x86_64.rpm
-        sha256: 538af11f2962b615c66a1acbca72e9b81266614772fb41e26712eccfe00617a1
+        url: https://packages.chef.io/files/stable/inspec/3.1.3/el/6/inspec-3.1.3-1.el6.x86_64.rpm
+        sha256: 1e4f14769edd0dfcfcde93b528520b0fafff94ae06b9cc1c3d01f6a36c395d17
       el7:
-        url: https://packages.chef.io/files/stable/inspec/3.0.64/el/7/inspec-3.0.64-1.el7.x86_64.rpm
-        sha256: 0a0210a20ad6687acf762a5200e0af5e233ae45ee3d51311d0fb3d75c0a12855
+        url: https://packages.chef.io/files/stable/inspec/3.1.3/el/7/inspec-3.1.3-1.el7.x86_64.rpm
+        sha256: 1ffc7cfcbc67dab3ca57b28704ef237700b67e6a56a6520a89512042633efa23
       ubuntu1404:
-        url: https://packages.chef.io/files/stable/inspec/3.0.64/ubuntu/14.04/inspec_3.0.64-1_amd64.deb
-        sha256: 9d4e19eee159b06007eaedf61e53638838af91fe6e8d92ed8fee560b4b67b52b
+        url: https://packages.chef.io/files/stable/inspec/3.1.3/ubuntu/14.04/inspec_3.1.3-1_amd64.deb
+        sha256: 6b0e7f46b32aa141da24fd04cc52136c83b54e534d2e997a3ebac0fe17f78809
       ubuntu1604:
-        url: https://packages.chef.io/files/stable/inspec/3.0.64/ubuntu/16.04/inspec_3.0.64-1_amd64.deb
-        sha256: 9d4e19eee159b06007eaedf61e53638838af91fe6e8d92ed8fee560b4b67b52b
+        url: https://packages.chef.io/files/stable/inspec/3.1.3/ubuntu/16.04/inspec_3.1.3-1_amd64.deb
+        sha256: 6b0e7f46b32aa141da24fd04cc52136c83b54e534d2e997a3ebac0fe17f78809
       ubuntu1804:
-        url: https://packages.chef.io/files/stable/inspec/3.0.64/ubuntu/18.04/inspec_3.0.64-1_amd64.deb
-        sha256: 9d4e19eee159b06007eaedf61e53638838af91fe6e8d92ed8fee560b4b67b52b
+        url: https://packages.chef.io/files/stable/inspec/3.1.3/ubuntu/18.04/inspec_3.1.3-1_amd64.deb
+        sha256: 6b0e7f46b32aa141da24fd04cc52136c83b54e534d2e997a3ebac0fe17f78809
     inspec_package_deps:
       - lsof
       - net-tools
