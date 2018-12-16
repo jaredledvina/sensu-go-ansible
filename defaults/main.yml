@@ -61,7 +61,7 @@ sensu_go_configs:
       name: backend.yml
     cleanup_example: true
     config:
-      state-dir: /var/lib/sensu
+      state-dir: /var/lib/sensu/sensu-backend
   agent:
     file:
       name: agent.yml

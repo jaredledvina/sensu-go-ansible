@@ -5,6 +5,6 @@
 
 - name: Ensure sensu-agent service state
   service:
-    name: sensu-go-agent
+    name: sensu-agent
     enabled: "{{ sensu_go_final_services.agent.enabled | default(omit) }}"
     state: "{{ sensu_go_final_services.agent.state }}"
