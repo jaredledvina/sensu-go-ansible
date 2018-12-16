@@ -54,15 +54,15 @@ if os.redhat?
   end
 end
 
-describe package('sensu-backend') do
+describe package('sensu-go-backend') do
   it { should be_installed }
 end
 
-describe package('sensu-agent') do
+describe package('sensu-go-agent') do
   it { should be_installed }
 end
 
-describe package('sensu-cli') do
+describe package('sensu-go-cli') do
   it { should be_installed }
 end
 
