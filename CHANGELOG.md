@@ -4,8 +4,18 @@
 
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/0.1.0...HEAD)
 
+**Implemented enhancements:**
+
+- Feature/molecule update tests to latest setup [\#29](https://github.com/jaredledvina/sensu-go-ansible/pull/29) ([jaredledvina](https://github.com/jaredledvina))
+- Switch all repos to stable channel [\#24](https://github.com/jaredledvina/sensu-go-ansible/pull/24) ([jaredledvina](https://github.com/jaredledvina))
+
 **Merged pull requests:**
 
+- Bump ansible from 2.7.4 to 2.7.5 [\#28](https://github.com/jaredledvina/sensu-go-ansible/pull/28) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump bcrypt from 3.1.4 to 3.1.5 [\#27](https://github.com/jaredledvina/sensu-go-ansible/pull/27) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump idna from 2.7 to 2.8 [\#26](https://github.com/jaredledvina/sensu-go-ansible/pull/26) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump requests from 2.20.1 to 2.21.0 [\#25](https://github.com/jaredledvina/sensu-go-ansible/pull/25) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump six from 1.11.0 to 1.12.0 [\#23](https://github.com/jaredledvina/sensu-go-ansible/pull/23) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump ansible from 2.7.3 to 2.7.4 [\#20](https://github.com/jaredledvina/sensu-go-ansible/pull/20) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump docker-pycreds from 0.3.0 to 0.4.0 [\#19](https://github.com/jaredledvina/sensu-go-ansible/pull/19) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump pytest from 3.10.1 to 4.0.1 [\#18](https://github.com/jaredledvina/sensu-go-ansible/pull/18) ([dependabot[bot]](https://github.com/apps/dependabot))
