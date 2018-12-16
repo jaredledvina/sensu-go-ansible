@@ -100,7 +100,7 @@ describe file('/etc/sensu/backend.yml') do
 end
 
 describe yaml('/etc/sensu/backend.yml') do
-  its('state-dir') { should eq '/var/lib/sensu' }
+  its('state-dir') { should eq '/var/lib/sensu/sensu-backend' }
 end
 
 describe file('/etc/sensu/agent.yml.example') do
