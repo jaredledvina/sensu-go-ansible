@@ -1,8 +1,8 @@
 # Change Log
 
-## [Unreleased](https://github.com/jaredledvina/sensu-go-ansible/tree/HEAD)
+## [1.0.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.0.0) (2018-12-16)
 
-[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/0.1.0...HEAD)
+[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/0.1.0...1.0.0)
 
 **Implemented enhancements:**
 
