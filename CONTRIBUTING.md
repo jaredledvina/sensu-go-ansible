@@ -1,6 +1,6 @@
 # Getting started
 
-It's *strongly* encouraged that everyone who works on this repository configures
+It's **strongly** encouraged that everyone who works on this repository configures
 their local development environment with the following procedure:
 
 1. Install `pipenv`: https://docs.pipenv.org/install/
@@ -16,7 +16,7 @@ their local development environment with the following procedure:
 3. Create your feature branch (`git checkout -b feature/my-new-feature`)
 4. Commit your changes with a [DCO Signed-off-by statement](#dco) (`git commit --signoff`)
 5. Push your feature branch (`git push origin feature/my-new-feature`)
-6. Create a Pull Request
+6. [Create a Pull Request from your fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)
 
 ## DCO
 
@@ -26,7 +26,7 @@ process to be followed.
 
 The DCO is an attestation attached to every contribution made by every
 developer. In the commit message of the contribution, the developer
-simply adds a Signed-off-by statement and thereby agrees to the DCO,
+simply adds a `Signed-off-by` statement and thereby agrees to the DCO,
 which you can find below or at http://developercertificate.org/.
 
 ```
@@ -71,7 +71,8 @@ By making a contribution to this project, I certify that:
 
 # Writing integration tests
 
-This Ansible role is tested automatically via `molecule` on TravisCI. Integration
+This Ansible role is tested automatically via
+[`molecule`](https://github.com/ansible/molecule) on TravisCI. Integration
 tests are the corner-stone to ensuring that all future changes are backwards
 compatible and function as expected across all operating systems.
 
@@ -81,7 +82,7 @@ consume a standard Inspec profile that ensures that across all of the individual
 tools, each is satisfying a baseline configuration standard.
 
 
-All Inspec tests live in `molecule/default/tests`. If you followed the above
+All Inspec tests live in `molecule/shared/tests`. If you followed the above
 environment setup, you can execute the tests with `pipenv run molecule verify`.
 
 
@@ -90,7 +91,7 @@ environment setup, you can execute the tests with `pipenv run molecule verify`.
 All Pull Requests to this Ansible role are required to have:
 * New or updated Inspec integration tests validating the change
 * Passed all existing and new integrations tests in TravisCI
-* Updated the `CHANGELOG.md` with information about the change
+* An accurate title and description, which will be used in the CHANGELOG
 
 # Design Considerations
 
@@ -106,7 +107,8 @@ results in an extremely flexible user experience. When adding more functionality
 please keep this in mind.
 
 When it comes to testing, it's highly recommended to approach the new change with
-the TDD mindset. Start by updating the integration tests such that they fail due
+the [TDD](https://en.wikipedia.org/wiki/Test-driven_development)
+mindset. Start by updating the integration tests such that they fail due
 to the new feature/change not being present. Then, update the role with the
 required change. Lastly, verify that the change actually did what you wanted and
 now the tests pass.
