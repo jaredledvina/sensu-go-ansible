@@ -8,6 +8,12 @@ env:
   - SCENARIO=centos
   - SCENARIO=fedora
   - SCENARIO=amazonlinux
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: SCENARIO=fedora #Unsupported, no Sensu Go packages
+    - env: SCENARIO=debian #Unsupported, no Sensu Go packages
+
 services: docker
 addons:
   apt:
