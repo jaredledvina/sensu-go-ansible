@@ -12,6 +12,7 @@ galaxy_info:
         - 7
     - name: Ubuntu
       versions:
+        - trusty
         - vivid
         - bionic
   galaxy_tags:
