@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.1.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.1.0) (2018-12-23)
+
+[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.0.0...1.1.0)
+
+**Merged pull requests:**
+
+- Feature/add back ubuntu 14.04 [\#30](https://github.com/jaredledvina/sensu-go-ansible/pull/30) ([jaredledvina](https://github.com/jaredledvina))
+
 ## [1.0.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.0.0) (2018-12-16)
 
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/0.1.0...1.0.0)
