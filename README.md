@@ -92,12 +92,12 @@ The following Operating Systems are automatically tested:
 - [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/)
 - [CentOS - 6](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS6.10)
 - [CentOS - 7](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7)
+- [Ubuntu - 14.04 (Trusty Tahr)](http://releases.ubuntu.com/14.04/)
 - [Ubuntu - 16.04 (Xenial Xerus)](http://releases.ubuntu.com/16.04/)
 - [Ubuntu - 18.04 (Bionic Beaver)](http://releases.ubuntu.com/18.04/)
 
 The following Operating Systems are currently unsupported until Sensu Go
 packages are officially published for them:
-- [Ubuntu - 14.04 (Trusty Tahr)](http://releases.ubuntu.com/14.04/)
 - [Fedora - 26](https://docs.fedoraproject.org/en-US/fedora/f26/release-notes/)
 - [Fedora - 27](https://docs.fedoraproject.org/en-US/fedora/f27/release-notes/)
 - [Fedora - 28](https://docs.fedoraproject.org/en-US/fedora/f28/release-notes/)
