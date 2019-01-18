@@ -1,18 +1,5 @@
 ---
 - name: Prepare
   hosts: all
-  gather_facts: true
-  tasks:
-    - name: Enable yum doc files
-      lineinfile:
-        regexp: tsflags=nodocs
-        path: /etc/yum.conf
-        state: absent
-      when: ansible_pkg_mgr == 'yum'
-
-    - name: Enable apt doc files
-      lineinfile:
-        regexp: 'path-exclude=/usr/share/doc/*'
-        path: /etc/dpkg/dpkg.cfg.d/excludes
-        state: absent
-      when: ansible_pkg_mgr == 'apt'
+  gather_facts: false
+  tasks: []
