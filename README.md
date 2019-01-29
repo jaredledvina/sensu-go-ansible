@@ -88,6 +88,10 @@ specifically test using the version of `Ansible` and `python` declared in the
 [Pipefile](https://github.com/jaredledvina/sensu-go-ansible/blob/master/Pipfile)
 
 The following Operating Systems are automatically tested:
+- [Fedora - 26](https://docs.fedoraproject.org/en-US/fedora/f26/release-notes/)
+- [Fedora - 27](https://docs.fedoraproject.org/en-US/fedora/f27/release-notes/)
+- [Fedora - 28](https://docs.fedoraproject.org/en-US/fedora/f28/release-notes/)
+- [Fedora - 29](https://docs.fedoraproject.org/en-US/fedora/f29/release-notes/)
 - [Amazon Linux](https://aws.amazon.com/amazon-linux-ami/)
 - [Amazon Linux 2](https://aws.amazon.com/amazon-linux-2/)
 - [CentOS - 6](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS6.10)
@@ -98,10 +102,6 @@ The following Operating Systems are automatically tested:
 
 The following Operating Systems are currently unsupported until Sensu Go
 packages are officially published for them:
-- [Fedora - 26](https://docs.fedoraproject.org/en-US/fedora/f26/release-notes/)
-- [Fedora - 27](https://docs.fedoraproject.org/en-US/fedora/f27/release-notes/)
-- [Fedora - 28](https://docs.fedoraproject.org/en-US/fedora/f28/release-notes/)
-- [Fedora - 29](https://docs.fedoraproject.org/en-US/fedora/f29/release-notes/)
 - [Debian - 8 (Jessie)](https://wiki.debian.org/DebianJessie)
 - [Debian - 9 (Stretch)](https://wiki.debian.org/DebianStretch)
 
