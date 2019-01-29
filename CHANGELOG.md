@@ -1,7 +1,25 @@
 # Change Log
 
-## [1.1.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.1.0) (2018-12-23)
+## [1.2.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.2.0) (2019-01-29)
+[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.1.0...1.2.0)
 
+**Implemented enhancements:**
+
+- Add Fedora Support back & drop docs override [\#39](https://github.com/jaredledvina/sensu-go-ansible/pull/39) ([jaredledvina](https://github.com/jaredledvina))
+
+**Merged pull requests:**
+
+- Bump configparser from 3.5.0 to 3.7.1 [\#42](https://github.com/jaredledvina/sensu-go-ansible/pull/42) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump ansible from 2.7.5 to 2.7.6 [\#38](https://github.com/jaredledvina/sensu-go-ansible/pull/38) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump bcrypt from 3.1.5 to 3.1.6 [\#37](https://github.com/jaredledvina/sensu-go-ansible/pull/37) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump pytest from 4.1.0 to 4.1.1 [\#36](https://github.com/jaredledvina/sensu-go-ansible/pull/36) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump pluggy from 0.8.0 to 0.8.1 [\#35](https://github.com/jaredledvina/sensu-go-ansible/pull/35) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump arrow from 0.12.1 to 0.13.0 [\#34](https://github.com/jaredledvina/sensu-go-ansible/pull/34) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump pytest from 4.0.2 to 4.1.0 [\#33](https://github.com/jaredledvina/sensu-go-ansible/pull/33) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump pyasn1 from 0.4.4 to 0.4.5 [\#32](https://github.com/jaredledvina/sensu-go-ansible/pull/32) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump more-itertools from 4.3.0 to 5.0.0 [\#31](https://github.com/jaredledvina/sensu-go-ansible/pull/31) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [1.1.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.1.0) (2018-12-23)
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.0.0...1.1.0)
 
 **Merged pull requests:**
@@ -9,7 +27,6 @@
 - Feature/add back ubuntu 14.04 [\#30](https://github.com/jaredledvina/sensu-go-ansible/pull/30) ([jaredledvina](https://github.com/jaredledvina))
 
 ## [1.0.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.0.0) (2018-12-16)
-
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/0.1.0...1.0.0)
 
 **Implemented enhancements:**
@@ -33,9 +50,6 @@
 - Bump markupsafe from 1.0 to 1.1.0 [\#11](https://github.com/jaredledvina/sensu-go-ansible/pull/11) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [0.1.0](https://github.com/jaredledvina/sensu-go-ansible/tree/0.1.0) (2018-11-05)
-
-[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/146a31b8764bb78e91e3de81bf7715495118aca1...0.1.0)
-
 **Implemented enhancements:**
 
 - Add CentOS support [\#2](https://github.com/jaredledvina/sensu-go-ansible/issues/2)
