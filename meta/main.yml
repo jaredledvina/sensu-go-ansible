@@ -3,9 +3,19 @@ galaxy_info:
   author: Jared Ledvina
   description: Deploy the Sensu Go
   license: MIT
-  min_ansible_version: 2.6
+  min_ansible_version: 2.7
   github_branch: master
   platforms:
+    - name: Fedora
+      versions:
+        - 26
+        - 27
+        - 28
+        - 29
+    - name: Amazon
+      versions:
+        - Candidate
+        - 2017.12
     - name: EL
       versions:
         - 6
@@ -15,16 +25,6 @@ galaxy_info:
         - trusty
         - vivid
         - bionic
-    - name: Debian
-      versions:
-        - jessie
-        - stretch
-    - name: Fedora
-      versions:
-        - 26
-        - 27
-        - 28
-        - 29
   galaxy_tags:
     - sensu
     - sensugo
