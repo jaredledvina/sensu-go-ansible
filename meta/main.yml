@@ -25,6 +25,10 @@ galaxy_info:
         - trusty
         - vivid
         - bionic
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
   galaxy_tags:
     - sensu
     - sensugo
