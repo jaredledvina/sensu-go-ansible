@@ -1,5 +1,19 @@
 # Change Log
 
+## [1.3.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.3.0) (2019-02-08)
+[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.2.0...1.3.0)
+
+**Implemented enhancements:**
+
+- Add back Debian support [\#48](https://github.com/jaredledvina/sensu-go-ansible/pull/48) ([jaredledvina](https://github.com/jaredledvina))
+
+**Merged pull requests:**
+
+- Bump ansible from 2.7.6 to 2.7.7 [\#49](https://github.com/jaredledvina/sensu-go-ansible/pull/49) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump git-url-parse from 1.1.0 to 1.2.0 [\#47](https://github.com/jaredledvina/sensu-go-ansible/pull/47) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump python-dateutil from 2.7.5 to 2.8.0 [\#46](https://github.com/jaredledvina/sensu-go-ansible/pull/46) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump atomicwrites from 1.2.1 to 1.3.0 [\#44](https://github.com/jaredledvina/sensu-go-ansible/pull/44) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [1.2.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.2.0) (2019-01-29)
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.1.0...1.2.0)
 
