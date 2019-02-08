@@ -8,7 +8,6 @@ env:
   - SCENARIO=centos
   - SCENARIO=fedora
   - SCENARIO=amazonlinux
-  - SCENARIO=debian
 
 matrix:
   fast_finish: true
