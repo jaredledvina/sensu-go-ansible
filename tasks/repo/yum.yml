@@ -40,6 +40,12 @@
     metadata_expire: "{{ sensu_go_final_repos[ansible_pkg_mgr]['metadata_expire'] }}"
   when: sensu_go_final_repos[ansible_pkg_mgr]['rpm-src'] is defined
 
+- name: Cleanup - Remove old Sensu prerelease repos
+  yum_repository:
+    file: sensu_prerelease
+    state: absent
+  notify: yum-clean-metadata
+
 # HACK: https://github.com/ansible/ansible/issues/20711#issuecomment-306260869
 # Can be removed once we're running w/ a version of Ansible that has https://github.com/ansible/ansible/pull/35989
 - name: Make yum cache to import GPG keys
