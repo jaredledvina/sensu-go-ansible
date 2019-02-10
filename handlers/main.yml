@@ -14,3 +14,7 @@
   service:
     name: sensu-agent
     state: restarted
+
+- name: update apt cache
+  apt:
+    update_cache: true

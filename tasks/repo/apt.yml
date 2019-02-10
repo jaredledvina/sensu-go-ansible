@@ -17,12 +17,28 @@
   apt_repository:
     filename: sensu_go
     repo: "{{ sensu_go_final_repos[ansible_pkg_mgr]['deb'] }}"
-    update_cache: true
+    update_cache: false
   when: sensu_go_final_repos[ansible_pkg_mgr]['deb'] is defined
+  notify: update apt cache
+
+- name: Cleanup - Remove old sensu_prerelease repo
+  apt_repository:
+    filename: sensu_prerelease
+    state: absent
+    update_cache: false
+  notify: update apt cache
 
 - name: Configure Sensu Go apt source repos
   apt_repository:
-    filename: sensu_go-source
+    filename: sensu_go
     repo: "{{ sensu_go_final_repos[ansible_pkg_mgr]['deb-src'] }}"
-    update_cache: true
+    update_cache: false
   when: sensu_go_final_repos[ansible_pkg_mgr]['deb-src'] is defined
+  notify: update apt cache
+
+- name: Cleanup - Remove old sensu_prerelease-source repo
+  apt_repository:
+    filename: sensu_prerelease-source
+    state: absent
+    update_cache: false
+  notify: update apt cache
