@@ -16,8 +16,8 @@
 
 - name: Configure Sensu Go yum repos
   yum_repository:
-    file: sensu_prerelease
-    name: sensu_prerelease
+    file: sensu_go
+    name: sensu_go
     description: packagecloud.io mirrors for Sensu Go
     baseurl: "{{ sensu_go_final_repos[ansible_pkg_mgr]['rpm'] }}"
     gpgcheck: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgcheck'] }}"
@@ -29,8 +29,8 @@
 
 - name: Configure Sensu Go yum source repos
   yum_repository:
-    file: sensu_prerelease
-    name: sensu_prerelease-source
+    file: sensu_go
+    name: sensu_go-source
     description: packagecloud.io mirrors for Sensu Go Source RPMS
     baseurl: "{{ sensu_go_final_repos[ansible_pkg_mgr]['rpm-src'] }}"
     gpgkey: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
@@ -48,5 +48,5 @@
     warn: false
   when: sensu_go_import_key.changed
   with_items:
-    - sensu_prerelease
-    - sensu_prerelease-source
+    - sensu_go
+    - sensu_go-source
