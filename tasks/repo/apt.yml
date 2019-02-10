@@ -42,3 +42,6 @@
     state: absent
     update_cache: false
   notify: update apt cache
+
+- name: Flush handlers
+  meta: flush_handlers
