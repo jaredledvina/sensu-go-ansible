@@ -41,8 +41,8 @@
   when: sensu_go_final_repos[ansible_pkg_mgr]['rpm-src'] is defined
 
 - name: Cleanup - Remove old Sensu prerelease repos
-  yum_repository:
-    file: sensu_prerelease
+  file:
+    path: /etc/yum.repos.d/sensu_prerelease
     state: absent
   notify: yum-clean-metadata
 
