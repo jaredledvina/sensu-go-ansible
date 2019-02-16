@@ -43,12 +43,12 @@ if os.redhat?
     it { should be_installed }
   end
 
-  describe yum.repo('sensu_prerelease') do
+  describe yum.repo('sensu_go') do
     it { should exist }
     it { should be_enabled }
   end
 
-  describe yum.repo('sensu_prerelease-source') do
+  describe yum.repo('sensu_go-source') do
     it { should exist }
     it { should be_enabled }
   end

@@ -14,3 +14,12 @@
   service:
     name: sensu-agent
     state: restarted
+
+- name: update apt cache
+  apt:
+    update_cache: true
+
+- name: yum-clean-metadata
+  command: yum clean metadata
+  args:
+    warn: no
