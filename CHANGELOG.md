@@ -1,5 +1,17 @@
 # Change Log
 
+## [1.4.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.4.0) (2019-02-16)
+[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.3.0...1.4.0)
+
+**Implemented enhancements:**
+
+- Repos - Rename prerelease to go for consistency [\#50](https://github.com/jaredledvina/sensu-go-ansible/pull/50) ([jaredledvina](https://github.com/jaredledvina))
+
+**Merged pull requests:**
+
+- Bump pytest from 4.2.0 to 4.2.1 [\#53](https://github.com/jaredledvina/sensu-go-ansible/pull/53) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump cffi from 1.11.5 to 1.12.0 [\#52](https://github.com/jaredledvina/sensu-go-ansible/pull/52) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [1.3.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.3.0) (2019-02-08)
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.2.0...1.3.0)
 
