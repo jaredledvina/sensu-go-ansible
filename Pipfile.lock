@@ -295,10 +295,10 @@
         },
         "websocket-client": {
             "hashes": [
-                "sha256:8c8bf2d4f800c3ed952df206b18c28f7070d9e3dcbd6ca6291127574f57ee786",
-                "sha256:e51562c91ddb8148e791f0155fdb01325d99bb52c4cdbb291aee7a3563fd0849"
+                "sha256:47a3ddf3ee7ecd4e2f81610bcdc7f44d5dd03b602b911d4ce991cd82310d3f3b",
+                "sha256:f6029deea21218f2c771848935aa26c15699c831770f4fa66958bdaabff80ca0"
             ],
-            "version": "==0.54.0"
+            "version": "==0.55.0"
         }
     },
     "develop": {
@@ -463,12 +463,11 @@
         },
         "configparser": {
             "hashes": [
-                "sha256:5bd5fa2a491dc3cfe920a3f2a107510d65eceae10e9c6e547b90261a4710df32",
-                "sha256:c114ff90ee2e762db972fa205f02491b1f5cf3ff950decd8542c62970c9bedac",
-                "sha256:df28e045fbff307a28795b18df6ac8662be3219435560ddb068c283afab1ea7a"
+                "sha256:27594cf4fc279f321974061ac69164aaebd2749af962ac8686b20503ac0bcf2d",
+                "sha256:9d51fe0a382f05b6b117c5e601fc219fede4a8c71703324af3f7d883aef476a3"
             ],
             "markers": "python_version < '3.2'",
-            "version": "==3.7.1"
+            "version": "==3.7.3"
         },
         "cookiecutter": {
             "hashes": [
