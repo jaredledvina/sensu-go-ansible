@@ -1,39 +1,16 @@
 ---
-- name: Merge sensu_go_configs_override w/ defaults
-  set_fact:
-    sensu_go_final_repos: "{{ sensu_go_repos | combine(sensu_go_repos_overrides, recursive=True) }}"
-
-- name: Ensure packages for Sensu Go repos are installed
+ name: Ensure dependencies for Sensu Go repos are installed
   apt:
-    name: "{{ sensu_go_repo_packages[ansible_pkg_mgr] }}"
+    name: "{{ sensu_go_repo_dependencies[ansible_pkg_mgr] }}"
     state: present
+  when: sensu_go_manage_repo or sensu_go_manage_community_repo
 
-- name: Ensure Sensu Go repo key is configured
-  apt_key:
-    url: "{{ sensu_go_final_repos[ansible_pkg_mgr]['key_url'] }}"
-    id: "{{ sensu_go_final_repos[ansible_pkg_mgr]['key_id'] }}"
+- include_tasks: repo/sensu_go/{{ ansible_pkg_mgr }}.yml
+  when: sensu_go_manage_repo
 
-- name: Configure Sensu Go apt repos
-  apt_repository:
-    filename: sensu_go
-    repo: "{{ sensu_go_final_repos[ansible_pkg_mgr]['deb'] }}"
-    update_cache: false
-  when: sensu_go_final_repos[ansible_pkg_mgr]['deb'] is defined
-  notify: update apt cache
-
-- name: Configure Sensu Go apt source repos
-  apt_repository:
-    filename: sensu_go
-    repo: "{{ sensu_go_final_repos[ansible_pkg_mgr]['deb-src'] }}"
-    update_cache: false
-  when: sensu_go_final_repos[ansible_pkg_mgr]['deb-src'] is defined
-  notify: update apt cache
-
-- name: Cleanup - Remove old sensu_prerelease repo
-  file:
-    path: /etc/apt/sources.list.ld/sensu_prerelease
-    state: absent
-  notify: update apt cache
+- include_tasks: repo/sensu_community/{{ ansible_pkg_mgr }}.yml
+  when: sensu_go_manage_community_repo
 
 - name: Flush handlers
   meta: flush_handlers
+  when: sensu_go_manage_repo or sensu_go_manage_community_repo
