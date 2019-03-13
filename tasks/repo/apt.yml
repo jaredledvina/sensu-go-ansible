@@ -1,5 +1,5 @@
 ---
- name: Ensure dependencies for Sensu Go repos are installed
+- name: Ensure dependencies for Sensu Go repos are installed
   apt:
     name: "{{ sensu_go_repo_dependencies[ansible_pkg_mgr] }}"
     state: present
