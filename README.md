@@ -123,6 +123,16 @@ sensu_go_repos_overrides:
     rpm-src: https://packagecloud.io/sensu/stable/el/7/SRPMS
 ```
 
+If you are using this rile with Debian 8 or 9 hosts, you must ovveride the 
+following variable:
+
+```
+sensu_go_manage_community_repo: false
+```
+
+This is due to Debian packages not being updated to the community repos 
+pending the resolution of https://github.com/sensu/sensu-plugins-omnibus/issues/3
+
 
 License
 -------

@@ -44,8 +44,10 @@ provisioner:
     host_vars:
       debian-8:
         inspec_version: ubuntu1604
+        sensu_go_manage_community_repo: false
       debian-9:
         inspec_version: ubuntu1604
+        sensu_go_manage_community_repo: false
 verifier:
   name: inspec
   directory: ../shared/
