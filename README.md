@@ -8,52 +8,27 @@ sensu-go-ansible
 This role allows for the deployment and management of
 [Sensu Go](https://github.com/sensu/sensu-go).
 
-Modules are a work in progress
-------------------------------
-
-While the initial role completely handles installing and running Sensu Go's
-`sensu-agent`, `sensu-backend`, and `sensuctl` there is still a lot of work
-left to do.
-
-- [ ] Adding/Deleting/Modifying Checks
-
-- [ ] Adding/Deleting/Modifying organizations/environments
-
-- [ ] Adding/Deleting/Modifying roles
-
-- [ ] Adding/Deleting/Modifying filters
-
-- [ ] Adding/Deleting/Modifying mutators
-
-- [ ] Adding/Deleting/Modifying handlers
-
-- [ ] Adding/Deleting/Modifying silences
-
-- [ ] Adding/Deleting/Modifying hooks
-
-The current focus is adding/deleting/modifying checks. Currently, there's a
-work in progress Ansible module included in `library/` for this. Until the Sensu
-Go API is versioned/documented/stable, we are wrapping `sensuctl` for our
-interactions with Sensu Go.
-
 If you'd like to contribute, please review [CONTRIBUTING.md](https://github.com/jaredledvina/sensu-go-ansible/blob/master/CONTRIBUTING.md) and open an issue to discuss your
 idea.
 
 Requirements
 ------------
 
-* Ansible 2.7 or higher
+* [Ansible 2.7](https://docs.ansible.com/ansible/2.7/installation_guide/intro_installation.html)
 
 Role Variables
 --------------
 
-See `defaults/main.yml` for everything that's configurable.
+See [`defaults/main.yml`](https://github.com/jaredledvina/sensu-go-ansible/blob/master/defaults/main.yml)
+for everything that's configurable. If any of the options are unclear, please 
+[file an issue](https://github.com/jaredledvina/sensu-go-ansible/issues/new)!
+
 Please note that unless you've [configured `hash_behaviour` to `merge`](https://docs.ansible.com/ansible/latest/reference_appendices/config.html#default-hash-behaviour)
 configuring any of the hash variables will **override** the entire default variable.
 
 Most variables expose an `_overrides: {}` variable that is merged automatically
 in this role for selectively updating each variable. It's strongly recommended
-that the `overrides` variable be used.
+that the `_overrides` variable be used.
 
 Dependencies
 ------------
@@ -63,21 +38,37 @@ None
 Example Playbook
 ----------------
 
-```yaml
-    - hosts: sensu-backend-servers
-      roles:
-         - role: jaredledvina.sensu_go_ansible
+The following example will configure the host in the hostgroup 
+`sensu-backend-server` to be configured with both `sensu-backend` and 
+`sensu-agent`. This host will also get the `sensuctl` CLI tool for further 
+management of Sensu Go. 
 
-    - hosts: sensu-agent-severs:
-      roles:
-        - role: jaredledvina.sensu_go_ansible
-          sensu_go_components:
-            - agent
-          sensu_go_configs_override:
-            agent:
-              config:
-                backend-url:
-                  - ws://sensu-backend-server:8081
+The hosts in `sensu-agent-severs` will only get the `sensu-agent` install and
+will have the `sensu-agent`'s configuration option for `backend-url` 
+overriden to `ws://sensu-backend-server:8081`. 
+
+For more information on the availible configuration options, checkout the upstream docs for 
+[`sensu-backend`](https://docs.sensu.io/sensu-go/latest/reference/backend/#general-configuration-flags) and 
+[`sensu-agent`](https://docs.sensu.io/sensu-go/latest/reference/agent/#general-configuration-flags).
+
+```yaml
+---
+-
+  hosts: sensu-backend-server
+  become: yes
+  roles:
+    - role: jaredledvina.sensu_go_ansible
+-
+  hosts: sensu-agent-severs
+  roles:
+    - role: jaredledvina.sensu_go_ansible
+      sensu_go_components:
+        - agent
+      sensu_go_configs_override:
+        agent:
+          config:
+            backend-url:
+              - ws://sensu-backend-server:8081
 ```
 
 Testing
@@ -119,6 +110,7 @@ sensu_go_community_repos_overrides:
     rpm: https://packagecloud.io/sensu/community/el/6/x86_64
     rpm-src: https://packagecloud.io/sensu/community/el/6/SRPMS
 ```
+
 Amazon Linux 2:
 ```yaml
 sensu_go_repos_overrides:
@@ -131,7 +123,7 @@ sensu_go_community_repos_overrides:
     rpm-src: https://packagecloud.io/sensu/community/el/7/SRPMS
 ```
 
-If you are using this rile with Debian 8 or 9 hosts, you must overide the 
+If you are using this role with Debian 8 or 9 hosts, you must overide the 
 following variable:
 
 ```yaml
@@ -141,8 +133,7 @@ sensu_go_manage_community_repo: false
 This is due to Debian packages not being updated to the community repos 
 pending the resolution of https://github.com/sensu/sensu-plugins-omnibus/issues/3
 
-
 License
 -------
 
-MIT
+[MIT](https://github.com/jaredledvina/sensu-go-ansible/blob/master/LICENSE)
