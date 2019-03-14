@@ -34,14 +34,3 @@
     sslverify: "{{ sensu_go_final_community_repos[ansible_pkg_mgr]['sslverify'] }}"
     metadata_expire: "{{ sensu_go_final_community_repos[ansible_pkg_mgr]['metadata_expire'] }}"
   when: sensu_go_final_community_repos[ansible_pkg_mgr]['rpm-src'] is defined
-
-# HACK: https://github.com/ansible/ansible/issues/20711#issuecomment-306260869
-# Can be removed once we're running w/ a version of Ansible that has https://github.com/ansible/ansible/pull/35989
-- name: Make yum cache to import Sensu Go Community GPG keys
-  command: "yum -q makecache -y --disablerepo='*' --enablerepo='{{ item }}'"
-  args:
-    warn: false
-  when: sensu_go_import_community_key.changed
-  with_items:
-    - sensu_go_community
-    - sensu_go_community-source

@@ -2,6 +2,6 @@
 - name: Ensure config directory is set up
   file:
     path: "{{ sensu_go_config_dir.path }}"
-    owner: "{{ sensu_go_config_dir.owner}}"
+    owner: "{{ sensu_go_config_dir.owner }}"
     group: "{{ sensu_go_config_dir.group }}"
     mode: "{{ sensu_go_config_dir.mode }}"

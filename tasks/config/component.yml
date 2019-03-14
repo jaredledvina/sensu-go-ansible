@@ -12,7 +12,7 @@
     mode: "{{ sensu_go_final_configs[component]['default']['mode'] | default(sensu_go_final_configs.DEFAULT.file_mode) }}"
   when: sensu_go_final_configs[component]['default'] is defined
 
-- name: Ensure /etc/sysconfig/sensu-{{component }} is configured
+- name: Ensure /etc/sysconfig/sensu-{{ component }} is configured
   template:
     src: component-sysconfig.j2
     dest: "/etc/sysconfig/sensu-{{ component }}"
@@ -25,7 +25,7 @@
   template:
     src: component.yml.j2
     dest: "{{ sensu_go_config_dir.path }}/{{ sensu_go_final_configs[component]['file']['name'] }}"
-    owner: "{{ sensu_go_final_configs[component]['file']['owner'] | default(sensu_go_final_configs['DEFAULT']['owner'])}}"
+    owner: "{{ sensu_go_final_configs[component]['file']['owner'] | default(sensu_go_final_configs['DEFAULT']['owner']) }}"
     group: "{{ sensu_go_final_configs[component]['file']['group'] | default(sensu_go_final_configs['DEFAULT']['group']) }}"
     mode: "{{ sensu_go_final_configs[component]['file']['mode'] | default(sensu_go_final_configs['DEFAULT']['file_mode']) }}"
   when: sensu_go_final_configs[component]['config'] is defined
