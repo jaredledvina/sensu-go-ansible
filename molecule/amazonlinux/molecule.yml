@@ -46,12 +46,20 @@ provisioner:
           yum:
             rpm: https://packagecloud.io/sensu/stable/el/6/x86_64
             rpm-src: https://packagecloud.io/sensu/stable/el/6/SRPMS
+        sensu_go_community_repos_overrides:
+          yum:
+            rpm: https://packagecloud.io/sensu/community/el/6/x86_64
+            rpm-src: https://packagecloud.io/sensu/community/el/6/SRPMS
         inspec_version: el6
       amazonlinux-2:
         sensu_go_repos_overrides:
           yum:
             rpm: https://packagecloud.io/sensu/stable/el/7/x86_64
             rpm-src: https://packagecloud.io/sensu/stable/el/7/SRPMS
+        sensu_go_community_repos_overrides:
+          yum:
+            rpm: https://packagecloud.io/sensu/community/el/7/x86_64
+            rpm-src: https://packagecloud.io/sensu/community/el/7/SRPMS
         inspec_version: el7
 verifier:
   name: inspec

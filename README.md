@@ -109,24 +109,32 @@ If you are using this role with Amazon Linux or Amazon Linux 2, you must
 override the following variables on those host(s):
 
 Amazon Linux:
-```
+```yaml
 sensu_go_repos_overrides:
   yum:
     rpm: https://packagecloud.io/sensu/stable/el/6/x86_64
     rpm-src: https://packagecloud.io/sensu/stable/el/6/SRPMS
+sensu_go_community_repos_overrides:
+  yum:
+    rpm: https://packagecloud.io/sensu/community/el/6/x86_64
+    rpm-src: https://packagecloud.io/sensu/community/el/6/SRPMS
 ```
 Amazon Linux 2:
-```
+```yaml
 sensu_go_repos_overrides:
   yum:
     rpm: https://packagecloud.io/sensu/stable/el/7/x86_64
     rpm-src: https://packagecloud.io/sensu/stable/el/7/SRPMS
+sensu_go_community_repos_overrides:
+  yum:
+    rpm: https://packagecloud.io/sensu/community/el/7/x86_64
+    rpm-src: https://packagecloud.io/sensu/community/el/7/SRPMS
 ```
 
-If you are using this rile with Debian 8 or 9 hosts, you must ovveride the 
+If you are using this rile with Debian 8 or 9 hosts, you must overide the 
 following variable:
 
-```
+```yaml
 sensu_go_manage_community_repo: false
 ```
 
