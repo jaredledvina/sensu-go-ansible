@@ -40,14 +40,3 @@
     path: /etc/yum.repos.d/sensu_prerelease
     state: absent
   notify: yum-clean-metadata
-
-# HACK: https://github.com/ansible/ansible/issues/20711#issuecomment-306260869
-# Can be removed once we're running w/ a version of Ansible that has https://github.com/ansible/ansible/pull/35989
-- name: Make yum cache to import GPG keys
-  command: "yum -q makecache -y --disablerepo='*' --enablerepo='{{ item }}'"
-  args:
-    warn: false
-  when: sensu_go_import_key.changed
-  with_items:
-    - sensu_go
-    - sensu_go-source
