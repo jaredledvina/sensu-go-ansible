@@ -1,58 +1,16 @@
 ---
-- name: Merge sensu_go_configs_override w/ defaults
-  set_fact:
-    sensu_go_final_repos: "{{ sensu_go_repos | combine(sensu_go_repos_overrides, recursive=True) }}"
-
-- name: Ensure packages for Sensu Go repos are installed
+- name: Ensure dependencies for Sensu Go repos are installed
   yum:
-    name: "{{ sensu_go_repo_packages[ansible_pkg_mgr] }}"
+    name: "{{ sensu_go_repo_dependencies[ansible_pkg_mgr] }}"
     state: present
+  when: sensu_go_manage_repo or sensu_go_manage_community_repo
 
-- name: Configure Sensu Go GPG key in the RPM keyring
-  rpm_key:
-    key: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
-    state: present
-  register: sensu_go_import_key
+- include_tasks: repo/sensu_go/{{ ansible_pkg_mgr }}.yml
+  when: sensu_go_manage_repo
 
-- name: Configure Sensu Go yum repos
-  yum_repository:
-    file: sensu_go
-    name: sensu_go
-    description: packagecloud.io mirrors for Sensu Go
-    baseurl: "{{ sensu_go_final_repos[ansible_pkg_mgr]['rpm'] }}"
-    gpgcheck: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgcheck'] }}"
-    gpgkey: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
-    repo_gpgcheck: "{{ sensu_go_final_repos[ansible_pkg_mgr]['repo_gpgcheck'] }}"
-    sslverify: "{{ sensu_go_final_repos[ansible_pkg_mgr]['sslverify'] }}"
-    metadata_expire: "{{ sensu_go_final_repos[ansible_pkg_mgr]['metadata_expire'] }}"
-  when: sensu_go_final_repos[ansible_pkg_mgr]['rpm'] is defined
+- include_tasks: repo/sensu_community/{{ ansible_pkg_mgr }}.yml
+  when: sensu_go_manage_community_repo
 
-- name: Configure Sensu Go yum source repos
-  yum_repository:
-    file: sensu_go
-    name: sensu_go-source
-    description: packagecloud.io mirrors for Sensu Go Source RPMS
-    baseurl: "{{ sensu_go_final_repos[ansible_pkg_mgr]['rpm-src'] }}"
-    gpgkey: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgkey'] }}"
-    gpgcheck: "{{ sensu_go_final_repos[ansible_pkg_mgr]['gpgcheck'] }}"
-    repo_gpgcheck: "{{ sensu_go_final_repos[ansible_pkg_mgr]['repo_gpgcheck'] }}"
-    sslverify: "{{ sensu_go_final_repos[ansible_pkg_mgr]['sslverify'] }}"
-    metadata_expire: "{{ sensu_go_final_repos[ansible_pkg_mgr]['metadata_expire'] }}"
-  when: sensu_go_final_repos[ansible_pkg_mgr]['rpm-src'] is defined
-
-- name: Cleanup - Remove old Sensu prerelease repos
-  file:
-    path: /etc/yum.repos.d/sensu_prerelease
-    state: absent
-  notify: yum-clean-metadata
-
-# HACK: https://github.com/ansible/ansible/issues/20711#issuecomment-306260869
-# Can be removed once we're running w/ a version of Ansible that has https://github.com/ansible/ansible/pull/35989
-- name: Make yum cache to import GPG keys
-  command: "yum -q makecache -y --disablerepo='*' --enablerepo='{{ item }}'"
-  args:
-    warn: false
-  when: sensu_go_import_key.changed
-  with_items:
-    - sensu_go
-    - sensu_go-source
+- name: Flush handlers
+  meta: flush_handlers
+  when: sensu_go_manage_repo or sensu_go_manage_community_repo

@@ -1,6 +1,5 @@
 ---
 - include_tasks: repo/{{ ansible_pkg_mgr }}.yml
-  when: sensu_go_manage_repo
 
 - include_tasks: install_component.yml
   with_items: "{{ sensu_go_components }}"

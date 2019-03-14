@@ -22,10 +22,17 @@ if os.name == 'debian'
     it { should exist }
     it { should be_enabled }
   end
+  describe apt('https://packagecloud.io/sensu/community/debian/') do
+    it { should_not exist }
+  end
 end
 
 if os.name == 'ubuntu'
   describe apt('https://packagecloud.io/sensu/stable/ubuntu/') do
+    it { should exist }
+    it { should be_enabled }
+  end
+  describe apt('https://packagecloud.io/sensu/community/ubuntu/') do
     it { should exist }
     it { should be_enabled }
   end
@@ -49,6 +56,16 @@ if os.redhat?
   end
 
   describe yum.repo('sensu_go-source') do
+    it { should exist }
+    it { should be_enabled }
+  end
+
+  describe yum.repo('sensu_go_community') do
+    it { should exist }
+    it { should be_enabled }
+  end
+
+  describe yum.repo('sensu_go_community-source') do
     it { should exist }
     it { should be_enabled }
   end

@@ -1,6 +1,6 @@
 ---
 sensu_go_manage_repo: true
-sensu_go_repo_packages:
+sensu_go_repo_dependencies:
   apt:
     - curl
     - gnupg
@@ -12,7 +12,6 @@ sensu_go_repo_packages:
   dnf:
     - python
     - python-dnf
-sensu_go_repos_overrides: {}
 sensu_go_repos:
   apt:
     key_url: https://packagecloud.io/sensu/stable/gpgkey
@@ -35,7 +34,32 @@ sensu_go_repos:
     gpgkey: https://packagecloud.io/sensu/stable/gpgkey
     rpm: https://packagecloud.io/sensu/stable/el/7/$basearch
     rpm-src: https://packagecloud.io/sensu/stable/el/7/SRPMS
+sensu_go_repos_overrides: {}
 
+sensu_go_manage_community_repo: true
+sensu_go_community_repos:
+  apt:
+    key_url: https://packagecloud.io/sensu/community/gpgkey
+    key_id: 6A8D4DDAE50F9E23
+    deb: deb https://packagecloud.io/sensu/community/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
+    deb-src: deb-src https://packagecloud.io/sensu/community/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release | lower }} main
+  yum:
+    gpgcheck: false
+    repo_gpgcheck: true
+    sslverify: true
+    metadata_expire: 300
+    gpgkey: https://packagecloud.io/sensu/community/gpgkey
+    rpm: https://packagecloud.io/sensu/community/el/$releasever/$basearch
+    rpm-src: https://packagecloud.io/sensu/community/el/$releasever/SRPMS
+  dnf:
+    gpgcheck: false
+    repo_gpgcheck: true
+    sslverify: true
+    metadata_expire: 300
+    gpgkey: https://packagecloud.io/sensu/community/gpgkey
+    rpm: https://packagecloud.io/sensu/community/el/7/$basearch
+    rpm-src: https://packagecloud.io/sensu/community/el/7/SRPMS
+sensu_go_community_repos_overrides: {}
 
 sensu_go_install_components: true
 # List of specific Sensu Go components to install and manage
@@ -43,6 +67,11 @@ sensu_go_components:
   - backend
   - agent
   - cli
+
+# Simple opt-out boolean flag for installing Sensu Go Community packages
+sensu_go_install_community_packages: true
+# List of specific Sensu Go Community packages to install and manage
+sensu_go_community_packages: []
 
 sensu_go_config_dir:
   path: /etc/sensu
