@@ -29,6 +29,3 @@
     path: /etc/apt/sources.list.ld/sensu_prerelease
     state: absent
   notify: update apt cache
-
-- name: Flush handlers
-  meta: flush_handlers
