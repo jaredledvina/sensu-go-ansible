@@ -467,7 +467,7 @@
                 "sha256:8be81d89d6e7b4c0d4e44bcc525845f6da25821de80cb5e06e7e0238a2899e32",
                 "sha256:da60d0014fd8c55eb48c1c5354352e363e2d30bbf7057e5e171a468390184c75"
             ],
-            "markers": "python_version == '2.7'",
+            "markers": "python_version < '3.2'",
             "version": "==3.7.4"
         },
         "cookiecutter": {
@@ -556,11 +556,11 @@
         },
         "git-url-parse": {
             "hashes": [
-                "sha256:5e822cb10b01f73a717d97924287dc569352d15b5cc9c0650db7cc053c4da293",
-                "sha256:b06ee4850c070d6ad22f307a47c7ebff2cc3cdaeb56d35da8decb22917d9981f",
-                "sha256:d2553562415fed02893bd4a797864a6dfe63041ab0a61a15bacaf2fc9e71eecc"
+                "sha256:4655ee22f1d8bf7a1eb1066c1da16529b186966c6d8331f7f55686a76a9f7aef",
+                "sha256:7b5f4e3aeb1d693afeee67a3bd4ac063f7206c2e8e46e559f0da0da98445f117",
+                "sha256:9353ff40d69488ff2299b27f40e0350ad87bd5348ea6ea09a1895eda9e5733de"
             ],
-            "version": "==1.2.1"
+            "version": "==1.2.2"
         },
         "idna": {
             "hashes": [
