@@ -8,7 +8,7 @@ ansible = "*"
 docker-py = "*"
 
 [dev-packages]
-molecule = "==v2.20.0"
+molecule = "==v2.20.1"
 
 [requires]
 python_version = "2.7"

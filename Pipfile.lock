@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "774297ba860bdc49c887a47cf6226496aa05fd411db8ff46b6ea6fda2d338987"
+            "sha256": "69857f7d2c17760d139714103d6c3c297c6f2fea38bd5a05c7846fc870078c58"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -169,7 +169,7 @@
                 "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
                 "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
             ],
-            "markers": "python_version < '3.3'",
+            "markers": "python_version < '3'",
             "version": "==1.0.22"
         },
         "jinja2": {
@@ -574,7 +574,7 @@
                 "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
                 "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
             ],
-            "markers": "python_version < '3.3'",
+            "markers": "python_version < '3'",
             "version": "==1.0.22"
         },
         "jinja2": {
@@ -633,11 +633,11 @@
         },
         "molecule": {
             "hashes": [
-                "sha256:7048ad12bf92f84c2489c9dd2fdc999d72fb344904c75e898ee1742970e0dbad",
-                "sha256:af14ef319fdd71e4418610934108283bc55736b7f1f79ecf29cedff4003ccd32"
+                "sha256:0e9ef6845cdf2a01f6c386445e4e54add3f515a033ee16b7b658e6122c8f0d76",
+                "sha256:621797c54299775f284bbb010d5bb9be485500eecaaa14a476cbc0df285d0da7"
             ],
             "index": "pypi",
-            "version": "==2.20.0"
+            "version": "==2.20.1"
         },
         "monotonic": {
             "hashes": [
