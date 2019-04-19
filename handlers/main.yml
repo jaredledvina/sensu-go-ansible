@@ -4,6 +4,7 @@
     name: sensu-backend
     state: restarted
   notify: wait for sensu-backend to accept connections
+  when: sensu_go_services.backend.state != 'stopped'
 
 - name: wait for sensu-backend to accept connections
   wait_for:
@@ -14,6 +15,7 @@
   service:
     name: sensu-agent
     state: restarted
+  when: sensu_go_services.agent.state != 'stopped'
 
 - name: update apt cache
   apt:
