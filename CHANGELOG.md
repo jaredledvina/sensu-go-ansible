@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.6.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.6.0) (2019-04-19)
+[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.5.0...1.6.0)
+
+**Merged pull requests:**
+
+- Restart services only when component is enabled [\#83](https://github.com/jaredledvina/sensu-go-ansible/pull/83) ([torrentalle](https://github.com/torrentalle))
+
 ## [1.5.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.5.0) (2019-03-14)
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.4.0...1.5.0)
 
