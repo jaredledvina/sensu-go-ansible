@@ -12,7 +12,7 @@ module: sensu_go_check
 
 short_description: Configure Sensu Go checks
 
-version_added: "2.6"
+version_added: "2.7"
 
 description:
     - "Configure and manage Sensu Go checks leveraging sensuctl"
@@ -138,7 +138,7 @@ def run_module():
     sensuctl = Sensuctl(module)
     # Fetch the existing checks so we know what we're working with
     checks = sensuctl.checks_list(module)
-    check_names = [check['name'] for check in checks]
+    check_names = [check['metadata']['name'] for check in checks]
 
     if module.params['state'] == 'list':
         result['checks'] = checks
