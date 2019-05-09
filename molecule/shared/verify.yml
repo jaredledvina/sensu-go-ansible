@@ -75,7 +75,7 @@
       register: test_files
 
     - name: Execute Inspec tests
-      command: "{{ inspec_bin }} exec {{ item }} --no-color --reporter progress"
+      command: "{{ inspec_bin }} exec --chef-license accept {{ item }} --no-color --reporter progress"
       register: test_results
       with_items: "{{ test_files.stdout_lines }}"
       ignore_errors: true
