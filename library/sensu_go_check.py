@@ -432,16 +432,22 @@ def run_module():
         response, info = module.get_check()
         check_def = module.create_check_definition()
         if info['status'] == 404:
-            module.post_check(check_def)
-            result['changed'] = True
-            result['message'] = 'Create new Sensu Go check: {0}'.format(module.params['name'])
+            if module.check_mode:
+                result['message'] = 'Would have created new Sensu Go check: {0}'.format(module.params['name'])
+            else:
+                module.post_check(check_def)
+                result['changed'] = True
+                result['message'] = 'Create new Sensu Go check: {0}'.format(module.params['name'])
         elif info['status'] == 200:
             difference = module.compare_check(response)
             if difference:
-                response, info = module.put_check(check_def)
-                result['message'] = 'Updated existing Sensu Go check: {0}'.format(module.params['name'])
-                result['difference'] = difference
-                result['changed'] = True
+                if module.check_mode:
+                    result['message'] = 'Would have update Sensu Go check: {0}'.format(module.params['name'])
+                else:
+                    response, info = module.put_check(check_def)
+                    result['message'] = 'Updated existing Sensu Go check: {0}'.format(module.params['name'])
+                    result['difference'] = difference
+                    result['changed'] = True
             else:
                 result['message'] = 'Sensu Go check already exists and doesn\'t need to be updated: {0}'.format(module.params['name'])
     elif module.params['state'] == 'absent':
@@ -449,8 +455,11 @@ def run_module():
         if info['status'] == 404:
             result['message'] = 'Sensu Go check does not exist: {0}'.format(module.params['name'])
         elif info['status'] == 200:
-            reponse, info = module.delete_check()
-            result['message'] = 'Deleted Sensu Go check: {0}'.format(module.params['name'])
+            if module.check_mode:
+                result['message'] = 'Would have deleted Sensu Go check: {0}'.format(module.params['name'])
+            else:
+                reponse, info = module.delete_check()
+                result['message'] = 'Deleted Sensu Go check: {0}'.format(module.params['name'])
     module.exit_json(**result)
 
 def main():
