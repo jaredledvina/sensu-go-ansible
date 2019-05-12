@@ -455,6 +455,7 @@ def run_module():
             else:
                 reponse, info = module.delete_check()
                 result['message'] = 'Deleted Sensu Go check: {0}'.format(module.params['name'])
+                result['changed'] = True
     module.exit_json(**result)
 
 
