@@ -1,4 +1,6 @@
 #!/usr/bin/python
+# Copyright: (c) 2019, Jared Ledvina <jaredledvina@gmail.com>
+# MIT License (see LICENSE or https://opensource.org/licenses/MIT)
 
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
