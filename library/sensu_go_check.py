@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
@@ -29,6 +29,7 @@ options:
   cron:
     description:
       - "When the check should be executed, using cron syntax or these predefined schedules."
+      - Required if I(interval) is not set.
     type: str
   env_vars:
     description:
@@ -54,6 +55,7 @@ options:
   interval:
     description:
       - "How often the check is executed, in seconds."
+      - Required if I(cron) is not set.
     type: int
   low_flap_threshold:
     description:
@@ -203,6 +205,7 @@ EXAMPLES = '''
     password: P@ssw0rd!
     namespace: default
     name: check_example
+    interval: 60
 '''
 
 RETURN = '''
