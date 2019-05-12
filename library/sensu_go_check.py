@@ -1,6 +1,11 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # Copyright: (c) 2019, Jared Ledvina <jaredledvina@gmail.com>
 # MIT License (see LICENSE or https://opensource.org/licenses/MIT)
+
+from __future__ import absolute_import, division, print_function
+__metaclass__ = type
 
 ANSIBLE_METADATA = {
     'metadata_version': '1.1',
@@ -8,7 +13,7 @@ ANSIBLE_METADATA = {
     'supported_by': 'community'
 }
 
-DOCUMENTATION = '''
+DOCUMENTATION = r'''
 ---
 author:
   - "Jared Ledvina (@jaredledvina)"
@@ -20,9 +25,7 @@ options:
     description:
       - "An array of check response types with respective arrays of Sensu hook names."
       - "Sensu hooks are commands run by the Sensu agent in response to the result of the check command execution."
-      -
-        ? "Hooks are executed, in order of precedence, based on their severity type"
-        : "1 to 255, ok, warning, critical, unknown, and finally non-zero."
+      - "Hooks are executed, in order of precedence, based on their severity type 1 to 255, ok, warning, critical, unknown, and finally non-zero."
     type: list
   command:
     description:
@@ -31,7 +34,7 @@ options:
   cron:
     description:
       - "When the check should be executed, using cron syntax or these predefined schedules."
-      - Required if I(interval) is not set.
+      - Required if interval is not set.
     type: str
   env_vars:
     description:
@@ -57,7 +60,7 @@ options:
   interval:
     description:
       - "How often the check is executed, in seconds."
-      - Required if I(cron) is not set.
+      - Required if cron is not set.
     type: int
   low_flap_threshold:
     description:
@@ -66,7 +69,7 @@ options:
   name:
     description:
       - "A unique string used to identify the check."
-      - "Check names cannot contain special characters or spaces (validated with Go regex \\A[\\w\\.\\-]+\\z)."
+      - 'Check names cannot contain special characters or spaces (validated with Go regex \A[\w\.\-]+\z).'
       - "Each check must have a unique name within its namespace."
     required: true
     type: str
@@ -113,9 +116,7 @@ options:
   proxy_entity_name:
     description:
       - "The entity name, used to create a proxy entity for an external resource (i.e., a network switch)."
-      -
-        ? "Must match the regex"
-        : "\\A[\\w\\.\\-]+\\z"
+      - 'Must match the regex \A[\w\.\-]+\z'
     type: str
   proxy_requests:
     description:
@@ -131,7 +132,7 @@ options:
     type: bool
   runtime_assets:
     description:
-      - "An array of Sensu assets (names), required at runtime for the execution of the I(command)."
+      - "An array of Sensu assets (names), required at runtime for the execution of the command."
     type: list
   silenced:
     description:
@@ -186,7 +187,7 @@ short_description: "Manage Sensu Go checks"
 version_added: "2.8"
 '''
 
-EXAMPLES = '''
+EXAMPLES = r'''
 - name: Create a new check
   sensu_go_check:
     state: present
@@ -210,12 +211,12 @@ EXAMPLES = '''
     interval: 60
 '''
 
-RETURN = '''
+RETURN = r'''
 message:
     description: Humanized description of the changes performed
     type: string
     returned: always
-    sample: Updated existing Sensu Go check: check_example
+    sample: Updated existing Sensu Go check check_example
 differences:
     description: A dict of the changed keys containing a dict of the  old & new values.
     returned: When check has been modified
@@ -230,17 +231,26 @@ differences:
 '''
 
 import json
-import traceback
 
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.urls import fetch_url, url_argument_spec
+from ansible.module_utils._text import to_native
+
+
+class AnsibleModuleError(Exception):
+    def __init__(self, results):
+        self.results = results
+
+    def __repr__(self):
+        print('AnsibleModuleError(results={0})'.format(self.results))
+
 
 class SensuGo(AnsibleModule):
     def __init__(self, argument_spec, attributes, **kwargs):
-        self.headers = {"Content-Type": "application/json" }
+        self.headers = {"Content-Type": "application/json"}
         # List of attributes from the upstream specification
         self.attributes = attributes
-        #TODO: Why do I need these?
+        # TODO: Why do I need these?
         self._remote_tmp = "bar"
         self._keep_remote_files = False
 
@@ -275,12 +285,9 @@ class SensuGo(AnsibleModule):
                 data=data,
                 headers=self.headers
             )
-        except:
-            self.fail_json(
-                msg='Failed request to {0}'.format(url),
-                exception=traceback.format_exc()
-            )
-        #TODO: What error codes should we handle here?
+        except Exception as e:
+            raise AnsibleModuleError(results={'msg': 'Failed request to {0}'.format(url), 'exception': to_native(e)})
+        # TODO: What error codes should we handle here?
         if info['status'] >= 500 or info['status'] == 401:
             self.fail_json(msg='Request to {0} failed with: {1} {2}'.format(
                 url,
@@ -293,11 +300,8 @@ class SensuGo(AnsibleModule):
             if response:
                 try:
                     response = json.loads(response)
-                except:
-                    self.fail_json(msg='Failed to parse response as JSON: {0}'.format(
-                        response),
-                        exception=traceback.format_exc()
-                    )
+                except Exception as e:
+                    raise AnsibleModuleError(results={'msg': 'Failed to parse response as JSON: {0}'.format(response), 'exception': to_native(e)})
         return response, info
 
     def auth(self):
@@ -322,19 +326,19 @@ class SensuGo(AnsibleModule):
 
     def get_check(self):
         url = '{0}/api/core/v2/namespaces/{1}/checks/{2}'.format(
-                self.get_base_url(),
-                self.params['namespace'],
-                self.params['name'])
+            self.get_base_url(),
+            self.params['namespace'],
+            self.params['name'])
         resp, info = self.request(url)
         return resp, info
 
     def compare_check(self, check):
         differences = {}
         for attribute in self.attributes:
-            if self.params[attribute] != None:
-                #TODO: Does this recursively verify? Do we need to?
+            if self.params[attribute] is not None:
+                # TODO: Does this recursively verify? Do we need to?
                 if self.params[attribute] != check[attribute]:
-                    differences.update({ attribute: {
+                    differences.update({attribute: {
                         'new': self.params[attribute],
                         'old': check[attribute]
                     }})
@@ -346,40 +350,39 @@ class SensuGo(AnsibleModule):
         check['metadata']['namespace'] = self.params['namespace']
         check['metadata']['name'] = self.params['name']
         for attribute in self.attributes:
-            if self.params[attribute] != None:
+            if self.params[attribute] is not None:
                 check[attribute] = self.params[attribute]
         return check
 
     def put_check(self, check):
         url = '{0}/api/core/v2/namespaces/{1}/checks/{2}'.format(
-                self.get_base_url(),
-                self.params['namespace'],
-                self.params['name'])
+            self.get_base_url(),
+            self.params['namespace'],
+            self.params['name'])
         resp, info = self.request(url, method='PUT', data=check)
         return resp, info
 
     def post_check(self, check):
         url = '{0}/api/core/v2/namespaces/{1}/checks'.format(
-                self.get_base_url(),
-                self.params['namespace'])
+            self.get_base_url(),
+            self.params['namespace'])
         resp, info = self.request(url, method='POST', data=check)
         return resp, info
 
     def delete_check(self):
         url = '{0}/api/core/v2/namespaces/{1}/checks/{2}'.format(
-                self.get_base_url(),
-                self.params['namespace'],
-                self.params['name'])
+            self.get_base_url(),
+            self.params['namespace'],
+            self.params['name'])
         resp, info = self.request(url, method='DELETE')
         return resp, info
+
 
 def run_module():
     # define available arguments/parameters a user can pass to the module
     module_args = url_argument_spec()
-    module_args.update(dict(
-        state=dict( type='str', default='present', choices=['present', 'absent']
-    )))
-    sensu_go_check_spec=dict(
+    module_args.update(dict(state=dict(type='str', default='present', choices=['present', 'absent'])))
+    sensu_go_check_spec = dict(
         command=dict(type='str'),
         subscriptions=dict(type='list', elements='str'),
         handlers=dict(type='list', elements='str'),
@@ -397,20 +400,12 @@ def run_module():
         proxy_requests=dict(type='dict'),
         silenced=dict(type='bool'),
         env_vars=dict(type='list', elements='str'),
-        output_metric_format=dict(type='str',
-            choices=[
-                'nagios_perfdata',
-                'graphite_plaintext',
-                'influxdb_line',
-                'opentsdb_line'
-            ]),
+        output_metric_format=dict(type='str', choices=['nagios_perfdata', 'graphite_plaintext', 'influxdb_line', 'opentsdb_line']),
         output_metric_handlers=dict(type='list', elements='str'),
         round_robin=dict(type='bool')
     )
     module_args.update(sensu_go_check_spec)
-    required_if = [
-        ('state', 'present', ['command', 'subscriptions'])
-    ]
+    required_if = [('state', 'present', ['command', 'subscriptions'])]
     required_one_of = [['interval', 'cron']]
     mutually_exclusive = [['interval', 'cron']]
 
@@ -462,8 +457,10 @@ def run_module():
                 result['message'] = 'Deleted Sensu Go check: {0}'.format(module.params['name'])
     module.exit_json(**result)
 
+
 def main():
     run_module()
+
 
 if __name__ == '__main__':
     main()
