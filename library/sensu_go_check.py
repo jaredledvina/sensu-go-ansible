@@ -126,6 +126,7 @@ options:
     description:
       - "If check requests are published for the check."
     type: bool
+    default: True
   round_robin:
     description:
       - "When set to true, Sensu executes the check once per interval, cycling through each subscribing agent in turn."
@@ -134,10 +135,6 @@ options:
     description:
       - "An array of Sensu assets (names), required at runtime for the execution of the command."
     type: list
-  silenced:
-    description:
-      - "If the event is to be silenced."
-    type: bool
   state:
     choices:
       - present
@@ -217,15 +214,30 @@ message:
     type: string
     returned: always
     sample: Updated existing Sensu Go check check_example
-differences:
-    description: A dict of the changed keys containing a dict of the  old & new values.
-    returned: When check has been modified
+check_definition:
+    description: The final check definition generated from the module inputs
+    type: dict
+    returned: always
+    sample: |
+      "check_definition": {
+        "interval": 120,
+        "command": "systemctl is-system-running",
+        "metadata": {
+          "namespace": "default",
+          "name": "check_failed_units"
+        },
+        "subscriptions": [
+          "all"
+        ]
+      }
+diff:
+    description: A dict before & after, with the attributes and vaules changed.
+    returned: When a check has been modified
     type: dictionary
     sample: |
-        "difference": {
-          "interval": {
-            "new": 120,
-            "old": 60
+        "diff": {
+            "after": {"interval": 120}
+            "before": {"interval": 60}
            }
          }
 '''
@@ -307,14 +319,13 @@ class SensuGo(AnsibleModule):
     def auth(self):
         url = '%s/auth' % self.get_base_url()
         response, info = self.request(url)
-        self.headers.update(
-            {'Authorization': 'Bearer ' + response['access_token']}
-        )
-        self.params['url_username'] = None
-        self.params['username'] = None
-        self.params['url_password'] = None
-        self.params['password'] = None
-        self.params['force_basic_auth'] = False
+        self.headers.update({'Authorization': 'Bearer ' + response['access_token']})
+        # Remove the following to prevent any basic auth from happening via fetch_url
+        self.params.pop('url_username', None)
+        self.params.pop('username', None)
+        self.params.pop('url_password', None)
+        self.params.pop('password', None)
+        self.params.pop('force_basic_auth', None)
 
     def get_checks(self):
         url = '{0}/api/core/v2/namespaces/{1}/checks'.format(
@@ -333,15 +344,20 @@ class SensuGo(AnsibleModule):
         return resp, info
 
     def compare_check(self, check):
-        differences = {}
+        differences = {'after': {}, 'before': {}}
         for attribute in self.attributes:
             if self.params[attribute] is not None:
-                # TODO: Does this recursively verify? Do we need to?
-                if self.params[attribute] != check[attribute]:
-                    differences.update({attribute: {
-                        'new': self.params[attribute],
-                        'old': check[attribute]
-                    }})
+                # https://github.com/sensu/sensu-go/issues/2943
+                # Some settings might be configured but not returned.
+                # Special case them here for now...
+                if attribute in check:
+                    # TODO: Does this recursively verify? Do we need to?
+                    if self.params[attribute] != check[attribute]:
+                        differences['after'].update({attribute: self.params[attribute]})
+                        differences['before'].update({attribute: check[attribute]})
+                else:
+                    differences['after'].update({attribute: self.params[attribute]})
+                    differences['before'].update({attribute: None})
         return differences
 
     def create_check_definition(self):
@@ -381,6 +397,10 @@ class SensuGo(AnsibleModule):
 def run_module():
     # define available arguments/parameters a user can pass to the module
     module_args = url_argument_spec()
+    # Sensu Go doesn't support client cert/key auth to the API nor will it let
+    # basic auth work outside of the initial auth flow, disable them.
+    for argument in ['client_cert', 'client_key', 'force_basic_auth']:
+        del module_args[argument]
     module_args.update(dict(state=dict(type='str', default='present', choices=['present', 'absent'])))
     sensu_go_check_spec = dict(
         command=dict(type='str'),
@@ -388,7 +408,7 @@ def run_module():
         handlers=dict(type='list', elements='str'),
         interval=dict(type='int'),
         cron=dict(type='str'),
-        publish=dict(type='bool'),
+        publish=dict(type='bool', default=True),
         timeout=dict(type='int'),
         ttl=dict(type='int'),
         stdin=dict(type='bool'),
@@ -398,7 +418,6 @@ def run_module():
         check_hooks=dict(type='list', elements='str'),
         proxy_entity_name=dict(type='str'),
         proxy_requests=dict(type='dict'),
-        silenced=dict(type='bool'),
         env_vars=dict(type='list', elements='str'),
         output_metric_format=dict(type='str', choices=['nagios_perfdata', 'graphite_plaintext', 'influxdb_line', 'opentsdb_line']),
         output_metric_handlers=dict(type='list', elements='str'),
@@ -426,22 +445,25 @@ def run_module():
     if module.params['state'] == 'present':
         response, info = module.get_check()
         check_def = module.create_check_definition()
+        result['check_definition'] = check_def
         if info['status'] == 404:
             if module.check_mode:
                 result['message'] = 'Would have created new Sensu Go check: {0}'.format(module.params['name'])
             else:
                 module.post_check(check_def)
                 result['changed'] = True
-                result['message'] = 'Create new Sensu Go check: {0}'.format(module.params['name'])
+                result['message'] = 'Created new Sensu Go check: {0}'.format(module.params['name'])
         elif info['status'] == 200:
             difference = module.compare_check(response)
-            if difference:
+            # Check if we've populated any changes
+            if difference['after'] or difference['before']:
                 if module.check_mode:
-                    result['message'] = 'Would have update Sensu Go check: {0}'.format(module.params['name'])
+                    result['message'] = 'Would have updated Sensu Go check: {0}'.format(module.params['name'])
+                    result['diff'] = difference
                 else:
                     response, info = module.put_check(check_def)
                     result['message'] = 'Updated existing Sensu Go check: {0}'.format(module.params['name'])
-                    result['difference'] = difference
+                    result['diff'] = difference
                     result['changed'] = True
             else:
                 result['message'] = 'Sensu Go check already exists and doesn\'t need to be updated: {0}'.format(module.params['name'])
