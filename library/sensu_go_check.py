@@ -263,13 +263,7 @@ from ansible.module_utils.sensu_go import SensuGo, recursive_diff
 
 
 def run_module():
-    # define available arguments/parameters a user can pass to the module
-    module_args = url_argument_spec()
-    # Sensu Go doesn't support client cert/key auth to the API nor will it let
-    # basic auth work outside of the initial auth flow, disable them.
-    for argument in ['client_cert', 'client_key', 'force_basic_auth', 'force']:
-        del module_args[argument]
-    module_args.update(dict(state=dict(type='str', default='present', choices=['present', 'absent'])))
+    module_args = dict(state=dict(type='str', default='present', choices=['present', 'absent']))
     sensu_go_check_spec = dict(
         check_hooks=dict(type='list', elements='str'),
         command=dict(type='str'),

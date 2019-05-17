@@ -47,8 +47,8 @@ class SensuGo(AnsibleModule):
         self.headers = {"Content-Type": "application/json"}
         # List of attributes from the upstream specification
         self.attributes = attributes
+        # The type of resource to work with. i.e.: checks, handlers, etc.
         self.resource = resource
-
         args = dict(
             name=dict(type='str', required=True),
             host=dict(
