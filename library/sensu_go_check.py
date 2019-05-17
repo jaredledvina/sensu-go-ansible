@@ -51,6 +51,7 @@ options:
   host:
     description:
       - "The host to query, needs to be running the sensu-backend for API access."
+      - "Required if environmental variable C(ANSIBLE_SENSU_GO_HOST) is not set."
     required: true
     type: str
   http_agent:
@@ -100,11 +101,13 @@ options:
     default: P@ssword!
     description:
       - "Password to use when initially authenticating to the Sensu Go API."
+      - "Can be overriden with the environmental variable C(ANSIBLE_SENSU_GO_PASSWORD)"
     type: str
   port:
     default: 8080
     description:
       - "The port that the Sensu Go API is listening on."
+      - "Can be overriden with the environmental variable C(ANSIBLE_SENSU_GO_PORT)"
     type: int
   protocol:
     choices:
@@ -113,6 +116,7 @@ options:
     default: http
     description:
       - "The protocol to use when accessing the Sensu Go API."
+      - "Can be overriden with the environmental variable C(ANSIBLE_SENSU_GO_PROTOCOL)"
     type: str
   proxy_entity_name:
     description:
@@ -181,6 +185,7 @@ options:
     default: admin
     description:
       - "Username to use when initially authenticating to the Sensu Go API."
+      - "Can be overriden with the environment variable C(ANSIBLE_SENSU_GO_USERNAME)"
     type: str
   validate_certs:
     default: "yes"
