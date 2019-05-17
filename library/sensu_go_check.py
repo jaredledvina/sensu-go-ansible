@@ -479,6 +479,7 @@ def run_module():
         if info['status'] == 404:
             if module.check_mode:
                 result['message'] = 'Would have created new Sensu Go check: {0}'.format(module.params['name'])
+                result['changed'] = True
             else:
                 module.post_check(check_def)
                 result['changed'] = True
@@ -502,6 +503,7 @@ def run_module():
                 if module.check_mode:
                     result['message'] = 'Would have updated Sensu Go check: {0}'.format(module.params['name'])
                     result['diff'] = difference
+                    result['changed'] = True
                 else:
                     response, info = module.put_check(check_def)
                     result['message'] = 'Updated existing Sensu Go check: {0}'.format(module.params['name'])
@@ -516,6 +518,7 @@ def run_module():
         elif info['status'] == 200:
             if module.check_mode:
                 result['message'] = 'Would have deleted Sensu Go check: {0}'.format(module.params['name'])
+                result['changed'] = True
             else:
                 reponse, info = module.delete_check()
                 result['message'] = 'Deleted Sensu Go check: {0}'.format(module.params['name'])
