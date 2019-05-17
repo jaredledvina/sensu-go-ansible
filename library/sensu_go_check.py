@@ -509,7 +509,6 @@ def run_module():
         attributes=sorted(sensu_go_check_spec.keys()),
         supports_check_mode=True,
         required_if=required_if,
-        required_one_of=required_one_of,
         mutually_exclusive=mutually_exclusive
     )
     module.auth()
