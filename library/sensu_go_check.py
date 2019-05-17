@@ -259,201 +259,11 @@ import json
 from ansible.module_utils.basic import AnsibleModule, env_fallback
 from ansible.module_utils.urls import fetch_url, url_argument_spec
 from ansible.module_utils._text import to_native
-
-
-class AnsibleModuleError(Exception):
-    def __init__(self, results):
-        self.results = results
-
-    def __repr__(self):
-        print('AnsibleModuleError(results={0})'.format(self.results))
-
-
-# TODO: Once 2.8.0 is released, bump min support and switch to:
-# from ansible.module_utils.common.dict_transformations import recursive_diff
-# https://github.com/ansible/ansible/blob/3b08e75eb2336950e0d1a617fa89ff9afb43bc72/lib/ansible/module_utils/common/dict_transformations.py#L126-L141
-def recursive_diff(dict1, dict2):
-    left = dict((k, v) for (k, v) in dict1.items() if k not in dict2)
-    right = dict((k, v) for (k, v) in dict2.items() if k not in dict1)
-    for k in (set(dict1.keys()) & set(dict2.keys())):
-        if isinstance(dict1[k], dict) and isinstance(dict2[k], dict):
-            result = recursive_diff(dict1[k], dict2[k])
-            if result:
-                left[k] = result[0]
-                right[k] = result[1]
-        elif dict1[k] != dict2[k]:
-            left[k] = dict1[k]
-            right[k] = dict2[k]
-    if left or right:
-        return left, right
-    else:
-        return None
-
-
-class SensuGo(AnsibleModule):
-    def __init__(self, argument_spec, attributes, **kwargs):
-        self.headers = {"Content-Type": "application/json"}
-        # List of attributes from the upstream specification
-        self.attributes = attributes
-        # TODO: Why do I need these?
-        self._remote_tmp = "bar"
-        self._keep_remote_files = False
-
-        args = dict(
-            name=dict(type='str', required=True),
-            host=dict(
-                type='str',
-                required=True,
-                fallback=(env_fallback, ['ANSIBLE_SENSU_GO_HOST'])
-            ),
-            port=dict(
-                type='int',
-                default=8080,
-                fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PORT'])
-            ),
-            protocol=dict(
-                type='str',
-                default='http',
-                choices=['http', 'https'],
-                fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PROTOCOL'])
-            ),
-            url_username=dict(
-                type='str',
-                default='admin',
-                aliases=['username'],
-                fallback=(env_fallback, ['ANSIBLE_SENSU_GO_USERNAME'])
-            ),
-            url_password=dict(
-                type='str',
-                default='P@ssword!',
-                no_log=True,
-                aliases=['password'],
-                fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PASSWORD'])
-            ),
-            namespace=dict(type='str', default='default'),
-        )
-        argument_spec.update(args)
-        super(SensuGo, self).__init__(argument_spec=argument_spec, **kwargs)
-
-    def get_base_url(self):
-        return '%s://%s:%s' % (
-            self.params.get('protocol'),
-            self.params.get('host'),
-            self.params.get('port')
-        )
-
-    def request(self, url, method="GET", data=None):
-        if data:
-            data = self.jsonify(data)
-        try:
-            resp, info = fetch_url(
-                module=self,
-                url=url,
-                method=method,
-                data=data,
-                headers=self.headers
-            )
-        except Exception as e:
-            raise AnsibleModuleError(results={'msg': 'Failed request to {0}'.format(url), 'exception': to_native(e)})
-        # TODO: What error codes should we handle here?
-        if info['status'] == -1:
-            self.fail_json(msg='Request to {0} failed with: {1} {2}'.format(
-                url,
-                info['status'],
-                info['msg']
-            ))
-        if info['status'] >= 500 or info['status'] == 401:
-            self.fail_json(msg='Request to {0} failed with: {1} {2}'.format(
-                url,
-                info['status'],
-                info['body'].strip()),
-                status=info['status'],
-                url=url,
-                method=method,
-                data=json.loads(data)
-            )
-        response = None
-        if resp:
-            response = resp.read()
-            if response:
-                try:
-                    response = json.loads(response)
-                except Exception as e:
-                    raise AnsibleModuleError(results={'msg': 'Failed to parse response as JSON: {0}'.format(response), 'exception': to_native(e)})
-        return response, info
-
-    def auth(self):
-        # Force basic auth to get access_token
-        self.params['force_basic_auth'] = True
-        url = '%s/auth' % self.get_base_url()
-        response, info = self.request(url)
-        self.headers.update({'Authorization': 'Bearer ' + response['access_token']})
-        # Remove the following to prevent any basic auth from happening via fetch_url
-        self.params.pop('url_username', None)
-        self.params.pop('username', None)
-        self.params.pop('url_password', None)
-        self.params.pop('password', None)
-        self.params.pop('force_basic_auth', None)
-
-    def get_checks(self):
-        url = '{0}/api/core/v2/namespaces/{1}/checks'.format(
-            self.get_base_url(),
-            self.params['namespace']
-        )
-        resp, info = self.request(url)
-        return resp, info
-
-    def get_check(self):
-        url = '{0}/api/core/v2/namespaces/{1}/checks/{2}'.format(
-            self.get_base_url(),
-            self.params['namespace'],
-            self.params['name'])
-        resp, info = self.request(url)
-        return resp, info
-
-    def create_check_definition(self):
-        check = {}
-        for attribute in self.attributes:
-            check[attribute] = self.params[attribute]
-        # Every check definition must include the following:
-        check['metadata'] = {
-            'namespace': self.params['namespace'],
-            'name': self.params['name']
-        }
-        return check
-
-    def put_check(self, check):
-        url = '{0}/api/core/v2/namespaces/{1}/checks/{2}'.format(
-            self.get_base_url(),
-            self.params['namespace'],
-            self.params['name'])
-        resp, info = self.request(url, method='PUT', data=check)
-        return resp, info
-
-    def post_check(self, check):
-        url = '{0}/api/core/v2/namespaces/{1}/checks'.format(
-            self.get_base_url(),
-            self.params['namespace'])
-        resp, info = self.request(url, method='POST', data=check)
-        return resp, info
-
-    def delete_check(self):
-        url = '{0}/api/core/v2/namespaces/{1}/checks/{2}'.format(
-            self.get_base_url(),
-            self.params['namespace'],
-            self.params['name'])
-        resp, info = self.request(url, method='DELETE')
-        return resp, info
+from ansible.module_utils.sensu_go import SensuGo, recursive_diff
 
 
 def run_module():
-    # define available arguments/parameters a user can pass to the module
-    module_args = url_argument_spec()
-    # Sensu Go doesn't support client cert/key auth to the API nor will it let
-    # basic auth work outside of the initial auth flow, disable them.
-    for argument in ['client_cert', 'client_key', 'force_basic_auth', 'force']:
-        del module_args[argument]
-    module_args.update(dict(state=dict(type='str', default='present', choices=['present', 'absent'])))
+    module_args = dict(state=dict(type='str', default='present', choices=['present', 'absent']))
     sensu_go_check_spec = dict(
         check_hooks=dict(type='list', elements='str'),
         command=dict(type='str'),
@@ -507,13 +317,14 @@ def run_module():
     module = SensuGo(
         argument_spec=module_args,
         attributes=sorted(sensu_go_check_spec.keys()),
+        resource='checks',
         supports_check_mode=True,
         required_if=required_if,
         mutually_exclusive=mutually_exclusive
     )
     module.auth()
     if module.params['state'] == 'present':
-        response, info = module.get_check()
+        response, info = module.get_resource()
         check_def = module.create_check_definition()
         result['check_definition'] = check_def
         if info['status'] == 404:
@@ -521,7 +332,7 @@ def run_module():
                 result['message'] = 'Would have created new Sensu Go check: {0}'.format(module.params['name'])
                 result['changed'] = True
             else:
-                module.post_check(check_def)
+                module.post_resource(check_def)
                 result['changed'] = True
                 result['message'] = 'Created new Sensu Go check: {0}'.format(module.params['name'])
         elif info['status'] == 200:
@@ -545,13 +356,13 @@ def run_module():
                     result['message'] = 'Would have updated Sensu Go check: {0}'.format(module.params['name'])
                     result['changed'] = True
                 else:
-                    response, info = module.put_check(check_def)
+                    response, info = module.put_resource(check_def)
                     result['message'] = 'Updated existing Sensu Go check: {0}'.format(module.params['name'])
                     result['changed'] = True
             else:
                 result['message'] = 'Sensu Go check already exists and doesn\'t need to be updated: {0}'.format(module.params['name'])
     elif module.params['state'] == 'absent':
-        response, info = module.get_check()
+        response, info = module.get_resource()
         if info['status'] == 404:
             result['message'] = 'Sensu Go check does not exist: {0}'.format(module.params['name'])
         elif info['status'] == 200:
@@ -559,7 +370,7 @@ def run_module():
                 result['message'] = 'Would have deleted Sensu Go check: {0}'.format(module.params['name'])
                 result['changed'] = True
             else:
-                reponse, info = module.delete_check()
+                reponse, info = module.delete_resource()
                 result['message'] = 'Deleted Sensu Go check: {0}'.format(module.params['name'])
                 result['changed'] = True
     module.exit_json(**result)
