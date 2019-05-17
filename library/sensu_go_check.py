@@ -251,7 +251,7 @@ diff:
 
 import json
 
-from ansible.module_utils.basic import AnsibleModule
+from ansible.module_utils.basic import AnsibleModule, env_fallback
 from ansible.module_utils.urls import fetch_url, url_argument_spec
 from ansible.module_utils._text import to_native
 
@@ -296,11 +296,35 @@ class SensuGo(AnsibleModule):
 
         args = dict(
             name=dict(type='str', required=True),
-            host=dict(type='str', required=True),
-            port=dict(type='int', default=8080),
-            protocol=dict(type='str', default='http', choices=['http', 'https']),
-            url_username=dict(type='str', default='admin', aliases=['username']),
-            url_password=dict(type='str', default='P@ssword!', no_log=True, aliases=['password']),
+            host=dict(
+                type='str',
+                required=True,
+                fallback=(env_fallback, ['ANSIBLE_SENSU_GO_HOST'])
+            ),
+            port=dict(
+                type='int',
+                default=8080,
+                fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PORT'])
+            ),
+            protocol=dict(
+                type='str',
+                default='http',
+                choices=['http', 'https'],
+                fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PROTOCOL'])
+            ),
+            url_username=dict(
+                type='str',
+                default='admin',
+                aliases=['username'],
+                fallback=(env_fallback, ['ANSIBLE_SENSU_GO_USERNAME'])
+            ),
+            url_password=dict(
+                type='str',
+                default='P@ssword!',
+                no_log=True,
+                aliases=['password'],
+                fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PASSWORD'])
+            ),
             namespace=dict(type='str', default='default'),
         )
         argument_spec.update(args)
