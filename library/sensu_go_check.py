@@ -254,12 +254,14 @@ from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.urls import fetch_url, url_argument_spec
 from ansible.module_utils._text import to_native
 
+
 class AnsibleModuleError(Exception):
     def __init__(self, results):
         self.results = results
 
     def __repr__(self):
         print('AnsibleModuleError(results={0})'.format(self.results))
+
 
 # TODO: Once 2.8.0 is released, bump min support and switch to:
 # from ansible.module_utils.common.dict_transformations import recursive_diff
@@ -280,6 +282,7 @@ def recursive_diff(dict1, dict2):
         return left, right
     else:
         return None
+
 
 class SensuGo(AnsibleModule):
     def __init__(self, argument_spec, attributes, **kwargs):
