@@ -508,16 +508,15 @@ def run_module():
                         check_def.pop(attribute)
             difference = recursive_diff(response, check_def)
             if difference:
-                result['before'] = difference[0]
-                result['after'] = difference[1]
+                result['diff'] = {'before': '', 'after': ''}
+                result['diff']['before'] = difference[0]
+                result['diff']['after'] = difference[1]
                 if module.check_mode:
                     result['message'] = 'Would have updated Sensu Go check: {0}'.format(module.params['name'])
-                    result['diff'] = difference
                     result['changed'] = True
                 else:
                     response, info = module.put_check(check_def)
                     result['message'] = 'Updated existing Sensu Go check: {0}'.format(module.params['name'])
-                    result['diff'] = difference
                     result['changed'] = True
             else:
                 result['message'] = 'Sensu Go check already exists and doesn\'t need to be updated: {0}'.format(module.params['name'])
