@@ -327,6 +327,12 @@ class SensuGo(AnsibleModule):
         except Exception as e:
             raise AnsibleModuleError(results={'msg': 'Failed request to {0}'.format(url), 'exception': to_native(e)})
         # TODO: What error codes should we handle here?
+        if info['status'] == -1:
+            self.fail_json(msg='Request to {0} failed with: {1} {2}'.format(
+                url,
+                info['status'],
+                info['msg']
+            ))
         if info['status'] >= 500 or info['status'] == 401:
             self.fail_json(msg='Request to {0} failed with: {1} {2}'.format(
                 url,
