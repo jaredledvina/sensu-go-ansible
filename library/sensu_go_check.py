@@ -80,6 +80,7 @@ options:
     type: str
   output_metric_format:
     choices:
+      - ''
       - nagios_perfdata
       - graphite_plaintext
       - influxdb_line
@@ -217,7 +218,7 @@ EXAMPLES = r'''
 RETURN = r'''
 message:
     description: Humanized description of the changes performed
-    type: string
+    type: str
     returned: always
     sample: Updated existing Sensu Go check check_example
 check_definition:
@@ -239,7 +240,7 @@ check_definition:
 diff:
     description: A dict before & after, with the attributes and vaules changed.
     returned: When a check has been modified
-    type: dictionary
+    type: dict
     sample: |
         "diff": {
             "after": {"interval": 120}
@@ -415,7 +416,7 @@ def run_module():
     module_args = url_argument_spec()
     # Sensu Go doesn't support client cert/key auth to the API nor will it let
     # basic auth work outside of the initial auth flow, disable them.
-    for argument in ['client_cert', 'client_key', 'force_basic_auth']:
+    for argument in ['client_cert', 'client_key', 'force_basic_auth', 'force']:
         del module_args[argument]
     module_args.update(dict(state=dict(type='str', default='present', choices=['present', 'absent'])))
     sensu_go_check_spec = dict(
