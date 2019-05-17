@@ -493,8 +493,10 @@ def run_module():
         ttl=dict(type='int', default=0),
     )
     module_args.update(sensu_go_check_spec)
-    required_if = [('state', 'present', ['command', 'subscriptions'])]
-    required_one_of = [['interval', 'cron']]
+    required_if = [
+        ('state', 'present', ['command', 'subscriptions']),
+        ('state', 'present', ['interval', 'cron'], True)
+    ]
     mutually_exclusive = [['interval', 'cron']]
 
     result = dict(
