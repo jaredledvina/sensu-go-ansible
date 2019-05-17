@@ -80,6 +80,7 @@ options:
     type: str
   output_metric_format:
     choices:
+      - ''
       - nagios_perfdata
       - graphite_plaintext
       - influxdb_line
@@ -148,6 +149,12 @@ options:
       - "If the Sensu agent writes JSON serialized Sensu entity and check data to the command process STDIN."
       - "The command must expect the JSON data via STDIN, read it, and close STDIN."
     type: bool
+  subdue:
+    description:
+      - "Check subdues are not yet implemented in Sensu Go."
+      - "Although the subdue attribute appears in check definitions by default, it is a placeholder and should not be modified."
+      - "It is included here for future compatibility."
+    type: bool
   subscriptions:
     description:
       - "An array of Sensu entity subscriptions that check requests will be sent to."
@@ -211,7 +218,7 @@ EXAMPLES = r'''
 RETURN = r'''
 message:
     description: Humanized description of the changes performed
-    type: string
+    type: str
     returned: always
     sample: Updated existing Sensu Go check check_example
 check_definition:
@@ -233,7 +240,7 @@ check_definition:
 diff:
     description: A dict before & after, with the attributes and vaules changed.
     returned: When a check has been modified
-    type: dictionary
+    type: dict
     sample: |
         "diff": {
             "after": {"interval": 120}
@@ -257,6 +264,27 @@ class AnsibleModuleError(Exception):
         print('AnsibleModuleError(results={0})'.format(self.results))
 
 
+# TODO: Once 2.8.0 is released, bump min support and switch to:
+# from ansible.module_utils.common.dict_transformations import recursive_diff
+# https://github.com/ansible/ansible/blob/3b08e75eb2336950e0d1a617fa89ff9afb43bc72/lib/ansible/module_utils/common/dict_transformations.py#L126-L141
+def recursive_diff(dict1, dict2):
+    left = dict((k, v) for (k, v) in dict1.items() if k not in dict2)
+    right = dict((k, v) for (k, v) in dict2.items() if k not in dict1)
+    for k in (set(dict1.keys()) & set(dict2.keys())):
+        if isinstance(dict1[k], dict) and isinstance(dict2[k], dict):
+            result = recursive_diff(dict1[k], dict2[k])
+            if result:
+                left[k] = result[0]
+                right[k] = result[1]
+        elif dict1[k] != dict2[k]:
+            left[k] = dict1[k]
+            right[k] = dict2[k]
+    if left or right:
+        return left, right
+    else:
+        return None
+
+
 class SensuGo(AnsibleModule):
     def __init__(self, argument_spec, attributes, **kwargs):
         self.headers = {"Content-Type": "application/json"}
@@ -274,7 +302,6 @@ class SensuGo(AnsibleModule):
             url_username=dict(type='str', default='admin', aliases=['username']),
             url_password=dict(type='str', default='P@ssword!', no_log=True, aliases=['password']),
             namespace=dict(type='str', default='default'),
-            force_basic_auth=dict(default=True)
         )
         argument_spec.update(args)
         super(SensuGo, self).__init__(argument_spec=argument_spec, **kwargs)
@@ -304,7 +331,11 @@ class SensuGo(AnsibleModule):
             self.fail_json(msg='Request to {0} failed with: {1} {2}'.format(
                 url,
                 info['status'],
-                info['body'].strip())
+                info['body'].strip()),
+                status=info['status'],
+                url=url,
+                method=method,
+                data=json.loads(data)
             )
         response = None
         if resp:
@@ -317,6 +348,8 @@ class SensuGo(AnsibleModule):
         return response, info
 
     def auth(self):
+        # Force basic auth to get access_token
+        self.params['force_basic_auth'] = True
         url = '%s/auth' % self.get_base_url()
         response, info = self.request(url)
         self.headers.update({'Authorization': 'Bearer ' + response['access_token']})
@@ -343,31 +376,15 @@ class SensuGo(AnsibleModule):
         resp, info = self.request(url)
         return resp, info
 
-    def compare_check(self, check):
-        differences = {'after': {}, 'before': {}}
-        for attribute in self.attributes:
-            if self.params[attribute] is not None:
-                # https://github.com/sensu/sensu-go/issues/2943
-                # Some settings might be configured but not returned.
-                # Special case them here for now...
-                if attribute in check:
-                    # TODO: Does this recursively verify? Do we need to?
-                    if self.params[attribute] != check[attribute]:
-                        differences['after'].update({attribute: self.params[attribute]})
-                        differences['before'].update({attribute: check[attribute]})
-                else:
-                    differences['after'].update({attribute: self.params[attribute]})
-                    differences['before'].update({attribute: None})
-        return differences
-
     def create_check_definition(self):
-        check = {'metadata': {}}
-        # Every check definition must include the following:
-        check['metadata']['namespace'] = self.params['namespace']
-        check['metadata']['name'] = self.params['name']
+        check = {}
         for attribute in self.attributes:
-            if self.params[attribute] is not None:
-                check[attribute] = self.params[attribute]
+            check[attribute] = self.params[attribute]
+        # Every check definition must include the following:
+        check['metadata'] = {
+            'namespace': self.params['namespace'],
+            'name': self.params['name']
+        }
         return check
 
     def put_check(self, check):
@@ -399,29 +416,46 @@ def run_module():
     module_args = url_argument_spec()
     # Sensu Go doesn't support client cert/key auth to the API nor will it let
     # basic auth work outside of the initial auth flow, disable them.
-    for argument in ['client_cert', 'client_key', 'force_basic_auth']:
+    for argument in ['client_cert', 'client_key', 'force_basic_auth', 'force']:
         del module_args[argument]
     module_args.update(dict(state=dict(type='str', default='present', choices=['present', 'absent'])))
     sensu_go_check_spec = dict(
-        command=dict(type='str'),
-        subscriptions=dict(type='list', elements='str'),
-        handlers=dict(type='list', elements='str'),
-        interval=dict(type='int'),
-        cron=dict(type='str'),
-        publish=dict(type='bool', default=True),
-        timeout=dict(type='int'),
-        ttl=dict(type='int'),
-        stdin=dict(type='bool'),
-        low_flap_threshold=dict(type='int'),
-        high_flap_threshold=dict(type='int'),
-        runtime_assets=dict(type='list', elements='str'),
         check_hooks=dict(type='list', elements='str'),
-        proxy_entity_name=dict(type='str'),
-        proxy_requests=dict(type='dict'),
+        command=dict(type='str'),
+        cron=dict(type='str'),
         env_vars=dict(type='list', elements='str'),
-        output_metric_format=dict(type='str', choices=['nagios_perfdata', 'graphite_plaintext', 'influxdb_line', 'opentsdb_line']),
+        handlers=dict(type='list', elements='str', default=[]),
+        high_flap_threshold=dict(type='int', default=0),
+        interval=dict(type='int'),
+        low_flap_threshold=dict(type='int', default=0),
+        metadata=dict(
+            type='dict',
+            elements='dict',
+            options=dict(
+                annotations=dict(type='dict', elements='str'),
+                labels=dict(type='dict', elements='str')
+            )
+        ),
+        output_metric_format=dict(type='str', default='', choices=['', 'nagios_perfdata', 'graphite_plaintext', 'influxdb_line', 'opentsdb_line']),
         output_metric_handlers=dict(type='list', elements='str'),
-        round_robin=dict(type='bool')
+        proxy_entity_name=dict(type='str', default=''),
+        proxy_requests=dict(
+            type='dict',
+            elements='dict',
+            options=dict(
+                entity_attributes=dict(type='list', elements='tr'),
+                splay=dict(type='bool', default=False),
+                splay_coverage=dict(type='int')
+            )
+        ),
+        publish=dict(type='bool', default=True),
+        round_robin=dict(type='bool', default=False),
+        runtime_assets=dict(type='list', elements='str'),
+        stdin=dict(type='bool', default=False),
+        subdue=dict(type='bool'),
+        subscriptions=dict(type='list', elements='str', default=[]),
+        timeout=dict(type='int', default=0),
+        ttl=dict(type='int', default=0),
     )
     module_args.update(sensu_go_check_spec)
     required_if = [('state', 'present', ['command', 'subscriptions'])]
@@ -449,17 +483,31 @@ def run_module():
         if info['status'] == 404:
             if module.check_mode:
                 result['message'] = 'Would have created new Sensu Go check: {0}'.format(module.params['name'])
+                result['changed'] = True
             else:
                 module.post_check(check_def)
                 result['changed'] = True
                 result['message'] = 'Created new Sensu Go check: {0}'.format(module.params['name'])
         elif info['status'] == 200:
-            difference = module.compare_check(response)
-            # Check if we've populated any changes
-            if difference['after'] or difference['before']:
+            for attribute in check_def.keys():
+                # We've configured the default value for the module
+                if check_def[attribute] is None:
+                    # The API hasn't returned this attribute
+                    if attribute not in response:
+                        # TODO: This logic is shitty, figure out a way to drop it
+                        # Remove it, this prevents diffs from showing attributes
+                        # that the module has but, that the checks api doesn't
+                        # return unless set. Currently, that's interval/cron
+                        # (depending on which is set in the check), and proxy_requests.
+                        check_def.pop(attribute)
+            difference = recursive_diff(response, check_def)
+            if difference:
+                result['before'] = difference[0]
+                result['after'] = difference[1]
                 if module.check_mode:
                     result['message'] = 'Would have updated Sensu Go check: {0}'.format(module.params['name'])
                     result['diff'] = difference
+                    result['changed'] = True
                 else:
                     response, info = module.put_check(check_def)
                     result['message'] = 'Updated existing Sensu Go check: {0}'.format(module.params['name'])
@@ -474,6 +522,7 @@ def run_module():
         elif info['status'] == 200:
             if module.check_mode:
                 result['message'] = 'Would have deleted Sensu Go check: {0}'.format(module.params['name'])
+                result['changed'] = True
             else:
                 reponse, info = module.delete_check()
                 result['message'] = 'Deleted Sensu Go check: {0}'.format(module.params['name'])
