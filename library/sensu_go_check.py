@@ -277,8 +277,8 @@ def run_module():
             type='dict',
             elements='dict',
             options=dict(
-                annotations=dict(type='dict', elements='str'),
-                labels=dict(type='dict', elements='str')
+                annotations=dict(type='dict', elements='dict'),
+                labels=dict(type='dict', elements='dict')
             )
         ),
         output_metric_format=dict(type='str', default='', choices=['', 'nagios_perfdata', 'graphite_plaintext', 'influxdb_line', 'opentsdb_line']),
@@ -336,17 +336,16 @@ def run_module():
                 result['changed'] = True
                 result['message'] = 'Created new Sensu Go check: {0}'.format(module.params['name'])
         elif info['status'] == 200:
+            # TODO: This logic is shitty, figure out a way to drop it
             for attribute in check_def.keys():
-                # We've configured the default value for the module
-                if check_def[attribute] is None:
-                    # The API hasn't returned this attribute
-                    if attribute not in response:
-                        # TODO: This logic is shitty, figure out a way to drop it
-                        # Remove it, this prevents diffs from showing attributes
-                        # that the module has but, that the checks api doesn't
-                        # return unless set. Currently, that's interval/cron
-                        # (depending on which is set in the check), and proxy_requests.
-                        check_def.pop(attribute)
+                # We've configured the default value for the module and
+                # The API hasn't returned this attribute
+                if check_def[attribute] is None and attribute not in response:
+                    # Remove it, this prevents diffs from showing attributes
+                    # that the module has but, that the checks api doesn't
+                    # return unless set. Currently, that's interval/cron
+                    # (depending on which is set in the check), and proxy_requests.
+                    check_def.pop(attribute)
             difference = recursive_diff(response, check_def)
             if difference:
                 result['diff'] = {'before': '', 'after': ''}

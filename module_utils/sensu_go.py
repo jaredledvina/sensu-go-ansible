@@ -198,4 +198,9 @@ class SensuGo(AnsibleModule):
             'namespace': self.params['namespace'],
             'name': self.params['name']
         }
+        if self.params['metadata']:
+            if self.params['metadata']['annotations']:
+                check['metadata']['annotations'] = self.params['metadata']['annotations']
+            if self.params['metadata']['labels']:
+                check['metadata']['labels'] = self.params['metadata']['labels']
         return check
