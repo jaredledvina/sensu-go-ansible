@@ -67,17 +67,17 @@ class SensuGo(AnsibleModule):
                 choices=['http', 'https'],
                 fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PROTOCOL'])
             ),
-            url_username=dict(
+            username=dict(
                 type='str',
                 default='admin',
-                aliases=['username'],
+                aliases=['url_username'],
                 fallback=(env_fallback, ['ANSIBLE_SENSU_GO_USERNAME'])
             ),
-            url_password=dict(
+            password=dict(
                 type='str',
                 default='P@ssword!',
                 no_log=True,
-                aliases=['password'],
+                aliases=['url_password'],
                 fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PASSWORD'])
             ),
             namespace=dict(type='str', default='default'),
