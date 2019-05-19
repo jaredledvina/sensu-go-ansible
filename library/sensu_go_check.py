@@ -207,7 +207,7 @@ options:
     type: bool
     default: true
     description:
-      - "Configures whether or now Ansible to validate the Sensu server SSL/TLS certs"
+      - "Configures whether or not Ansible to validate the Sensu server SSL/TLS certs"
 '''
 
 EXAMPLES = r'''
