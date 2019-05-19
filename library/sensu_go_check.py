@@ -375,7 +375,7 @@ def run_module():
                     # (depending on which is set in the check), and proxy_requests.
                     check_def.pop(attribute)
             if response != check_def:
-                result['diff'] = {'before': '', 'after': ''}
+                result['diff'] = {}
                 result['diff']['before'] = response
                 result['diff']['after'] = check_def
                 if module.check_mode:
