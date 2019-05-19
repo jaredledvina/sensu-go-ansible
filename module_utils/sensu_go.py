@@ -74,6 +74,7 @@ class SensuGo(AnsibleModule):
                 fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PASSWORD'])
             ),
             namespace=dict(type='str', default='default'),
+            validate_certs=dict(type='bool', default=True),
         )
         argument_spec.update(args)
         super(SensuGo, self).__init__(argument_spec=argument_spec, **kwargs)
