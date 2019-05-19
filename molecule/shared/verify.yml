@@ -94,4 +94,4 @@
     - name: Execute all custom module test plays
       include_tasks: "{{ item }}"
       with_fileglob:
-        - "{{ playbook_dir }}/modules/*/main.yml"
+        - "{{ playbook_dir }}/modules/*.yml"

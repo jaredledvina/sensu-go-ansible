@@ -1,27 +1,27 @@
 ---
-- name: restart sensu-backend
+- name: Restart sensu-backend
   service:
     name: sensu-backend
     state: restarted
-  notify: wait for sensu-backend to accept connections
+  notify: Wait for sensu-backend to accept connections
   when: sensu_go_final_services.backend.state != 'stopped'
 
-- name: wait for sensu-backend to accept connections
+- name: Wait for sensu-backend to accept connections
   wait_for:
     port: 8081
     connect_timeout: 1
 
-- name: restart sensu-agent
+- name: Restart sensu-agent
   service:
     name: sensu-agent
     state: restarted
   when: sensu_go_final_services.agent.state != 'stopped'
 
-- name: update apt cache
+- name: Update apt cache
   apt:
     update_cache: true
 
-- name: yum-clean-metadata
+- name: Clean yum metadata
   command: yum clean metadata
   args:
     warn: no

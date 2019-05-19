@@ -14,7 +14,7 @@
     repo: "{{ sensu_go_final_community_repos[ansible_pkg_mgr]['deb'] }}"
     update_cache: false
   when: sensu_go_final_community_repos[ansible_pkg_mgr]['deb'] is defined
-  notify: update apt cache
+  notify: Update apt cache
 
 - name: Configure Sensu Go Community apt source repos
   apt_repository:
@@ -22,4 +22,4 @@
     repo: "{{ sensu_go_final_community_repos[ansible_pkg_mgr]['deb-src'] }}"
     update_cache: false
   when: sensu_go_final_community_repos[ansible_pkg_mgr]['deb-src'] is defined
-  notify: update apt cache
+  notify: Update apt cache
