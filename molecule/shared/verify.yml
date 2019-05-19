@@ -90,3 +90,8 @@
         msg: "Inspec failed to validate"
       when: item.rc != 0
       with_items: "{{ test_results.results }}"
+
+    - name: Execute all custom module test plays
+      include_tasks: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/modules/*/main.yml"

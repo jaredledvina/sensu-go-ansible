@@ -14,27 +14,6 @@ from ansible.module_utils.urls import fetch_url, url_argument_spec
 from ansible.module_utils._text import to_native
 
 
-# TODO: Once 2.8.0 is released, bump min support and switch to:
-# from ansible.module_utils.common.dict_transformations import recursive_diff
-# https://github.com/ansible/ansible/blob/3b08e75eb2336950e0d1a617fa89ff9afb43bc72/lib/ansible/module_utils/common/dict_transformations.py#L126-L141
-def recursive_diff(dict1, dict2):
-    left = dict((k, v) for (k, v) in dict1.items() if k not in dict2)
-    right = dict((k, v) for (k, v) in dict2.items() if k not in dict1)
-    for k in (set(dict1.keys()) & set(dict2.keys())):
-        if isinstance(dict1[k], dict) and isinstance(dict2[k], dict):
-            result = recursive_diff(dict1[k], dict2[k])
-            if result:
-                left[k] = result[0]
-                right[k] = result[1]
-        elif dict1[k] != dict2[k]:
-            left[k] = dict1[k]
-            right[k] = dict2[k]
-    if left or right:
-        return left, right
-    else:
-        return None
-
-
 class SensuGo(AnsibleModule):
     def __init__(self, argument_spec, attributes, resource, **kwargs):
         self.headers = {"Content-Type": "application/json"}
@@ -74,6 +53,7 @@ class SensuGo(AnsibleModule):
                 fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PASSWORD'])
             ),
             namespace=dict(type='str', default='default'),
+            validate_certs=dict(type='bool', default=True),
         )
         argument_spec.update(args)
         super(SensuGo, self).__init__(argument_spec=argument_spec, **kwargs)

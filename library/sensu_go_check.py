@@ -22,6 +22,10 @@ description:
 version_added: "2.9"
 author:
   - "Jared Ledvina (@jaredledvina)"
+seealso:
+  - name: Sensu Check documentation
+    description: Upstream Sensu Check documentation which has more details around configuring checks.
+    link: https://docs.sensu.io/sensu-go/latest/reference/checks/
 options:
   check_hooks:
     description:
@@ -199,6 +203,11 @@ options:
       - "Username to use when initially authenticating to the Sensu Go API."
       - "Can be overriden with the environment variable C(ANSIBLE_SENSU_GO_USERNAME)"
     type: str
+  validate_certs:
+    type: bool
+    default: true
+    description:
+      - "Configures whether or not Ansible to validate the Sensu server SSL/TLS certs"
 '''
 
 EXAMPLES = r'''
@@ -259,7 +268,7 @@ diff:
          }
 '''
 
-from ansible.module_utils.sensu_go import SensuGo, recursive_diff
+from ansible.module_utils.sensu_go import SensuGo
 
 
 def run_module():
@@ -322,6 +331,25 @@ def run_module():
         required_if=required_if,
         mutually_exclusive=mutually_exclusive
     )
+    # Sensu Check specific validation
+    if module.params['metadata']:
+        if 'annotations' in module.params['metadata'] and  module.params['metadata']['annotations'] is not None:
+            #Map of key-value pairs. Keys and values can be any valid UTF-8 string.
+            for key in module.params['metadata']['annotations'].keys():
+                if not isinstance(key, str):
+                    module.fail_json(msg='Metadata annotations key {0} is not a string'.format(key))
+            for value in module.params['metadata']['annotations'].values():
+                if not isinstance(value, str):
+                    module.fail_json(msg='Metadata annotations value {0} is not a string'.format(value))
+        if 'labels' in module.params['metadata'] and module.params['metadata']['labels'] is not None:
+            # Keys can contain only letters, numbers, and underscores, but must start with a letter. Values can be any valid UTF-8 string.
+            for key in module.params['metadata']['labels'].keys():
+                # TODO: Actually validate that this is only letters, numbers and underscores starting with a letter.
+                if not isinstance(key, str):
+                    module.fail_json(msg='Metadata labels key {0} is not a string'.format(key))
+            for value in module.params['metadata']['labels'].values():
+                if not isinstance(value, str):
+                    module.fail_json(msg='Metadata labels value {0} is not a string'.format(value))
     module.auth()
     if module.params['state'] == 'present':
         response, info = module.get_resource()
@@ -346,9 +374,8 @@ def run_module():
                     # return unless set. Currently, that's interval/cron
                     # (depending on which is set in the check), and proxy_requests.
                     check_def.pop(attribute)
-            before, after = recursive_diff(response, check_def)
-            if before or after:
-                result['diff'] = {'before': '', 'after': ''}
+            if response != check_def:
+                result['diff'] = {}
                 result['diff']['before'] = response
                 result['diff']['after'] = check_def
                 if module.check_mode:
