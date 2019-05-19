@@ -199,6 +199,11 @@ options:
       - "Username to use when initially authenticating to the Sensu Go API."
       - "Can be overriden with the environment variable C(ANSIBLE_SENSU_GO_USERNAME)"
     type: str
+  validate_certs:
+    type: bool
+    default: true
+    description:
+      - "Configures whether or now Ansible to validate the Sensu server SSL/TLS certs"
 '''
 
 EXAMPLES = r'''
