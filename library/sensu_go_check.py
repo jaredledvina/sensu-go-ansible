@@ -22,6 +22,10 @@ description:
 version_added: "2.9"
 author:
   - "Jared Ledvina (@jaredledvina)"
+seealso:
+  - name: Sensu Check documentation
+    description: Upstream Sensu Check documentation which has more details around configuring checks.
+    link: https://docs.sensu.io/sensu-go/latest/reference/checks/
 options:
   check_hooks:
     description:
