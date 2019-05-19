@@ -37,9 +37,6 @@ def recursive_diff(dict1, dict2):
 
 class SensuGo(AnsibleModule):
     def __init__(self, argument_spec, attributes, resource, **kwargs):
-        # The following is required for testing outside of Ansible
-        self._remote_tmp='foobar'
-        self._keep_remote_files=True
         self.headers = {"Content-Type": "application/json"}
         # List of attributes from the upstream specification
         self.attributes = attributes
