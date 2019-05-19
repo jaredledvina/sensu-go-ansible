@@ -93,6 +93,27 @@ The following Operating Systems are automatically tested:
 - [Ubuntu - 16.04 (Xenial Xerus)](http://releases.ubuntu.com/16.04/)
 - [Ubuntu - 18.04 (Bionic Beaver)](http://releases.ubuntu.com/18.04/)
 
+
+Custom Modules
+--------------
+
+This role includes the following [custom modules](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#embedding-modules-and-plugins-in-roles):
+- [sensu-go-check](https://github.com/jaredledvina/sensu-go-ansible/blob/master/library/sensu_go_check.py)
+
+At this time, these modules are in [`preview`](https://docs.ansible.com/ansible/2.5/dev_guide/developing_modules_documenting.html#ansible-metadata-block)
+status and may be subject to breaking changes. However, effort will be 
+put in to attempt to not break the them, if possible. Please ensure you 
+review the [CHANGELOG](https://github.com/jaredledvina/sensu-go-ansible/blob/master/CHANGELOG.md) when upgrading.
+
+As described in the [upstream documentation](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html#embedding-modules-and-plugins-in-roles),
+to use the included custom modules, you must first include this role prior to 
+calling the modules. After this role has been included once, they will be 
+availble to subsequent plays/roles.
+
+Currently, documentation for each module is in the `DOCUMENTATION` block in 
+each modules source. Once the modules stabalized, they may be PR'ed upstream
+to the Ansible project.
+
 Caveats
 -------
 
