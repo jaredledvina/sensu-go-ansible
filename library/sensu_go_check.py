@@ -259,11 +259,6 @@ diff:
          }
 '''
 
-import json
-
-from ansible.module_utils.basic import AnsibleModule, env_fallback
-from ansible.module_utils.urls import fetch_url, url_argument_spec
-from ansible.module_utils._text import to_native
 from ansible.module_utils.sensu_go import SensuGo, recursive_diff
 
 
@@ -351,11 +346,11 @@ def run_module():
                     # return unless set. Currently, that's interval/cron
                     # (depending on which is set in the check), and proxy_requests.
                     check_def.pop(attribute)
-            difference = recursive_diff(response, check_def)
-            if difference:
+            before, after = recursive_diff(response, check_def)
+            if before or after:
                 result['diff'] = {'before': '', 'after': ''}
-                result['diff']['before'] = difference[0]
-                result['diff']['after'] = difference[1]
+                result['diff']['before'] = response
+                result['diff']['after'] = check_def
                 if module.check_mode:
                     result['message'] = 'Would have updated Sensu Go check: {0}'.format(module.params['name'])
                     result['changed'] = True

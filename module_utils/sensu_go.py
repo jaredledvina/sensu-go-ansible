@@ -13,13 +13,6 @@ from ansible.module_utils.basic import AnsibleModule, env_fallback
 from ansible.module_utils.urls import fetch_url, url_argument_spec
 from ansible.module_utils._text import to_native
 
-class AnsibleModuleError(Exception):
-    def __init__(self, results):
-        self.results = results
-
-    def __repr__(self):
-        print('AnsibleModuleError(results={0})'.format(self.results))
-
 
 # TODO: Once 2.8.0 is released, bump min support and switch to:
 # from ansible.module_utils.common.dict_transformations import recursive_diff
@@ -44,6 +37,9 @@ def recursive_diff(dict1, dict2):
 
 class SensuGo(AnsibleModule):
     def __init__(self, argument_spec, attributes, resource, **kwargs):
+        # The following is required for testing outside of Ansible
+        self._remote_tmp='foobar'
+        self._keep_remote_files=True
         self.headers = {"Content-Type": "application/json"}
         # List of attributes from the upstream specification
         self.attributes = attributes
@@ -67,17 +63,17 @@ class SensuGo(AnsibleModule):
                 choices=['http', 'https'],
                 fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PROTOCOL'])
             ),
-            username=dict(
+            url_username=dict(
                 type='str',
                 default='admin',
-                aliases=['url_username'],
+                aliases=['username'],
                 fallback=(env_fallback, ['ANSIBLE_SENSU_GO_USERNAME'])
             ),
-            password=dict(
+            url_password=dict(
                 type='str',
                 default='P@ssword!',
                 no_log=True,
-                aliases=['url_password'],
+                aliases=['password'],
                 fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PASSWORD'])
             ),
             namespace=dict(type='str', default='default'),
@@ -104,7 +100,10 @@ class SensuGo(AnsibleModule):
                 headers=self.headers
             )
         except Exception as e:
-            raise AnsibleModuleError(results={'msg': 'Failed request to {0}'.format(url), 'exception': to_native(e)})
+            self.fail_json(
+                msg='Failed request to {0}'.format(url),
+                exception=to_native(e)
+            )
         # TODO: What error codes should we handle here?
         if info['status'] == -1:
             self.fail_json(msg='Request to {0} failed with: {1} {2}'.format(
@@ -120,17 +119,22 @@ class SensuGo(AnsibleModule):
                 status=info['status'],
                 url=url,
                 method=method,
-                data=json.loads(data)
+                data=data
             )
-        response = None
-        if resp:
+        # 404 leave resp as Nonne
+        # 204 has a resp but it's ''
+        if resp and info['status'] != 204:
             response = resp.read()
-            if response:
-                try:
-                    response = json.loads(response)
-                except Exception as e:
-                    raise AnsibleModuleError(results={'msg': 'Failed to parse response as JSON: {0}'.format(response), 'exception': to_native(e)})
-        return response, info
+            try:
+                return json.loads(response), info
+            except Exception as e:
+                self.fail_json(
+                    msg='Failed to parse response as JSON: {0}'.format(info),
+                    response=response,
+                    exception=to_native(e)
+                )
+        else:
+            return resp, info
 
     def auth(self):
         # Force basic auth to get access_token
