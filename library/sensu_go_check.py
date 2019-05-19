@@ -15,11 +15,13 @@ ANSIBLE_METADATA = {
 
 DOCUMENTATION = r'''
 ---
-author:
-  - "Jared Ledvina (@jaredledvina)"
+module: sensu_go_check
+short_description: "Manage Sensu Go checks"
 description:
   - "Create/Delete Sensu Go checks"
-module: sensu_go_check
+version_added: "2.9"
+author:
+  - "Jared Ledvina (@jaredledvina)"
 options:
   check_hooks:
     description:
@@ -54,10 +56,6 @@ options:
       - "Required if environmental variable C(ANSIBLE_SENSU_GO_HOST) is not set."
     required: true
     type: str
-  http_agent:
-    default: ansible-httpget
-    description:
-      - "The user agent to configure when accessing the Sensu Go API."
   interval:
     description:
       - "How often the check is executed, in seconds."
@@ -67,6 +65,25 @@ options:
     description:
       - "The flap detection low threshold (% state change) for the check. Sensu uses the same flap detection algorithm as Nagios."
     type: int
+  metadata:
+    type: dict
+    description: Check metadata attributes.
+    suboptions:
+      annotations:
+        type: dict
+        description:
+          - "Non-identifying metadata to include with event data, which can be accessed using event filters."
+          - "You can use annotations to add data that's meaningful to people or external tools interacting with Sensu."
+          - "In contrast to labels, annotations cannot be used in API filtering or sensuctl filtering and do not impact Sensu's internal performance."
+          - "Map of key-value pairs. Keys and values can be any valid UTF-8 string."
+      labels:
+        type: dict
+        description:
+          - "Custom attributes to include with event data, which can be accessed using event filters."
+          - "In contrast to annotations, you can use labels to create meaningful collections that can be selected with API filtering and sensuctl filtering."
+          - "Overusing labels can impact Sensu's internal performance, so we recommend moving complex, non-identifying metadata to annotations."
+          - "Map of key-value pairs. Keys can contain only letters, numbers, and underscores, but must start with a letter."
+          - "Values can be any valid UTF-8 string."
   name:
     description:
       - "A unique string used to identify the check."
@@ -174,11 +191,6 @@ options:
       - "If an agent stops publishing results for the check, and the TTL expires, an event will be created for the agents entity."
       - "The check ttl must be greater than the check interval, and should accommodate time for the check execution and result processing to complete."
     type: int
-  use_proxy:
-    default: "yes"
-    description:
-      - "Configures Ansible to use or ignore an http_proxy."
-    type: bool
   username:
     aliases:
       - url_username
@@ -187,13 +199,6 @@ options:
       - "Username to use when initially authenticating to the Sensu Go API."
       - "Can be overriden with the environment variable C(ANSIBLE_SENSU_GO_USERNAME)"
     type: str
-  validate_certs:
-    default: "yes"
-    description:
-      - "Whether or not Ansible should validate Sensu Go's certs."
-    type: bool
-short_description: "Manage Sensu Go checks"
-version_added: "2.8"
 '''
 
 EXAMPLES = r'''
@@ -254,11 +259,6 @@ diff:
          }
 '''
 
-import json
-
-from ansible.module_utils.basic import AnsibleModule, env_fallback
-from ansible.module_utils.urls import fetch_url, url_argument_spec
-from ansible.module_utils._text import to_native
 from ansible.module_utils.sensu_go import SensuGo, recursive_diff
 
 
@@ -277,8 +277,8 @@ def run_module():
             type='dict',
             elements='dict',
             options=dict(
-                annotations=dict(type='dict', elements='str'),
-                labels=dict(type='dict', elements='str')
+                annotations=dict(type='dict', elements='dict'),
+                labels=dict(type='dict', elements='dict')
             )
         ),
         output_metric_format=dict(type='str', default='', choices=['', 'nagios_perfdata', 'graphite_plaintext', 'influxdb_line', 'opentsdb_line']),
@@ -336,22 +336,21 @@ def run_module():
                 result['changed'] = True
                 result['message'] = 'Created new Sensu Go check: {0}'.format(module.params['name'])
         elif info['status'] == 200:
+            # TODO: This logic is shitty, figure out a way to drop it
             for attribute in check_def.keys():
-                # We've configured the default value for the module
-                if check_def[attribute] is None:
-                    # The API hasn't returned this attribute
-                    if attribute not in response:
-                        # TODO: This logic is shitty, figure out a way to drop it
-                        # Remove it, this prevents diffs from showing attributes
-                        # that the module has but, that the checks api doesn't
-                        # return unless set. Currently, that's interval/cron
-                        # (depending on which is set in the check), and proxy_requests.
-                        check_def.pop(attribute)
-            difference = recursive_diff(response, check_def)
-            if difference:
+                # We've configured the default value for the module and
+                # The API hasn't returned this attribute
+                if check_def[attribute] is None and attribute not in response:
+                    # Remove it, this prevents diffs from showing attributes
+                    # that the module has but, that the checks api doesn't
+                    # return unless set. Currently, that's interval/cron
+                    # (depending on which is set in the check), and proxy_requests.
+                    check_def.pop(attribute)
+            before, after = recursive_diff(response, check_def)
+            if before or after:
                 result['diff'] = {'before': '', 'after': ''}
-                result['diff']['before'] = difference[0]
-                result['diff']['after'] = difference[1]
+                result['diff']['before'] = response
+                result['diff']['after'] = check_def
                 if module.check_mode:
                     result['message'] = 'Would have updated Sensu Go check: {0}'.format(module.params['name'])
                     result['changed'] = True
