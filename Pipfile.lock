@@ -327,7 +327,6 @@
                 "sha256:002f2315cf4c8404de737c42860441732d339bbc57fee584e2027520e055ecc1",
                 "sha256:82dd5e13b733787d4eb0fef42d1ee1a99136dc1d65178f70373b3678b3181bfc"
             ],
-            "index": "pypi",
             "version": "==0.13.2"
         },
         "asn1crypto": {
@@ -444,7 +443,7 @@
                 "sha256:8be81d89d6e7b4c0d4e44bcc525845f6da25821de80cb5e06e7e0238a2899e32",
                 "sha256:da60d0014fd8c55eb48c1c5354352e363e2d30bbf7057e5e171a468390184c75"
             ],
-            "markers": "python_version < '3.2'",
+            "markers": "python_version == '2.7'",
             "version": "==3.7.4"
         },
         "cookiecutter": {
@@ -497,10 +496,11 @@
         },
         "fasteners": {
             "hashes": [
-                "sha256:427c76773fe036ddfa41e57d89086ea03111bbac57c55fc55f3006d027107e18",
-                "sha256:564a115ff9698767df401efca29620cbb1a1c2146b7095ebd304b79cc5807a7c"
+                "sha256:007e4d2b2d4a10093f67e932e5166722d2eab83b77724156e92ad013c6226574",
+                "sha256:3a176da6b70df9bb88498e1a18a9e4a8579ed5b9141207762368a1017bf8f5ef"
             ],
-            "version": "==0.14.1"
+            "index": "pypi",
+            "version": "==0.15"
         },
         "flake8": {
             "hashes": [
