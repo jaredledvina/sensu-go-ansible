@@ -24,8 +24,8 @@ sensu_go_repos:
     sslverify: true
     metadata_expire: 300
     gpgkey: https://packagecloud.io/sensu/stable/gpgkey
-    rpm: https://packagecloud.io/sensu/stable/el/$releasever/$basearch
-    rpm-src: https://packagecloud.io/sensu/stable/el/$releasever/SRPMS
+    rpm: https://packagecloud.io/sensu/stable/el/{{ ansible_distribution_version | int }}/$basearch
+    rpm-src: https://packagecloud.io/sensu/stable/el/{{ ansible_distribution_version | int }}/SRPMS
   dnf:
     gpgcheck: false
     repo_gpgcheck: true
@@ -49,8 +49,8 @@ sensu_go_community_repos:
     sslverify: true
     metadata_expire: 300
     gpgkey: https://packagecloud.io/sensu/community/gpgkey
-    rpm: https://packagecloud.io/sensu/community/el/$releasever/$basearch
-    rpm-src: https://packagecloud.io/sensu/community/el/$releasever/SRPMS
+    rpm: https://packagecloud.io/sensu/community/el/{{ ansible_distribution_version | int }}/$basearch
+    rpm-src: https://packagecloud.io/sensu/community/el/{{ ansible_distribution_version | int }}/SRPMS
   dnf:
     gpgcheck: false
     repo_gpgcheck: true
