@@ -166,7 +166,7 @@
                 "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
                 "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
             ],
-            "markers": "python_version < '3.3'",
+            "markers": "python_version < '3'",
             "version": "==1.0.22"
         },
         "jinja2": {
@@ -321,10 +321,11 @@
         },
         "arrow": {
             "hashes": [
-                "sha256:399b47d46ef6d2befd647148f186c212f83730a607628b65373e9a8333818e31",
-                "sha256:f1837ac68cc954fd910b24c9f998172d1b430b0b255e875e9d190a16463e85e1"
+                "sha256:2d30837085011ef0b90ff75aa0a28f5c7d063e96b7e76b6cbc7e690310256685",
+                "sha256:e4c4157d9f5eb7f850ffdcedd0cc1454ff677881deee03434a5705dc19192042"
             ],
-            "version": "==0.14.0"
+            "index": "pypi",
+            "version": "==0.14.1"
         },
         "asn1crypto": {
             "hashes": [
@@ -559,7 +560,7 @@
                 "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
                 "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
             ],
-            "markers": "python_version < '3.3'",
+            "markers": "python_version < '3'",
             "version": "==1.0.22"
         },
         "jinja2": {
@@ -751,7 +752,6 @@
                 "sha256:8304c2f6466cf48f24631263d60320a1996668acfd659d8fa5e5e8f28129e1cd",
                 "sha256:b68d84c7c01073ddf2a918a7504ab73849d52483d9f1f15f3875487011d09f71"
             ],
-            "index": "pypi",
             "version": "==4.6.1"
         },
         "python-dateutil": {
