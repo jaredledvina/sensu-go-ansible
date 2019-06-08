@@ -119,7 +119,7 @@ options:
   password:
     aliases:
       - url_password
-    default: P@ssword!
+    default: P@ssw0rd!
     description:
       - "Password to use when initially authenticating to the Sensu Go API."
       - "Can be overriden with the environmental variable C(ANSIBLE_SENSU_GO_PASSWORD)"
@@ -284,10 +284,9 @@ def run_module():
         low_flap_threshold=dict(type='int', default=0),
         metadata=dict(
             type='dict',
-            elements='dict',
             options=dict(
-                annotations=dict(type='dict', elements='dict'),
-                labels=dict(type='dict', elements='dict')
+                annotations=dict(type='dict'),
+                labels=dict(type='dict')
             )
         ),
         output_metric_format=dict(type='str', default='', choices=['', 'nagios_perfdata', 'graphite_plaintext', 'influxdb_line', 'opentsdb_line']),
@@ -295,7 +294,6 @@ def run_module():
         proxy_entity_name=dict(type='str', default=''),
         proxy_requests=dict(
             type='dict',
-            elements='dict',
             options=dict(
                 entity_attributes=dict(type='list', elements='tr'),
                 splay=dict(type='bool', default=False),

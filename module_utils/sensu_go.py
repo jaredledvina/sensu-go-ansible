@@ -47,7 +47,7 @@ class SensuGo(AnsibleModule):
             ),
             url_password=dict(
                 type='str',
-                default='P@ssword!',
+                default='P@ssw0rd!',
                 no_log=True,
                 aliases=['password'],
                 fallback=(env_fallback, ['ANSIBLE_SENSU_GO_PASSWORD'])

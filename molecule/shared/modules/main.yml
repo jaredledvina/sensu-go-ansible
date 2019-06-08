@@ -1,16 +1,18 @@
 ---
-- name: Ensure http on https fails
+- name: Ensure https on http fails
   sensu_go_check:
     name: check_test
+    host: localhost
     state: present
     command: /bin/true
     interval: 120
-    protocol: http
-  register: http_on_https
-  failed_when: http_on_https is not failed
+    protocol: https
+  register: https_on_http
+  failed_when: https_on_http is not failed
 - name: Ensure agent port fails
   sensu_go_check:
     name: check_test
+    host: localhost
     state: present
     command: /bin/true
     interval: 120
@@ -30,6 +32,7 @@
 - name: Ensure bad password fails
   sensu_go_check:
     name: check_test
+    host: localhost
     state: present
     command: /bin/true
     interval: 120
@@ -39,6 +42,7 @@
 - name: Ensure nonexistant namespace fails
   sensu_go_check:
     name: check_test
+    host: localhost
     state: present
     command: /bin/true
     interval: 120
@@ -48,6 +52,7 @@
 - name: Ensure interval and cron fails
   sensu_go_check:
     name: check_test
+    host: localhost
     state: present
     command: /bin/true
     interval: 120
@@ -57,12 +62,14 @@
 - name: Ensure check_example is configured
   sensu_go_check:
     name: check_example
+    host: localhost
     command: /bin/true
     interval: 300
     subscriptions: all
 - name: Ensure check_example is already configured
   sensu_go_check:
     name: check_example
+    host: localhost
     command: /bin/true
     interval: 300
     subscriptions: all
@@ -71,6 +78,7 @@
 - name: Ensure check_example is changed
   sensu_go_check:
     name: check_example
+    host: localhost
     command: /bin/true
     interval: 120
     timeout: 120
@@ -82,10 +90,12 @@
 - name: Ensure check_example is absent
   sensu_go_check:
     name: check_example
+    host: localhost
     state: absent
 - name: Ensure check_example is already absent
   sensu_go_check:
     name: check_example
+    host: localhost
     state: absent
   register: check_example_is_already_absent
   failed_when: check_example_is_already_absent is changed
