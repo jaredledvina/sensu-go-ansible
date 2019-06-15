@@ -29,7 +29,7 @@
     group: "{{ sensu_go_final_configs[component]['file']['group'] | default(sensu_go_final_configs['DEFAULT']['group']) }}"
     mode: "{{ sensu_go_final_configs[component]['file']['mode'] | default(sensu_go_final_configs['DEFAULT']['file_mode']) }}"
   when: sensu_go_final_configs[component]['config'] is defined
-  notify: "restart sensu-{{ component }}"
+  notify: "Restart sensu-{{ component }}"
 
 - name: Cleanup example agent config
   file:

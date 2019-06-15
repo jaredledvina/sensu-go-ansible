@@ -19,4 +19,4 @@
   file:
     path: /etc/yum.repos.d/sensu_prerelease
     state: absent
-  notify: yum-clean-metadata
+  notify: Clean yum metadata

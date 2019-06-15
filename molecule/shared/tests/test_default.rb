@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Debian Specific Things
 if os.debian?
   describe package('curl') do

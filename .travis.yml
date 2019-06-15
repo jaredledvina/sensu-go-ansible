@@ -3,6 +3,9 @@ group: xenial
 language: python
 python: "2.7"
 env:
+  global:
+    - ANSIBLE_MODULE_UTILS=$TRAVIS_BUILD_DIR/module_utils
+  matrix:
   - SCENARIO=debian
   - SCENARIO=ubuntu
   - SCENARIO=centos

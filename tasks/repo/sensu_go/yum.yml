@@ -39,7 +39,7 @@
   file:
     path: /etc/yum.repos.d/sensu_prerelease
     state: absent
-  notify: yum-clean-metadata
+  notify: Clean yum metadata
 
 # HACK: https://github.com/ansible/ansible/issues/20711#issuecomment-306260869
 # Can be removed once we're running w/ a version of Ansible that has https://github.com/ansible/ansible/pull/35989

@@ -53,3 +53,5 @@ verifier:
   directory: ../shared/
   lint:
     name: rubocop
+  env:
+    ANSIBLE_LIBRARY: ../../library/
