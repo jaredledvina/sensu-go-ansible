@@ -179,7 +179,7 @@ class SensuGo(AnsibleModule):
             'namespace': self.params['namespace'],
             'name': self.params['name']
         }
-        metadata = self.params.get('metadata', {})
+        metadata = self.params.get('metadata', {}) or {}
         annotations = metadata.get('annotations', None)
         labels = metadata.get('labels', None)
 
