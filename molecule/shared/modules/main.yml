@@ -61,7 +61,7 @@
     state: present
     command: /bin/true
     interval: 120
-    cron: "* * * * * *"
+    cron: "* * * * *"
   register: interval_and_cron
   failed_when: interval_and_cron is not failed
 
@@ -82,6 +82,15 @@
     subscriptions: all
   register: check_example_already_configured
   failed_when: check_example_already_configured is changed
+
+- name: Ensure check_cron_example with bad cron syntax fails
+  sensu_go_check:
+    name: check_bad_cron_example
+    host: localhost
+    command: /bin/true
+    cron: "* * * * * * * * * *"
+  register: bad_check_cron_example
+  failed_when: bad_check_cron_example is not failed
 
 - name: Ensure check_cron_example is configured
   sensu_go_check:
