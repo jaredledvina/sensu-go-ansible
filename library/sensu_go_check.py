@@ -280,7 +280,7 @@ def run_module():
         env_vars=dict(type='list', elements='str'),
         handlers=dict(type='list', elements='str', default=[]),
         high_flap_threshold=dict(type='int', default=0),
-        interval=dict(type='int'),
+        interval=dict(type='int', default=0),
         low_flap_threshold=dict(type='int', default=0),
         metadata=dict(
             type='dict',
