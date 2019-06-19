@@ -88,14 +88,14 @@
     name: check_cron_example
     host: localhost
     command: /bin/true
-    cron: "* * * * * *"
+    cron: "* * * * *"
 
 - name: Ensure check_cron_example is already configured
   sensu_go_check:
     name: check_cron_example
     host: localhost
     command: /bin/true
-    cron: "* * * * * *"
+    cron: "* * * * *"
   register: check_cron_example
   failed_when: check_cron_example is changed
 
