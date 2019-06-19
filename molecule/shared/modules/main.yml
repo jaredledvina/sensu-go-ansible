@@ -9,6 +9,7 @@
     protocol: https
   register: https_on_http
   failed_when: https_on_http is not failed
+
 - name: Ensure agent port fails
   sensu_go_check:
     name: check_test
@@ -20,6 +21,7 @@
     validate_certs: False
   register: agent_port
   failed_when: agent_port is not failed
+
 - name: Ensure unknown host fails
   sensu_go_check:
     name: check_test
@@ -29,6 +31,7 @@
     host: what.is.this
   register: unknown_host
   failed_when: unknown_host is not failed
+
 - name: Ensure bad password fails
   sensu_go_check:
     name: check_test
@@ -39,6 +42,7 @@
     password: thisisnottherightpassword
   register: bad_password
   failed_when: bad_password is not failed
+
 - name: Ensure nonexistant namespace fails
   sensu_go_check:
     name: check_test
@@ -49,6 +53,7 @@
     namespace: thisdoesnotexist
   register: bad_namespace
   failed_when: bad_namespace is not failed
+
 - name: Ensure interval and cron fails
   sensu_go_check:
     name: check_test
@@ -56,9 +61,10 @@
     state: present
     command: /bin/true
     interval: 120
-    cron: "* * * * * *"
+    cron: "* * * * *"
   register: interval_and_cron
   failed_when: interval_and_cron is not failed
+
 - name: Ensure check_example is configured
   sensu_go_check:
     name: check_example
@@ -66,6 +72,7 @@
     command: /bin/true
     interval: 300
     subscriptions: all
+
 - name: Ensure check_example is already configured
   sensu_go_check:
     name: check_example
@@ -75,6 +82,32 @@
     subscriptions: all
   register: check_example_already_configured
   failed_when: check_example_already_configured is changed
+
+- name: Ensure check_cron_example with bad cron syntax fails
+  sensu_go_check:
+    name: check_bad_cron_example
+    host: localhost
+    command: /bin/true
+    cron: "* * * * * * * * * *"
+  register: bad_check_cron_example
+  failed_when: bad_check_cron_example is not failed
+
+- name: Ensure check_cron_example is configured
+  sensu_go_check:
+    name: check_cron_example
+    host: localhost
+    command: /bin/true
+    cron: "* * * * *"
+
+- name: Ensure check_cron_example is already configured
+  sensu_go_check:
+    name: check_cron_example
+    host: localhost
+    command: /bin/true
+    cron: "* * * * *"
+  register: check_cron_example
+  failed_when: check_cron_example is changed
+
 - name: Ensure check_example is changed
   sensu_go_check:
     name: check_example
@@ -87,11 +120,13 @@
         ansible_managed: "true"
     ttl: 300
     subscriptions: all
+
 - name: Ensure check_example is absent
   sensu_go_check:
     name: check_example
     host: localhost
     state: absent
+
 - name: Ensure check_example is already absent
   sensu_go_check:
     name: check_example

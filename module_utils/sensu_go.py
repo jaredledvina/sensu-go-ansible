@@ -88,7 +88,7 @@ class SensuGo(AnsibleModule):
                 info['status'],
                 info['msg']
             ))
-        if info['status'] >= 500 or info['status'] == 401:
+        if info['status'] >= 500 or info['status'] in [400, 401, 409]:
             self.fail_json(msg='Request to {0} failed with: {1} {2}'.format(
                 url,
                 info['status'],
