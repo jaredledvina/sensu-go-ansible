@@ -85,6 +85,7 @@ The following Operating Systems are automatically tested:
 - [CentOS - 7](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7)
 - [Debian - 8 (Jessie)](https://wiki.debian.org/DebianJessie)
 - [Debian - 9 (Stretch)](https://wiki.debian.org/DebianStretch)
+- [Debian - 10 (Buster)](https://wiki.debian.org/DebianBuster)
 - [Fedora - 28](https://docs.fedoraproject.org/en-US/fedora/f28/release-notes/)
 - [Fedora - 29](https://docs.fedoraproject.org/en-US/fedora/f29/release-notes/)
 - [Fedora - 30](https://docs.fedoraproject.org/en-US/fedora/f30/release-notes/)
