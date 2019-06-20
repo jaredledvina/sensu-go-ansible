@@ -14,7 +14,7 @@ idea.
 Requirements
 ------------
 
-* [Ansible 2.7](https://docs.ansible.com/ansible/2.7/installation_guide/intro_installation.html)
+* [Ansible 2.8](https://docs.ansible.com/ansible/2.8/installation_guide/intro_installation.html)
 
 Role Variables
 --------------
