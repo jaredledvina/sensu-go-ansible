@@ -144,7 +144,7 @@ sensu_go_community_repos_overrides:
     rpm-src: https://packagecloud.io/sensu/community/el/7/SRPMS
 ```
 
-If you are using this role with Debian 8 or 9 hosts, you must overide the 
+If you are using this role with Debian 8, 9, or 10 hosts, you must overide the 
 following variable:
 
 ```yaml
@@ -153,6 +153,18 @@ sensu_go_manage_community_repo: false
 
 This is due to Debian packages not being updated to the community repos 
 pending the resolution of https://github.com/sensu/sensu-plugins-omnibus/issues/3
+
+For Debian 10 hosts, you must also override the Sensu Go repo location to use
+the existing Debian Stretch packages pending the resolution of 
+https://github.com/sensu/sensu-go/issues/3071
+
+Debian 10:
+```yaml
+sensu_go_repos_overrides:
+  apt:
+    deb: deb https://packagecloud.io/sensu/stable/debian/ stretch main
+    deb-src: deb-src https://packagecloud.io/sensu/stable/debian/ stretch main
+```
 
 License
 -------
