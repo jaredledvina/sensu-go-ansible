@@ -26,11 +26,9 @@ platforms:
 provisioner:
   inventory:
     host_vars:
-      fedora-26:
-        inspec_version: el7
-      fedora-27:
-        inspec_version: el7
       fedora-28:
         inspec_version: el7
       fedora-29:
+        inspec_version: el7
+      fedora-30:
         inspec_version: el7

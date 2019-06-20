@@ -31,3 +31,6 @@ provisioner:
       debian-9:
         inspec_version: ubuntu1604
         sensu_go_manage_community_repo: false
+      debian-10:
+        inspec_version: ubuntu1804
+        sensu_go_manage_community_repo: false
