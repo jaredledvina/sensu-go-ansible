@@ -1,12 +1,6 @@
 ---
 scenario:
   name: fedora
-dependency:
-  name: galaxy
-driver:
-  name: docker
-lint:
-  name: yamllint
 platforms:
   - name: fedora-28
     image: dokken/fedora-28
@@ -30,24 +24,6 @@ platforms:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
-  name: ansible
-  config_options:
-    defaults:
-      callback_whitelist: timer,profile_tasks
-      fact_caching: jsonfile
-      fact_caching_connection: ./cache
-      poll_interval: 3
-      forks: 100
-    connection:
-      pipelining: true
-  playbooks:
-    prepare: ../shared/prepare.yml
-    create: ../shared/create.yml
-    destroy: ../shared/destroy.yml
-    converge: ../shared/playbook.yml
-    verify: ../shared/verify.yml
-  lint:
-    name: ansible-lint
   inventory:
     host_vars:
       fedora-26:
@@ -58,8 +34,3 @@ provisioner:
         inspec_version: el7
       fedora-29:
         inspec_version: el7
-verifier:
-  name: inspec
-  directory: ../shared/tests/
-  lint:
-    name: rubocop

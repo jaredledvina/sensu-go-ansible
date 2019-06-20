@@ -1,0 +1,31 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+provisioner:
+  name: ansible
+  config_options:
+    defaults:
+      callback_whitelist: yaml,timer,profile_tasks
+      fact_caching: jsonfile
+      fact_caching_connection: ./cache
+      poll_interval: 3
+      forks: 100
+    connection:
+      pipelining: true
+  playbooks:
+    prepare: ../shared/prepare.yml
+    create: ../shared/create.yml
+    destroy: ../shared/destroy.yml
+    converge: ../shared/playbook.yml
+    verify: ../shared/verify.yml
+  lint:
+    name: ansible-lint
+verifier:
+  name: inspec
+  directory: ../shared/tests/
+  lint:
+    name: rubocop
