@@ -13,7 +13,6 @@
 
 - name: Flush handlers
   meta: flush_handlers
-  when: sensu_go_manage_repo or sensu_go_manage_community_repo
 
 - name: Cleanup - Remove old Sensu prerelease repos
   file:
