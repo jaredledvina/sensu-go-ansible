@@ -14,7 +14,7 @@ idea.
 Requirements
 ------------
 
-* [Ansible 2.7](https://docs.ansible.com/ansible/2.7/installation_guide/intro_installation.html)
+* [Ansible 2.8](https://docs.ansible.com/ansible/2.8/installation_guide/intro_installation.html)
 
 Role Variables
 --------------
@@ -85,10 +85,10 @@ The following Operating Systems are automatically tested:
 - [CentOS - 7](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7)
 - [Debian - 8 (Jessie)](https://wiki.debian.org/DebianJessie)
 - [Debian - 9 (Stretch)](https://wiki.debian.org/DebianStretch)
-- [Fedora - 26](https://docs.fedoraproject.org/en-US/fedora/f26/release-notes/)
-- [Fedora - 27](https://docs.fedoraproject.org/en-US/fedora/f27/release-notes/)
+- [Debian - 10 (Buster)](https://wiki.debian.org/DebianBuster)
 - [Fedora - 28](https://docs.fedoraproject.org/en-US/fedora/f28/release-notes/)
 - [Fedora - 29](https://docs.fedoraproject.org/en-US/fedora/f29/release-notes/)
+- [Fedora - 30](https://docs.fedoraproject.org/en-US/fedora/f30/release-notes/)
 - [Ubuntu - 14.04 (Trusty Tahr)](http://releases.ubuntu.com/14.04/)
 - [Ubuntu - 16.04 (Xenial Xerus)](http://releases.ubuntu.com/16.04/)
 - [Ubuntu - 18.04 (Bionic Beaver)](http://releases.ubuntu.com/18.04/)
@@ -144,7 +144,7 @@ sensu_go_community_repos_overrides:
     rpm-src: https://packagecloud.io/sensu/community/el/7/SRPMS
 ```
 
-If you are using this role with Debian 8 or 9 hosts, you must overide the 
+If you are using this role with Debian 8, 9, or 10 hosts, you must overide the 
 following variable:
 
 ```yaml
@@ -153,6 +153,18 @@ sensu_go_manage_community_repo: false
 
 This is due to Debian packages not being updated to the community repos 
 pending the resolution of https://github.com/sensu/sensu-plugins-omnibus/issues/3
+
+For Debian 10 hosts, you must also override the Sensu Go repo location to use
+the existing Debian Stretch packages pending the resolution of 
+https://github.com/sensu/sensu-go/issues/3071
+
+Debian 10:
+```yaml
+sensu_go_repos_overrides:
+  apt:
+    deb: deb https://packagecloud.io/sensu/stable/debian/ stretch main
+    deb-src: deb-src https://packagecloud.io/sensu/stable/debian/ stretch main
+```
 
 License
 -------

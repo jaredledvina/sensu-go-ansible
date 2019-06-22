@@ -1,11 +1,12 @@
 # Change Log
 
-## [Unreleased](https://github.com/jaredledvina/sensu-go-ansible/tree/HEAD)
-
-[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.6.0...HEAD)
+## [2.0.0](https://github.com/jaredledvina/sensu-go-ansible/tree/2.0.0) (2019-06-22)
+[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.6.0...2.0.0)
 
 **Implemented enhancements:**
 
+- Tests: Use filetree to include all module tests [\#107](https://github.com/jaredledvina/sensu-go-ansible/pull/107) ([jaredledvina](https://github.com/jaredledvina))
+- sensu-go-check: Add validate\_certs, cross-link docs, and more validation [\#106](https://github.com/jaredledvina/sensu-go-ansible/pull/106) ([jaredledvina](https://github.com/jaredledvina))
 - sensu-go-check: Improved diffs, cleaner error handling, reduce imports [\#105](https://github.com/jaredledvina/sensu-go-ansible/pull/105) ([jaredledvina](https://github.com/jaredledvina))
 - sensu-go-check: Break out SensuGo as a generic class for future modules [\#103](https://github.com/jaredledvina/sensu-go-ansible/pull/103) ([jaredledvina](https://github.com/jaredledvina))
 - sensu-go-check: Only interval or cron if state is present [\#102](https://github.com/jaredledvina/sensu-go-ansible/pull/102) ([jaredledvina](https://github.com/jaredledvina))
@@ -20,8 +21,10 @@
 
 **Fixed bugs:**
 
+- KeyError: 'labels' when using sensu\_go\_check [\#124](https://github.com/jaredledvina/sensu-go-ansible/issues/124)
 - sensu-go-check failed to run [\#97](https://github.com/jaredledvina/sensu-go-ansible/issues/97)
 - check name moved under metadata dictionary [\#21](https://github.com/jaredledvina/sensu-go-ansible/issues/21)
+- Use ansible fact instead of yum variable for yum repos. [\#115](https://github.com/jaredledvina/sensu-go-ansible/pull/115) ([soulesn](https://github.com/soulesn))
 
 **Closed issues:**
 
@@ -29,6 +32,9 @@
 
 **Merged pull requests:**
 
+- sensu-go - Improve metadata label/annotation values [\#131](https://github.com/jaredledvina/sensu-go-ansible/pull/131) ([jaredledvina](https://github.com/jaredledvina))
+- sensu\_go\_check - idempotent cron checks [\#129](https://github.com/jaredledvina/sensu-go-ansible/pull/129) ([jaredledvina](https://github.com/jaredledvina))
+- Revert "Bump cryptography from 2.6.1 to 2.7" [\#116](https://github.com/jaredledvina/sensu-go-ansible/pull/116) ([jaredledvina](https://github.com/jaredledvina))
 - Use the overrided config to determine when restart services [\#85](https://github.com/jaredledvina/sensu-go-ansible/pull/85) ([torrentalle](https://github.com/torrentalle))
 
 ## [1.6.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.6.0) (2019-04-19)
@@ -46,6 +52,7 @@
 - Update README [\#71](https://github.com/jaredledvina/sensu-go-ansible/pull/71) ([jaredledvina](https://github.com/jaredledvina))
 - Feature/improve galaxy score [\#69](https://github.com/jaredledvina/sensu-go-ansible/pull/69) ([jaredledvina](https://github.com/jaredledvina))
 - Support installing packages from Sensu Community Repos [\#64](https://github.com/jaredledvina/sensu-go-ansible/pull/64) ([jaredledvina](https://github.com/jaredledvina))
+- Add Fedora Support back & drop docs override [\#39](https://github.com/jaredledvina/sensu-go-ansible/pull/39) ([jaredledvina](https://github.com/jaredledvina))
 
 ## [1.4.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.4.0) (2019-02-16)
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.3.0...1.4.0)
@@ -63,10 +70,6 @@
 
 ## [1.2.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.2.0) (2019-01-29)
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.1.0...1.2.0)
-
-**Implemented enhancements:**
-
-- Add Fedora Support back & drop docs override [\#39](https://github.com/jaredledvina/sensu-go-ansible/pull/39) ([jaredledvina](https://github.com/jaredledvina))
 
 ## [1.1.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.1.0) (2018-12-23)
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.0.0...1.1.0)

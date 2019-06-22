@@ -3,3 +3,7 @@
   package:
     name: "sensu-go-{{ component }}"
     state: present
+  register: sensu_go_install_component
+  retries: 6
+  delay: 10
+  until: sensu_go_install_component is not failed

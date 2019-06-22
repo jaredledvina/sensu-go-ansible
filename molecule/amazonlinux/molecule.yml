@@ -1,12 +1,6 @@
 ---
 scenario:
   name: amazonlinux
-dependency:
-  name: galaxy
-driver:
-  name: docker
-lint:
-  name: yamllint
 platforms:
   - name: amazonlinux-1
     image: dokken/amazonlinux
@@ -21,24 +15,6 @@ platforms:
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
-  name: ansible
-  config_options:
-    defaults:
-      callback_whitelist: yaml,timer,profile_tasks
-      fact_caching: jsonfile
-      fact_caching_connection: ./cache
-      poll_interval: 3
-      forks: 100
-    connection:
-      pipelining: true
-  playbooks:
-    prepare: ../shared/prepare.yml
-    create: ../shared/create.yml
-    destroy: ../shared/destroy.yml
-    converge: ../shared/playbook.yml
-    verify: ../shared/verify.yml
-  lint:
-    name: ansible-lint
   inventory:
     host_vars:
       amazonlinux-1:
@@ -61,8 +37,3 @@ provisioner:
             rpm: https://packagecloud.io/sensu/community/el/7/x86_64
             rpm-src: https://packagecloud.io/sensu/community/el/7/SRPMS
         inspec_version: el7
-verifier:
-  name: inspec
-  directory: ../shared/tests/
-  lint:
-    name: rubocop

@@ -1,12 +1,6 @@
 ---
 scenario:
   name: debian
-dependency:
-  name: galaxy
-driver:
-  name: docker
-lint:
-  name: yamllint
 platforms:
   - name: debian-8
     image: dokken/debian-8
@@ -21,25 +15,14 @@ platforms:
       - SYS_ADMIN
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: debian-10
+    image: dokken/debian-10
+    command: /lib/systemd/systemd
+    capabilities:
+      - SYS_ADMIN
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
-  name: ansible
-  config_options:
-    defaults:
-      callback_whitelist: timer,profile_tasks
-      fact_caching: jsonfile
-      fact_caching_connection: ./cache
-      poll_interval: 3
-      forks: 100
-    connection:
-      pipelining: true
-  playbooks:
-    prepare: ../shared/prepare.yml
-    create: ../shared/create.yml
-    destroy: ../shared/destroy.yml
-    converge: ../shared/playbook.yml
-    verify: ../shared/verify.yml
-  lint:
-    name: ansible-lint
   inventory:
     host_vars:
       debian-8:
@@ -48,10 +31,10 @@ provisioner:
       debian-9:
         inspec_version: ubuntu1604
         sensu_go_manage_community_repo: false
-verifier:
-  name: inspec
-  directory: ../shared/
-  lint:
-    name: rubocop
-  env:
-    ANSIBLE_LIBRARY: ../../library/
+      debian-10:
+        inspec_version: ubuntu1804
+        sensu_go_manage_community_repo: false
+        sensu_go_repos_overrides:
+          apt:
+            deb: deb https://packagecloud.io/sensu/stable/debian/ stretch main
+            deb-src: deb-src https://packagecloud.io/sensu/stable/debian/ stretch main

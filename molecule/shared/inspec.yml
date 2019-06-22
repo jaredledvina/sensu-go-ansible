@@ -12,6 +12,9 @@
     sha256sum: "{{ inspec_downloads[inspec_version]['sha256'] }}"
     mode: 0755
   register: inspec_download
+  retries: 6
+  delay: 10
+  until: inspec_download is not failed
 
 - name: Install Inspec
   yum:

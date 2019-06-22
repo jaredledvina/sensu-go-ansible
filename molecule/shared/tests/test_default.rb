@@ -137,14 +137,30 @@ describe yaml('/etc/sensu/agent.yml') do
   its('cache-dir') { should eq '/var/cache/sensu/sensu-agent' }
 end
 
-describe service('sensu-backend') do
-  it { should be_enabled }
-  it { should be_installed }
-  it { should be_running }
-end
+# Debian 10/Buster/Sid is not detected as SystemD correctly
+# https://github.com/inspec/inspec/pull/4233
+if os.release == 'buster/sid'
+  describe systemd_service('sensu-backend') do
+    it { should be_enabled }
+    it { should be_installed }
+    it { should be_running }
+  end
 
-describe service('sensu-agent') do
-  it { should be_enabled }
-  it { should be_installed }
-  it { should be_running }
+  describe systemd_service('sensu-agent') do
+    it { should be_enabled }
+    it { should be_installed }
+    it { should be_running }
+  end
+else
+  describe service('sensu-backend') do
+    it { should be_enabled }
+    it { should be_installed }
+    it { should be_running }
+  end
+
+  describe service('sensu-agent') do
+    it { should be_enabled }
+    it { should be_installed }
+    it { should be_running }
+  end
 end
