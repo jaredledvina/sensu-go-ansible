@@ -139,7 +139,7 @@ end
 
 # Debian 10/Buster/Sid is not detected as SystemD correctly
 # https://github.com/inspec/inspec/pull/4233
-if os.release == "buster/sid"
+if os.release == 'buster/sid'
   describe systemd_service('sensu-backend') do
     it { should be_enabled }
     it { should be_installed }
