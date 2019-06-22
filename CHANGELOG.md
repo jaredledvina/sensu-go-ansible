@@ -32,6 +32,7 @@
 
 **Merged pull requests:**
 
+- Cleanup for 2.0.0 release [\#132](https://github.com/jaredledvina/sensu-go-ansible/pull/132) ([jaredledvina](https://github.com/jaredledvina))
 - sensu-go - Improve metadata label/annotation values [\#131](https://github.com/jaredledvina/sensu-go-ansible/pull/131) ([jaredledvina](https://github.com/jaredledvina))
 - sensu\_go\_check - idempotent cron checks [\#129](https://github.com/jaredledvina/sensu-go-ansible/pull/129) ([jaredledvina](https://github.com/jaredledvina))
 - Revert "Bump cryptography from 2.6.1 to 2.7" [\#116](https://github.com/jaredledvina/sensu-go-ansible/pull/116) ([jaredledvina](https://github.com/jaredledvina))
@@ -52,7 +53,6 @@
 - Update README [\#71](https://github.com/jaredledvina/sensu-go-ansible/pull/71) ([jaredledvina](https://github.com/jaredledvina))
 - Feature/improve galaxy score [\#69](https://github.com/jaredledvina/sensu-go-ansible/pull/69) ([jaredledvina](https://github.com/jaredledvina))
 - Support installing packages from Sensu Community Repos [\#64](https://github.com/jaredledvina/sensu-go-ansible/pull/64) ([jaredledvina](https://github.com/jaredledvina))
-- Add Fedora Support back & drop docs override [\#39](https://github.com/jaredledvina/sensu-go-ansible/pull/39) ([jaredledvina](https://github.com/jaredledvina))
 
 ## [1.4.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.4.0) (2019-02-16)
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.3.0...1.4.0)
@@ -70,6 +70,10 @@
 
 ## [1.2.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.2.0) (2019-01-29)
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.1.0...1.2.0)
+
+**Implemented enhancements:**
+
+- Add Fedora Support back & drop docs override [\#39](https://github.com/jaredledvina/sensu-go-ansible/pull/39) ([jaredledvina](https://github.com/jaredledvina))
 
 ## [1.1.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.1.0) (2018-12-23)
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.0.0...1.1.0)
