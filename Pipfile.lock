@@ -18,10 +18,10 @@
     "default": {
         "ansible": {
             "hashes": [
-                "sha256:e1d51d3a88e21238f9e7a49b2b17a49e76c13880242b936ac8a37aee4fe84445"
+                "sha256:1e5ba829ca0602c55b33da399b06f99b135a34014b661d1c36d8892a1e2d3730"
             ],
             "index": "pypi",
-            "version": "==2.8.1"
+            "version": "==2.8.2"
         },
         "asn1crypto": {
             "hashes": [
@@ -142,7 +142,7 @@
                 "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
                 "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
             ],
-            "markers": "python_version < '3'",
+            "markers": "python_version < '3.3'",
             "version": "==1.0.22"
         },
         "jinja2": {
@@ -239,10 +239,10 @@
     "develop": {
         "ansible": {
             "hashes": [
-                "sha256:e1d51d3a88e21238f9e7a49b2b17a49e76c13880242b936ac8a37aee4fe84445"
+                "sha256:1e5ba829ca0602c55b33da399b06f99b135a34014b661d1c36d8892a1e2d3730"
             ],
             "index": "pypi",
-            "version": "==2.8.1"
+            "version": "==2.8.2"
         },
         "ansible-lint": {
             "hashes": [
@@ -497,7 +497,7 @@
                 "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
                 "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
             ],
-            "markers": "python_version < '3'",
+            "markers": "python_version < '3.3'",
             "version": "==1.0.22"
         },
         "jinja2": {
@@ -689,7 +689,6 @@
                 "sha256:6aa9bc2f6f6504d7949e9df2a756739ca06e58ffda19b5e53c725f7b03fb4aae",
                 "sha256:b77ae6f2d1a760760902a7676887b665c086f71e3461c64ed2a312afcedc00d6"
             ],
-            "index": "pypi",
             "version": "==4.6.4"
         },
         "python-dateutil": {
