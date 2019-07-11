@@ -34,7 +34,3 @@ provisioner:
       debian-10:
         inspec_version: ubuntu1804
         sensu_go_manage_community_repo: false
-        sensu_go_repos_overrides:
-          apt:
-            deb: deb https://packagecloud.io/sensu/stable/debian/ stretch main
-            deb-src: deb-src https://packagecloud.io/sensu/stable/debian/ stretch main
