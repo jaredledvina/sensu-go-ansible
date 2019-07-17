@@ -98,9 +98,9 @@ class SensuGo(AnsibleModule):
                 method=method,
                 data=data
             )
-        # 404 leave resp as Nonne
+        # 404 leave resp as None
         # 204 has a resp but it's ''
-        if resp and info['status'] != 204:
+        if resp and info['status'] not in [201, 204]:
             response = resp.read()
             try:
                 return json.loads(response), info
