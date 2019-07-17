@@ -9,9 +9,7 @@ sensu_go_repo_dependencies:
   yum:
     - pygpgme
     - yum-utils
-  dnf:
-    - python
-    - python-dnf
+  dnf: []
 sensu_go_repos:
   apt:
     key_url: https://packagecloud.io/sensu/stable/gpgkey
