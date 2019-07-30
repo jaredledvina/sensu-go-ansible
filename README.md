@@ -4,6 +4,7 @@ sensu-go-ansible
 [![Build Status](https://img.shields.io/travis/com/jaredledvina/sensu-go-ansible/master.svg)](https://travis-ci.com/jaredledvina/sensu-go-ansible)
 [![GitHub release](https://img.shields.io/github/release/jaredledvina/sensu-go-ansible.svg)](https://github.com/jaredledvina/sensu-go-ansible/releases/latest)
 [![License](https://img.shields.io/github/license/jaredledvina/sensu-go-ansible.svg)](https://github.com/jaredledvina/sensu-go-ansible)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjaredledvina%2Fsensu-go-ansible.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjaredledvina%2Fsensu-go-ansible?ref=badge_shield)
 
 This role allows for the deployment and management of
 [Sensu Go](https://github.com/sensu/sensu-go).
@@ -159,3 +160,7 @@ License
 -------
 
 [MIT](https://github.com/jaredledvina/sensu-go-ansible/blob/master/LICENSE)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjaredledvina%2Fsensu-go-ansible.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjaredledvina%2Fsensu-go-ansible?ref=badge_large)
