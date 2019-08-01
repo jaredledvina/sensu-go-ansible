@@ -216,10 +216,11 @@ EXAMPLES = r'''
     state: present
     host: sensu.example.com
     port: 8080
-    user: admin
+    username: admin
     password: P@ssw0rd!
     namespace: default
     name: check_example
+    command: echo "OK - The example is working"
     interval: 60
 
 - name: Delete an existing check
@@ -227,7 +228,7 @@ EXAMPLES = r'''
     state: absent
     host: sensu.example.com
     port: 8080
-    user: admin
+    username: admin
     password: P@ssw0rd!
     namespace: default
     name: check_example
