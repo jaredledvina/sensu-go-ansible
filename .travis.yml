@@ -1,7 +1,9 @@
 ---
 group: xenial
 language: python
-python: "2.7"
+python:
+  - "2.7"
+  - "3.7"
 env:
   global:
     - ANSIBLE_MODULE_UTILS=$TRAVIS_BUILD_DIR/module_utils
@@ -29,8 +31,7 @@ install:
   - pipenv install --two --dev
   - gem install rubocop -v 0.68.1
 script:
-  - pipenv --python 2 run molecule --base-config molecule/shared/base.yml test --scenario-name $SCENARIO --driver-name docker --destroy always
-  - pipenv --python 3 run molecule --base-config molecule/shared/base.yml test --scenario-name $SCENARIO --driver-name docker --destroy always
+  - pipenv run molecule --base-config molecule/shared/base.yml test --scenario-name $SCENARIO --driver-name docker --destroy always
 
 notifications:
   webhooks:
