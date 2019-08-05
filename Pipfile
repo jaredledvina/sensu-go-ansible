@@ -9,6 +9,3 @@ docker-py = "*"
 
 [dev-packages]
 molecule = "==v2.22"
-
-[requires]
-python_version = "2.7"
