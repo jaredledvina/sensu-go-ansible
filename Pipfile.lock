@@ -688,10 +688,11 @@
         },
         "pytest": {
             "hashes": [
-                "sha256:6aa9bc2f6f6504d7949e9df2a756739ca06e58ffda19b5e53c725f7b03fb4aae",
-                "sha256:b77ae6f2d1a760760902a7676887b665c086f71e3461c64ed2a312afcedc00d6"
+                "sha256:8fc39199bdda3d9d025d3b1f4eb99a192c20828030ea7c9a0d2840721de7d347",
+                "sha256:d100a02770f665f5dcf7e3f08202db29857fee6d15f34c942be0a511f39814f0"
             ],
-            "version": "==4.6.4"
+            "index": "pypi",
+            "version": "==4.6.5"
         },
         "python-dateutil": {
             "hashes": [
@@ -819,7 +820,6 @@
                 "sha256:c9a71fdf67fdc976d13a09d148dc1ba29ad5243d7f879fd4ea6e1c28c1f2aad1",
                 "sha256:de8b29b591c4b37657f563dac7a177163e93bbd2d72d70345326ea313f5dae2d"
             ],
-            "index": "pypi",
             "version": "==3.0.6"
         },
         "tree-format": {
