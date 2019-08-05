@@ -28,7 +28,7 @@ cache:
     - ~/.cache/pipenv
 install:
   - pip install pipenv
-  - pipenv install --two --dev
+  - pipenv install --dev
   - gem install rubocop -v 0.68.1
 script:
   - pipenv run molecule --base-config molecule/shared/base.yml test --scenario-name $SCENARIO --driver-name docker --destroy always
