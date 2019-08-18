@@ -18,10 +18,10 @@
     "default": {
         "ansible": {
             "hashes": [
-                "sha256:05f9ed3ca3e06dffaa87a73a8e6f7f322825bc3f609f8b71c4fe22dbbdf72abc"
+                "sha256:a0153e2de3619b7e307df179cd91a3c3804cf1fe048273fe4ea5238b76679ff1"
             ],
             "index": "pypi",
-            "version": "==2.8.3"
+            "version": "==2.8.4"
         },
         "asn1crypto": {
             "hashes": [
@@ -142,7 +142,7 @@
                 "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
                 "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
             ],
-            "markers": "python_version < '3.3'",
+            "markers": "python_version < '3'",
             "version": "==1.0.22"
         },
         "jinja2": {
@@ -241,10 +241,10 @@
     "develop": {
         "ansible": {
             "hashes": [
-                "sha256:05f9ed3ca3e06dffaa87a73a8e6f7f322825bc3f609f8b71c4fe22dbbdf72abc"
+                "sha256:a0153e2de3619b7e307df179cd91a3c3804cf1fe048273fe4ea5238b76679ff1"
             ],
             "index": "pypi",
-            "version": "==2.8.3"
+            "version": "==2.8.4"
         },
         "ansible-lint": {
             "hashes": [
@@ -380,7 +380,7 @@
                 "sha256:45d1272aad6cfd7a8a06cf5c73f2ceb6a190f6acc1fa707e7f82a4c053b28b18",
                 "sha256:bc37850f0cc42a1725a796ef7d92690651bf1af37d744cc63161dac62cabee17"
             ],
-            "index": "pypi",
+            "markers": "python_version < '3.2'",
             "version": "==3.8.1"
         },
         "contextlib2": {
@@ -499,7 +499,7 @@
                 "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
                 "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
             ],
-            "markers": "python_version < '3.3'",
+            "markers": "python_version < '3'",
             "version": "==1.0.22"
         },
         "jinja2": {
@@ -747,10 +747,10 @@
         },
         "ruamel.yaml": {
             "hashes": [
-                "sha256:547aeab5c51c93bc750ed2a320c1559b605bde3aa569216aa75fd91d8a1c4623",
-                "sha256:c5e239b6a4f26baabb2e22b145582a7d99ae9d4ebb8902291365a61ed38faa7f"
+                "sha256:3aa5573a986ab6627c37e2c79befeff2e6eb7bcf780a49250b4fb19142309ecd",
+                "sha256:8fa2ca602fef5d4eed9da2f49e22a04ac6d1e1a5c673bf8f65fbd0529ac2cb6c"
             ],
-            "version": "==0.16.1"
+            "version": "==0.16.4"
         },
         "ruamel.yaml.clib": {
             "hashes": [
@@ -859,10 +859,10 @@
         },
         "yamllint": {
             "hashes": [
-                "sha256:9a4fec2d40804979de5f54453fd1551bc1f8b59a7ad4a26fd7f26aeca34a83af",
-                "sha256:f97cd763fe7b588444a94cc44fd3764b832a613b5250baa2bfe8b84c91e4c330"
+                "sha256:67173339f28868260ce5912abfefa10e115ceb1d2ac1c4d8c7acc8c4ef6c9a8a",
+                "sha256:70a6f8316851254e197a6231c35577be29fa2fbe2c77390a54c9a50217cdaa13"
             ],
-            "version": "==1.16.0"
+            "version": "==1.17.0"
         },
         "zipp": {
             "hashes": [
