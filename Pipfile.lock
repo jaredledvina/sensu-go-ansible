@@ -380,7 +380,7 @@
                 "sha256:45d1272aad6cfd7a8a06cf5c73f2ceb6a190f6acc1fa707e7f82a4c053b28b18",
                 "sha256:bc37850f0cc42a1725a796ef7d92690651bf1af37d744cc63161dac62cabee17"
             ],
-            "markers": "python_version < '3.2'",
+            "markers": "python_version == '2.7'",
             "version": "==3.8.1"
         },
         "contextlib2": {
@@ -815,10 +815,11 @@
         },
         "testinfra": {
             "hashes": [
-                "sha256:c9a71fdf67fdc976d13a09d148dc1ba29ad5243d7f879fd4ea6e1c28c1f2aad1",
-                "sha256:de8b29b591c4b37657f563dac7a177163e93bbd2d72d70345326ea313f5dae2d"
+                "sha256:6c9eeb885d4115a654b371add8cf72ee315e2d88188d80b3cd6c5959c564a6cc",
+                "sha256:a63d0e5f6cfb8994b60430373e45b4ea8ecf0c155fd86a61eb2362b3cde614d4"
             ],
-            "version": "==3.0.6"
+            "index": "pypi",
+            "version": "==3.1.0"
         },
         "tree-format": {
             "hashes": [
