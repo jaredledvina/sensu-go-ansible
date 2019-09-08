@@ -261,10 +261,11 @@
         },
         "arrow": {
             "hashes": [
-                "sha256:4bfacea734ead51495dc47df00421ecfd4ca1f2c0fbe58b9a26eaeddedc31caf",
-                "sha256:67f8be7c0cf420424bc62d8d7dc40b44e4bb2f7b515f9cc2954fb36e35797656"
+                "sha256:704f5403299fe092c69479e0a2516a434003e82d37439a9e47c31285faf3947b",
+                "sha256:9b92a8e151e168b742a36b622deadf860d1686af8c5bbe46eca8da04b10fe92f"
             ],
-            "version": "==0.14.7"
+            "index": "pypi",
+            "version": "==0.15.0"
         },
         "asn1crypto": {
             "hashes": [
@@ -415,7 +416,7 @@
                 "sha256:45d1272aad6cfd7a8a06cf5c73f2ceb6a190f6acc1fa707e7f82a4c053b28b18",
                 "sha256:bc37850f0cc42a1725a796ef7d92690651bf1af37d744cc63161dac62cabee17"
             ],
-            "markers": "python_version < '3'",
+            "markers": "python_version == '2.7'",
             "version": "==3.8.1"
         },
         "contextlib2": {
@@ -926,7 +927,6 @@
                 "sha256:16201d64659ec0c2d25f65d6ce1f5367668b7b4eb102450efd4f8983a399d7d0",
                 "sha256:5cebf61fee13c2e83b5e177431e751e243fc779293377c5e0c3b43910bb7e870"
             ],
-            "index": "pypi",
             "version": "==3.2.0"
         },
         "toml": {
