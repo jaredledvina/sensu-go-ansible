@@ -264,7 +264,6 @@
                 "sha256:704f5403299fe092c69479e0a2516a434003e82d37439a9e47c31285faf3947b",
                 "sha256:9b92a8e151e168b742a36b622deadf860d1686af8c5bbe46eca8da04b10fe92f"
             ],
-            "index": "pypi",
             "version": "==0.15.0"
         },
         "asn1crypto": {
@@ -413,11 +412,11 @@
         },
         "configparser": {
             "hashes": [
-                "sha256:45d1272aad6cfd7a8a06cf5c73f2ceb6a190f6acc1fa707e7f82a4c053b28b18",
-                "sha256:bc37850f0cc42a1725a796ef7d92690651bf1af37d744cc63161dac62cabee17"
+                "sha256:296a9c0d0607f689f2a262d4ca3fa2b22146ac0acb07fd281125c86dee3bcf50",
+                "sha256:5e4c0d9de6ffc76f625eda1f5e28cec0700aed7cdacfe5070964df002ac02fec"
             ],
-            "markers": "python_version == '2.7'",
-            "version": "==3.8.1"
+            "index": "pypi",
+            "version": "==4.0.1"
         },
         "contextlib2": {
             "hashes": [
@@ -664,7 +663,7 @@
                 "sha256:2156525d6576d21c4dcaddfa427fae887ef89a7a9de5cbfe0728b3aafa78427e",
                 "sha256:446014523bb9be5c28128c4d2a10ad6bb60769e78bd85658fe44a450674e0ef8"
             ],
-            "markers": "python_version < '3.6'",
+            "markers": "python_version == '3.4.*' or python_version < '3'",
             "version": "==2.3.4"
         },
         "pathspec": {
