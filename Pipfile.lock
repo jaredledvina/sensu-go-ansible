@@ -142,7 +142,7 @@
                 "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
                 "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
             ],
-            "markers": "python_version < '3'",
+            "markers": "python_version < '3.3'",
             "version": "==1.0.22"
         },
         "jinja2": {
@@ -415,7 +415,7 @@
                 "sha256:296a9c0d0607f689f2a262d4ca3fa2b22146ac0acb07fd281125c86dee3bcf50",
                 "sha256:5e4c0d9de6ffc76f625eda1f5e28cec0700aed7cdacfe5070964df002ac02fec"
             ],
-            "index": "pypi",
+            "markers": "python_version == '2.7'",
             "version": "==4.0.1"
         },
         "contextlib2": {
@@ -539,10 +539,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:9ff1b1c5a354142de080b8a4e9803e5d0d59283c93aed808617c787d16768375",
-                "sha256:b7143592e374e50584564794fcb8aaf00a23025f9db866627f89a21491847a8d"
+                "sha256:0c505102757e7fa28b9f0958d8bc81301159dea16e2649858c92edc158b78a83",
+                "sha256:9a9f75ce32e78170905888acbf2376a81d3f21ecb3bb4867050413411d3ca7a9"
             ],
-            "version": "==0.20"
+            "index": "pypi",
+            "version": "==0.21"
         },
         "importlib-resources": {
             "hashes": [
@@ -557,7 +558,7 @@
                 "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
                 "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
             ],
-            "markers": "python_version < '3'",
+            "markers": "python_version < '3.3'",
             "version": "==1.0.22"
         },
         "jinja2": {
@@ -663,7 +664,7 @@
                 "sha256:2156525d6576d21c4dcaddfa427fae887ef89a7a9de5cbfe0728b3aafa78427e",
                 "sha256:446014523bb9be5c28128c4d2a10ad6bb60769e78bd85658fe44a450674e0ef8"
             ],
-            "markers": "python_version == '3.4.*' or python_version < '3'",
+            "markers": "python_version < '3.2'",
             "version": "==2.3.4"
         },
         "pathspec": {
