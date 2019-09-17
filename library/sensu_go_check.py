@@ -365,7 +365,9 @@ def run_module():
         elif info['status'] == 200:
             check_def_with_values = {k for k, v in check_def.items() if v}
             keys_to_remove = {k for k in check_def_with_values if k not in response }
-            check_def = check_def - keys_to_remove
+            for key in keys_to_remove:
+                if key in check_def:
+                    del check_def[key]
             if response != check_def:
                 result['diff'] = {}
                 result['diff']['before'] = response
