@@ -28,7 +28,6 @@
                 "sha256:0b199f211ae690df3db4fd6c1c4ff976497fb1da689193e368eedbadc53d9292",
                 "sha256:bca90060bd995c3f62c4433168eab407e44bdbdb567b3f3a396a676c1a4c4a3f"
             ],
-            "index": "pypi",
             "version": "==1.0.1"
         },
         "backports.ssl-match-hostname": {
@@ -272,7 +271,6 @@
                 "sha256:0b199f211ae690df3db4fd6c1c4ff976497fb1da689193e368eedbadc53d9292",
                 "sha256:bca90060bd995c3f62c4433168eab407e44bdbdb567b3f3a396a676c1a4c4a3f"
             ],
-            "index": "pypi",
             "version": "==1.0.1"
         },
         "aspy.yaml": {
@@ -417,7 +415,7 @@
                 "sha256:254c1d9c79f60c45dfde850850883d5aaa7f19a23f13561243a050d5a7c3fe4c",
                 "sha256:c7d282687a5308319bf3d2e7706e575c635b0a470342641c93bea0ea3b5331df"
             ],
-            "markers": "python_version == '2.7'",
+            "markers": "python_version < '3.2'",
             "version": "==4.0.2"
         },
         "contextlib2": {
@@ -505,9 +503,10 @@
         },
         "future": {
             "hashes": [
-                "sha256:67045236dcfd6816dc439556d009594abf643e5eb48992e36beac09c2ca659b8"
+                "sha256:6142ef79e2416e432931d527452a1cab3aa4a754a0a53d25b2589f79e1106f34"
             ],
-            "version": "==0.17.1"
+            "index": "pypi",
+            "version": "==0.18.0"
         },
         "futures": {
             "hashes": [
