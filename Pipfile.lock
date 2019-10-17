@@ -18,10 +18,10 @@
     "default": {
         "ansible": {
             "hashes": [
-                "sha256:8e9403e755ce8ef27b6066cdd7a4c567aa80ebe2fd90d0ff8efa0a725d246986"
+                "sha256:31203b27c9d61123e8c86b6eb5116a21859ed4f26d55a1a71eaf27bd92bce355"
             ],
             "index": "pypi",
-            "version": "==2.8.5"
+            "version": "==2.8.6"
         },
         "backports.ssl-match-hostname": {
             "hashes": [
@@ -243,10 +243,10 @@
     "develop": {
         "ansible": {
             "hashes": [
-                "sha256:8e9403e755ce8ef27b6066cdd7a4c567aa80ebe2fd90d0ff8efa0a725d246986"
+                "sha256:31203b27c9d61123e8c86b6eb5116a21859ed4f26d55a1a71eaf27bd92bce355"
             ],
             "index": "pypi",
-            "version": "==2.8.5"
+            "version": "==2.8.6"
         },
         "ansible-lint": {
             "hashes": [
@@ -509,7 +509,6 @@
             "hashes": [
                 "sha256:858e38522e8fd0d3ce8f0c1feaf0603358e366d5403209674c7b617fa0c24093"
             ],
-            "index": "pypi",
             "version": "==0.18.1"
         },
         "futures": {
@@ -669,7 +668,7 @@
                 "sha256:0ec8205a157c80d7acc301c0b18fbd5d44fe655968f5d947b6ecef5290fc35db",
                 "sha256:6cd9a47b597b37cc57de1c05e56fb1a1c9cc9fab04fe78c29acd090418529868"
             ],
-            "markers": "python_version < '3'",
+            "markers": "python_version < '3.2'",
             "version": "==2.3.5"
         },
         "pathspec": {
