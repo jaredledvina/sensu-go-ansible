@@ -141,11 +141,11 @@
         },
         "ipaddress": {
             "hashes": [
-                "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
-                "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
+                "sha256:6e0f4a39e66cb5bb9a137b00276a2eff74f93b71dcbdad6f10ff7df9d3557fcc",
+                "sha256:b7f8e0369580bb4a24d5ba1d7cc29660a4a6987763faf1d8a8046830e020e7e2"
             ],
-            "markers": "python_version < '3.3'",
-            "version": "==1.0.22"
+            "index": "pypi",
+            "version": "==1.0.23"
         },
         "jinja2": {
             "hashes": [
@@ -559,11 +559,11 @@
         },
         "ipaddress": {
             "hashes": [
-                "sha256:64b28eec5e78e7510698f6d4da08800a5c575caa4a286c93d651c5d3ff7b6794",
-                "sha256:b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
+                "sha256:6e0f4a39e66cb5bb9a137b00276a2eff74f93b71dcbdad6f10ff7df9d3557fcc",
+                "sha256:b7f8e0369580bb4a24d5ba1d7cc29660a4a6987763faf1d8a8046830e020e7e2"
             ],
-            "markers": "python_version < '3.3'",
-            "version": "==1.0.22"
+            "index": "pypi",
+            "version": "==1.0.23"
         },
         "jinja2": {
             "hashes": [
@@ -668,7 +668,7 @@
                 "sha256:0ec8205a157c80d7acc301c0b18fbd5d44fe655968f5d947b6ecef5290fc35db",
                 "sha256:6cd9a47b597b37cc57de1c05e56fb1a1c9cc9fab04fe78c29acd090418529868"
             ],
-            "markers": "python_version < '3.2'",
+            "markers": "python_version == '3.4.*' or python_version < '3'",
             "version": "==2.3.5"
         },
         "pathspec": {
