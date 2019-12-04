@@ -145,7 +145,7 @@
                 "sha256:6e0f4a39e66cb5bb9a137b00276a2eff74f93b71dcbdad6f10ff7df9d3557fcc",
                 "sha256:b7f8e0369580bb4a24d5ba1d7cc29660a4a6987763faf1d8a8046830e020e7e2"
             ],
-            "markers": "python_version < '3'",
+            "markers": "python_version < '3.3'",
             "version": "==1.0.23"
         },
         "jinja2": {
@@ -249,10 +249,11 @@
         },
         "ansible-lint": {
             "hashes": [
-                "sha256:9430ea6e654ba4bf5b9c6921efc040f46cda9c4fd2896a99ff71d21037bcb123",
-                "sha256:c1b442b01091eca13ef11d98c3376e9489ba5b69a8467828ca86044f384bc0a1"
+                "sha256:b9fc9a6564f5d60a4284497f966f38ef78f0e2505edbe2bd1225f1ade31c2d8a",
+                "sha256:eb925d8682d70563ccb80e2aca7b3edf84fb0b768cea3edc6846aac7abdc414a"
             ],
-            "version": "==4.1.0"
+            "index": "pypi",
+            "version": "==4.2.0"
         },
         "anyconfig": {
             "hashes": [
@@ -564,7 +565,7 @@
                 "sha256:6e0f4a39e66cb5bb9a137b00276a2eff74f93b71dcbdad6f10ff7df9d3557fcc",
                 "sha256:b7f8e0369580bb4a24d5ba1d7cc29660a4a6987763faf1d8a8046830e020e7e2"
             ],
-            "markers": "python_version < '3'",
+            "markers": "python_version < '3.3'",
             "version": "==1.0.23"
         },
         "jinja2": {
@@ -663,7 +664,6 @@
                 "sha256:ee034658ca12be4eafb62609e192d68f89c83626f5ac4fcb29cedd4e3e7e3c51",
                 "sha256:fba9c46340e3d690ad5a9d0dbf06677cd91425de3afa7e9c0c187298ee4ddd0d"
             ],
-            "index": "pypi",
             "version": "==2.7.0"
         },
         "pathlib2": {
@@ -671,7 +671,7 @@
                 "sha256:0ec8205a157c80d7acc301c0b18fbd5d44fe655968f5d947b6ecef5290fc35db",
                 "sha256:6cd9a47b597b37cc57de1c05e56fb1a1c9cc9fab04fe78c29acd090418529868"
             ],
-            "markers": "python_version < '3.6'",
+            "markers": "python_version < '3'",
             "version": "==2.3.5"
         },
         "pathspec": {
@@ -861,6 +861,7 @@
                 "sha256:0db639b1b2742dae666c6fc009b8d1931ef15c9276ef31c0673cc6dcf766cf40",
                 "sha256:412a6f5cfdc0525dee6a27c08f5415c7fd832a7afcb7a0ed7319628aed23d408"
             ],
+            "markers": "python_version < '3.7'",
             "version": "==0.16.5"
         },
         "ruamel.yaml.clib": {
