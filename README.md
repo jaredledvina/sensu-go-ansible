@@ -7,7 +7,9 @@ sensu-go-ansible
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjaredledvina%2Fsensu-go-ansible.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjaredledvina%2Fsensu-go-ansible?ref=badge_shield)
 
 This role allows for the deployment and management of
-[Sensu Go](https://github.com/sensu/sensu-go).
+[Sensu Go](https://github.com/sensu/sensu-go). 
+
+The official Sensu supported Ansible Collection can be found here: https://github.com/sensu/sensu-go-ansible
 
 If you'd like to contribute, please review [CONTRIBUTING.md](https://github.com/jaredledvina/sensu-go-ansible/blob/master/CONTRIBUTING.md) and open an issue to discuss your
 idea.
