@@ -139,7 +139,7 @@
                 "sha256:6e0f4a39e66cb5bb9a137b00276a2eff74f93b71dcbdad6f10ff7df9d3557fcc",
                 "sha256:b7f8e0369580bb4a24d5ba1d7cc29660a4a6987763faf1d8a8046830e020e7e2"
             ],
-            "markers": "python_version < '3.3'",
+            "markers": "python_version < '3'",
             "version": "==1.0.23"
         },
         "jinja2": {
@@ -405,7 +405,7 @@
                 "sha256:01f490098c18b19d2bd5bb5dc445b2054d2fa97f09a4280ba2c5f3c394c8162e",
                 "sha256:3355078a159fbb44ee60ea80abd0d87b80b78c248643b49aa6d94673b413609b"
             ],
-            "markers": "python_version < '3.4'",
+            "markers": "python_version < '3.3'",
             "version": "==0.6.0.post1"
         },
         "cookiecutter": {
@@ -527,7 +527,7 @@
                 "sha256:6e0f4a39e66cb5bb9a137b00276a2eff74f93b71dcbdad6f10ff7df9d3557fcc",
                 "sha256:b7f8e0369580bb4a24d5ba1d7cc29660a4a6987763faf1d8a8046830e020e7e2"
             ],
-            "markers": "python_version < '3.3'",
+            "markers": "python_version < '3'",
             "version": "==1.0.23"
         },
         "jinja2": {
@@ -615,7 +615,7 @@
                 "sha256:0ec8205a157c80d7acc301c0b18fbd5d44fe655968f5d947b6ecef5290fc35db",
                 "sha256:6cd9a47b597b37cc57de1c05e56fb1a1c9cc9fab04fe78c29acd090418529868"
             ],
-            "markers": "python_version < '3'",
+            "markers": "python_version < '3.4' and sys_platform != 'win32'",
             "version": "==2.3.5"
         },
         "pathspec": {
@@ -821,10 +821,11 @@
         },
         "virtualenv": {
             "hashes": [
-                "sha256:531b142e300d405bb9faedad4adbeb82b4098b918e35209af2adef3129274aae",
-                "sha256:5dd42a9f56307542bddc446cfd10ef6576f11910366a07609fe8d0d88fa8fb7e"
+                "sha256:36cbdd40c67351e0a7f4dfb9a9c4000bbea6f236f9bb9c601c5eae1ac183ba3d",
+                "sha256:92e23178c60679f3a2f11136e39a286c43d6ee182ffa1e0f9c7b9683d57acb7c"
             ],
-            "version": "==20.0.5"
+            "index": "pypi",
+            "version": "==20.0.6"
         },
         "whichcraft": {
             "hashes": [
