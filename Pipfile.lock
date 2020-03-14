@@ -273,7 +273,7 @@
                 "sha256:0bada4c2f8a43d533e4ecb7a12214d9420e66eb206d54bf2d682581ca4b80848",
                 "sha256:8fde5f188da2d593bd5bc0be98d9abc46c95bb8a9dde93429570192ee6cc2d4a"
             ],
-            "markers": "python_version < '3.3'",
+            "markers": "python_version == '2.7'",
             "version": "==1.6.1"
         },
         "bcrypt": {
@@ -384,7 +384,6 @@
                 "sha256:0d841a4058ec88c47f93ff6f32547a055f8e0a0273f6bd6cb3e08430f195131d",
                 "sha256:119e5faf69cfc919c995c5962326ac8fd87f11e56a371af594e3dfd8458f4c6e"
             ],
-            "index": "pypi",
             "version": "==0.8"
         },
         "colorama": {
@@ -407,7 +406,7 @@
                 "sha256:01f490098c18b19d2bd5bb5dc445b2054d2fa97f09a4280ba2c5f3c394c8162e",
                 "sha256:3355078a159fbb44ee60ea80abd0d87b80b78c248643b49aa6d94673b413609b"
             ],
-            "markers": "python_version < '3.3'",
+            "markers": "python_version < '3'",
             "version": "==0.6.0.post1"
         },
         "cookiecutter": {
@@ -617,7 +616,7 @@
                 "sha256:0ec8205a157c80d7acc301c0b18fbd5d44fe655968f5d947b6ecef5290fc35db",
                 "sha256:6cd9a47b597b37cc57de1c05e56fb1a1c9cc9fab04fe78c29acd090418529868"
             ],
-            "markers": "python_version < '3.4' and sys_platform != 'win32'",
+            "markers": "python_version < '3'",
             "version": "==2.3.5"
         },
         "pathspec": {
@@ -711,11 +710,11 @@
         },
         "python-gilt": {
             "hashes": [
-                "sha256:4fd58c128635d1f4a8c93305e648f23379ce56e23624e4c5479427fcd2d5656e",
-                "sha256:c7321ef1a8efddbdef657b4fd21c3eaf1b4cb24a9656d97b73a444b1feb2067a",
-                "sha256:e23a45a6905e6bb7aec3ff7652b48309933a6991fad4546d9e793ac7e0513f8a"
+                "sha256:812daf3ca98d92764f3116f2b5a6874b07adaacec361614bd2fcecef5f2f94f0",
+                "sha256:cf08ae0880cf9fb43ea4254c9b1403178b8755b8bc83dfa817e99a5245c6e124"
             ],
-            "version": "==1.2.1"
+            "index": "pypi",
+            "version": "==1.2.2"
         },
         "pyyaml": {
             "hashes": [
