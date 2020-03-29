@@ -7,7 +7,7 @@ their local development environment with the following procedure:
 2. Install this repo's development dependencies: `pipenv install --three --dev`
 3. Install Docker: https://docs.docker.com/install/
 4. Verify that Docker is running: `docker ps`
-5. Verify that you can perform local integration testing: `pipenv run molecule test`
+5. Verify that you can perform local integration testing: `pipenv run molecule --base-config molecule/shared/base.yml test`
 
 # Contributing
 
