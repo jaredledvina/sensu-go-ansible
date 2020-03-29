@@ -27,7 +27,7 @@ process to be followed.
 The DCO is an attestation attached to every contribution made by every
 developer. In the commit message of the contribution, the developer
 simply adds a `Signed-off-by` statement and thereby agrees to the DCO,
-which you can find below or at http://developercertificate.org/.
+which you can find below or at https://developercertificate.org/.
 
 ```
 Developer Certificate of Origin
