@@ -4,7 +4,7 @@ It's **strongly** encouraged that everyone who works on this repository configur
 their local development environment with the following procedure:
 
 1. Install `pipenv`: https://docs.pipenv.org/install/
-2. Install this repo's development dependencies: `pipenv install --two --dev`
+2. Install this repo's development dependencies: `pipenv install --three --dev`
 3. Install Docker: https://docs.docker.com/install/
 4. Verify that Docker is running: `docker ps`
 5. Verify that you can perform local integration testing: `pipenv run molecule test`
