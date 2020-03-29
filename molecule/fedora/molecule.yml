@@ -21,7 +21,5 @@ provisioner:
     host_vars:
       fedora-30:
         inspec_version: el7
-        ansible_python_interpreter: /usr/bin/python3
       fedora-31:
         inspec_version: el7
-        ansible_python_interpreter: /usr/bin/python3
