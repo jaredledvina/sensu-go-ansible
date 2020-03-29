@@ -9,6 +9,7 @@ provisioner:
   name: ansible
   config_options:
     defaults:
+      interpreter_python: auto_silent
       callback_whitelist: yaml,timer,profile_tasks
       stdout_callback: yaml
       fact_caching: jsonfile

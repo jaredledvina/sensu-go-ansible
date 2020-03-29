@@ -8,20 +8,17 @@
     inspec_test_directory: "/tmp/molecule/inspec"
     inspec_downloads:
       el6:
-        url: https://packages.chef.io/files/stable/inspec/4.6.4/el/6/inspec-4.6.4-1.el6.x86_64.rpm
-        sha256: 1aaba93419c432625e3f13ab996625a2a8690d70dd718e9ae342406602bc2c88
+        url: https://packages.chef.io/files/stable/inspec/4.18.100/el/6/inspec-4.18.100-1.el6.x86_64.rpm
+        sha256: 7f4b624a101a10d71c172c1e642e4206797d132eb23df542a847f532da4fcdc9
       el7:
-        url: https://packages.chef.io/files/stable/inspec/4.6.4/el/7/inspec-4.6.4-1.el7.x86_64.rpm
-        sha256: 5c0bf80364e72ab23288230fc3766b56c9462a1433deb686346e1a7c13671db0
-      ubuntu1404:
-        url: https://packages.chef.io/files/stable/inspec/4.6.4/ubuntu/14.04/inspec_4.6.4-1_amd64.deb
-        sha256: fa6cbcccc1dc0da0fa1d4e0482db89a6441358e398a9b3f33605983ae7f2bd34
+        url: https://packages.chef.io/files/stable/inspec/4.18.100/el/7/inspec-4.18.100-1.el7.x86_64.rpm
+        sha256: bf04ce6ee98ccc7ceecb8462faed04a32e714af24b32447696f35b6d2742ee78
       ubuntu1604:
-        url: https://packages.chef.io/files/stable/inspec/4.6.4/ubuntu/16.04/inspec_4.6.4-1_amd64.deb
-        sha256: fa6cbcccc1dc0da0fa1d4e0482db89a6441358e398a9b3f33605983ae7f2bd34
+        url: https://packages.chef.io/files/stable/inspec/4.18.100/ubuntu/16.04/inspec_4.18.100-1_amd64.deb
+        sha256: abb357be3be75667db0aea9b1f72e974fdaba1c6df41530787a60b9282d906a8
       ubuntu1804:
-        url: https://packages.chef.io/files/stable/inspec/4.6.4/ubuntu/18.04/inspec_4.6.4-1_amd64.deb
-        sha256: fa6cbcccc1dc0da0fa1d4e0482db89a6441358e398a9b3f33605983ae7f2bd34
+        url: https://packages.chef.io/files/stable/inspec/4.18.100/ubuntu/18.04/inspec_4.18.100-1_amd64.deb
+        sha256: abb357be3be75667db0aea9b1f72e974fdaba1c6df41530787a60b9282d906a8
     inspec_package_deps:
       - lsof
       - net-tools

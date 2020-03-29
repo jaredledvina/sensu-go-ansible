@@ -1,7 +1,7 @@
 ---
-group: xenial
+group: bionic
 language: python
-python: "2.7"
+python: "3.7"
 env:
   global:
     - ANSIBLE_MODULE_UTILS=$TRAVIS_BUILD_DIR/module_utils
@@ -27,7 +27,7 @@ cache:
 install:
   - pip install pipenv
   - pipenv install --two --dev
-  - gem install rubocop -v 0.68.1
+  - gem install rubocop -v 0.80.1
 script:
   - pipenv run molecule --base-config molecule/shared/base.yml test --scenario-name $SCENARIO --driver-name docker --destroy always
 

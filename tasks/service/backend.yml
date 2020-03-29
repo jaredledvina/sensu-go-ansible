@@ -17,3 +17,13 @@
   when:
     - sensu_go_services.backend.state == 'started'
     - sensu_go_backend_service_state is changed
+
+- name: Ensure sensu-backend is initialized
+  command:
+    cmd: sensu-backend init
+  environment:
+    SENSU_BACKEND_CLUSTER_ADMIN_USERNAME: "{{ sensu_go_backend_init_admin_username }}"
+    SENSU_BACKEND_CLUSTER_ADMIN_PASSWORD: "{{ sensu_go_backend_init_admin_password }}"
+  register: sensu_backend_init_result
+  failed_when: sensu_backend_init_result.rc not in (0, 3)
+  changed_when: sensu_backend_init_result.rc == 0

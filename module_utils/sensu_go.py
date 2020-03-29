@@ -103,7 +103,7 @@ class SensuGo(AnsibleModule):
         if resp and info['status'] not in [201, 204]:
             response = resp.read()
             try:
-                return json.loads(response), info
+                return json.loads(response.decode('utf-8')), info
             except Exception as e:
                 self.fail_json(
                     msg='Failed to parse response as JSON: {0}'.format(info),

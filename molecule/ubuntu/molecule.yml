@@ -2,11 +2,6 @@
 scenario:
   name: ubuntu
 platforms:
-  - name: ubuntu-14.04
-    image: dokken/ubuntu-14.04
-    command: /sbin/init
-    capabilities:
-      - SYS_ADMIN
   - name: ubuntu-16.04
     image: dokken/ubuntu-16.04
     command: /bin/systemd
@@ -24,8 +19,6 @@ platforms:
 provisioner:
   inventory:
     host_vars:
-      ubuntu-14.04:
-        inspec_version: ubuntu1404
       ubuntu-16.04:
         inspec_version: ubuntu1604
       ubuntu-18.04:
