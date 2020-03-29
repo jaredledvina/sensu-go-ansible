@@ -98,6 +98,9 @@ sensu_go_configs:
         - ws://127.0.0.1:8081
       cache-dir: /var/cache/sensu/sensu-agent
 
+sensu_go_backend_init_admin_username: admin
+sensu_go_backend_init_admin_password: P@ssw0rd!
+
 sensu_go_services_override: {}
 sensu_go_services:
   backend:
