@@ -1,6 +1,22 @@
-# Change Log
+# Changelog
+
+## [3.0.0](https://github.com/jaredledvina/sensu-go-ansible/tree/3.0.0) (2020-03-29)
+
+[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/2.0.0...3.0.0)
+
+**Implemented enhancements:**
+
+- EOL Maintenance Updates & Sensu Go Backend Initialization Support [\#337](https://github.com/jaredledvina/sensu-go-ansible/pull/337) ([jaredledvina](https://github.com/jaredledvina))
+
+**Closed issues:**
+
+- default user and password [\#292](https://github.com/jaredledvina/sensu-go-ansible/issues/292)
+- Molecule tests are failing on docker driver [\#154](https://github.com/jaredledvina/sensu-go-ansible/issues/154)
+- Reach out to flowerysong  [\#151](https://github.com/jaredledvina/sensu-go-ansible/issues/151)
+- sensu-go-check module examples have invalid options [\#149](https://github.com/jaredledvina/sensu-go-ansible/issues/149)
 
 ## [2.0.0](https://github.com/jaredledvina/sensu-go-ansible/tree/2.0.0) (2019-06-22)
+
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.6.0...2.0.0)
 
 **Implemented enhancements:**
@@ -39,6 +55,7 @@
 - Use the overrided config to determine when restart services [\#85](https://github.com/jaredledvina/sensu-go-ansible/pull/85) ([torrentalle](https://github.com/torrentalle))
 
 ## [1.6.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.6.0) (2019-04-19)
+
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.5.0...1.6.0)
 
 **Merged pull requests:**
@@ -46,6 +63,7 @@
 - Restart services only when component is enabled [\#83](https://github.com/jaredledvina/sensu-go-ansible/pull/83) ([torrentalle](https://github.com/torrentalle))
 
 ## [1.5.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.5.0) (2019-03-14)
+
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.4.0...1.5.0)
 
 **Implemented enhancements:**
@@ -55,6 +73,7 @@
 - Support installing packages from Sensu Community Repos [\#64](https://github.com/jaredledvina/sensu-go-ansible/pull/64) ([jaredledvina](https://github.com/jaredledvina))
 
 ## [1.4.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.4.0) (2019-02-16)
+
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.3.0...1.4.0)
 
 **Implemented enhancements:**
@@ -62,6 +81,7 @@
 - Repos - Rename prerelease to go for consistency [\#50](https://github.com/jaredledvina/sensu-go-ansible/pull/50) ([jaredledvina](https://github.com/jaredledvina))
 
 ## [1.3.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.3.0) (2019-02-08)
+
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.2.0...1.3.0)
 
 **Implemented enhancements:**
@@ -69,6 +89,7 @@
 - Add back Debian support [\#48](https://github.com/jaredledvina/sensu-go-ansible/pull/48) ([jaredledvina](https://github.com/jaredledvina))
 
 ## [1.2.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.2.0) (2019-01-29)
+
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.1.0...1.2.0)
 
 **Implemented enhancements:**
@@ -76,6 +97,7 @@
 - Add Fedora Support back & drop docs override [\#39](https://github.com/jaredledvina/sensu-go-ansible/pull/39) ([jaredledvina](https://github.com/jaredledvina))
 
 ## [1.1.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.1.0) (2018-12-23)
+
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/1.0.0...1.1.0)
 
 **Merged pull requests:**
@@ -83,6 +105,7 @@
 - Feature/add back ubuntu 14.04 [\#30](https://github.com/jaredledvina/sensu-go-ansible/pull/30) ([jaredledvina](https://github.com/jaredledvina))
 
 ## [1.0.0](https://github.com/jaredledvina/sensu-go-ansible/tree/1.0.0) (2018-12-16)
+
 [Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/0.1.0...1.0.0)
 
 **Implemented enhancements:**
@@ -91,14 +114,19 @@
 - Switch all repos to stable channel [\#24](https://github.com/jaredledvina/sensu-go-ansible/pull/24) ([jaredledvina](https://github.com/jaredledvina))
 
 ## [0.1.0](https://github.com/jaredledvina/sensu-go-ansible/tree/0.1.0) (2018-11-05)
+
+[Full Changelog](https://github.com/jaredledvina/sensu-go-ansible/compare/146a31b8764bb78e91e3de81bf7715495118aca1...0.1.0)
+
+Welcome to the first release of the Sensu Go Ansible role! 🎉 
+
+This role has been in use for a while now and is proving stable. Please checkout the [README](https://github.com/jaredledvina/sensu-go-ansible/blob/master/README.md) for some example [usage](https://github.com/jaredledvina/sensu-go-ansible/blob/master/README.md#example-playbook) and current [caveats](https://github.com/jaredledvina/sensu-go-ansible/blob/master/README.md#caveats). 
+
+If you would like to add or see a new feature get added, please checkout [CONTRIBUTING](https://github.com/jaredledvina/sensu-go-ansible/blob/master/CONTRIBUTING.md) for details! 
+
 **Implemented enhancements:**
 
 - Add CentOS support [\#2](https://github.com/jaredledvina/sensu-go-ansible/issues/2)
 - Update KitchenCI tests to work in TravisCI [\#1](https://github.com/jaredledvina/sensu-go-ansible/issues/1)
-
-**Closed issues:**
-
-- Release 0.1.0 [\#10](https://github.com/jaredledvina/sensu-go-ansible/issues/10)
 
 **Merged pull requests:**
 
@@ -108,4 +136,4 @@
 
 
 
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*
