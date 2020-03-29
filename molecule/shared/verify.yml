@@ -13,9 +13,6 @@
       el7:
         url: https://packages.chef.io/files/stable/inspec/4.6.4/el/7/inspec-4.6.4-1.el7.x86_64.rpm
         sha256: 5c0bf80364e72ab23288230fc3766b56c9462a1433deb686346e1a7c13671db0
-      ubuntu1404:
-        url: https://packages.chef.io/files/stable/inspec/4.6.4/ubuntu/14.04/inspec_4.6.4-1_amd64.deb
-        sha256: fa6cbcccc1dc0da0fa1d4e0482db89a6441358e398a9b3f33605983ae7f2bd34
       ubuntu1604:
         url: https://packages.chef.io/files/stable/inspec/4.6.4/ubuntu/16.04/inspec_4.6.4-1_amd64.deb
         sha256: fa6cbcccc1dc0da0fa1d4e0482db89a6441358e398a9b3f33605983ae7f2bd34

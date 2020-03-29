@@ -91,9 +91,8 @@ The following Operating Systems are automatically tested:
 - [Debian - 10 (Buster)](https://wiki.debian.org/DebianBuster)
 - [Fedora - 30](https://docs.fedoraproject.org/en-US/fedora/f30/release-notes/)
 - [Fedora - 31](https://docs.fedoraproject.org/en-US/fedora/f31/release-notes/)
-- [Ubuntu - 14.04 (Trusty Tahr)](http://releases.ubuntu.com/14.04/)
-- [Ubuntu - 16.04 (Xenial Xerus)](http://releases.ubuntu.com/16.04/)
-- [Ubuntu - 18.04 (Bionic Beaver)](http://releases.ubuntu.com/18.04/)
+- [Ubuntu - 16.04 (Xenial Xerus)](https://releases.ubuntu.com/16.04/)
+- [Ubuntu - 18.04 (Bionic Beaver)](https://releases.ubuntu.com/18.04/)
 
 
 Custom Modules
