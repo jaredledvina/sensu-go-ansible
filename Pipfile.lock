@@ -823,7 +823,6 @@
                 "sha256:00cfe8605fb97f5a59d52baab78e6070e72c12ca64f51151695407cc0eb8a431",
                 "sha256:c8364ec469084046c779c9a11ae6340094e8a0bf1d844330fc55c1cefe67c172"
             ],
-            "index": "pypi",
             "version": "==20.0.17"
         },
         "wcwidth": {
@@ -842,10 +841,11 @@
         },
         "yamllint": {
             "hashes": [
-                "sha256:09d554bafc57beb22b01619c94e1ba0e8fbb016fa9c1b35ddc68d7bfc16d177f",
-                "sha256:7e1e698b3d344b64bc46cbe8c4df7dfdfe7c00ed1a8d1c851ecd5b552d93d193"
+                "sha256:7ef024017c54850f788da133155fc8b4f8cb75778ea89c724da66fe47594e061",
+                "sha256:a6cb7d27d70628b6b5129ed62f2e97a27065c2ec4d9019b00221c72e3f8f9428"
             ],
-            "version": "==1.21.0"
+            "index": "pypi",
+            "version": "==1.22.0"
         },
         "zipp": {
             "hashes": [
