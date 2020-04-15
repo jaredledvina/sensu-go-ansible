@@ -118,10 +118,10 @@
         },
         "jinja2": {
             "hashes": [
-                "sha256:93187ffbc7808079673ef52771baa950426fd664d3aad1d0fa3e95644360e250",
-                "sha256:b0eaf100007721b5c16c1fc1eecb87409464edc10469ddc9a22a27a99123be49"
+                "sha256:89aab215427ef59c34ad58735269eb58b1a5808103067f7bb9d5836c651b3bb0",
+                "sha256:f0a4641d3cf955324a89c04f3d94663aa4d638abe8f733ecd3582848e1c37035"
             ],
-            "version": "==2.11.1"
+            "version": "==2.11.2"
         },
         "markupsafe": {
             "hashes": [
@@ -467,10 +467,10 @@
         },
         "jinja2": {
             "hashes": [
-                "sha256:93187ffbc7808079673ef52771baa950426fd664d3aad1d0fa3e95644360e250",
-                "sha256:b0eaf100007721b5c16c1fc1eecb87409464edc10469ddc9a22a27a99123be49"
+                "sha256:89aab215427ef59c34ad58735269eb58b1a5808103067f7bb9d5836c651b3bb0",
+                "sha256:f0a4641d3cf955324a89c04f3d94663aa4d638abe8f733ecd3582848e1c37035"
             ],
-            "version": "==2.11.1"
+            "version": "==2.11.2"
         },
         "jinja2-time": {
             "hashes": [
@@ -841,11 +841,11 @@
         },
         "yamllint": {
             "hashes": [
-                "sha256:7ef024017c54850f788da133155fc8b4f8cb75778ea89c724da66fe47594e061",
-                "sha256:a6cb7d27d70628b6b5129ed62f2e97a27065c2ec4d9019b00221c72e3f8f9428"
+                "sha256:1b0dfb4f5679ca3effcfa9c67d2d79f81e4b8239a725ad9f0118bdd8f5b36d8f",
+                "sha256:dd8eb7540e6fd929494280a4def7dc76c1f802d43446a0b612c19b850d70945e"
             ],
             "index": "pypi",
-            "version": "==1.22.0"
+            "version": "==1.22.1"
         },
         "zipp": {
             "hashes": [
