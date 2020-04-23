@@ -92,7 +92,6 @@
                 "sha256:e993468c859d084d5579e2ebee101de8f5a27ce8e2159959b6673b418fd8c785",
                 "sha256:f118a95c7480f5be0df8afeb9a11bd199aa20afab7a96bcf20409b411a3a85f0"
             ],
-            "index": "pypi",
             "version": "==2.9.2"
         },
         "docker-py": {
@@ -402,7 +401,6 @@
                 "sha256:e993468c859d084d5579e2ebee101de8f5a27ce8e2159959b6673b418fd8c785",
                 "sha256:f118a95c7480f5be0df8afeb9a11bd199aa20afab7a96bcf20409b411a3a85f0"
             ],
-            "index": "pypi",
             "version": "==2.9.2"
         },
         "distlib": {
@@ -441,10 +439,11 @@
         },
         "identify": {
             "hashes": [
-                "sha256:2bb8760d97d8df4408f4e805883dad26a2d076f04be92a10a3e43f09c6060742",
-                "sha256:faffea0fd8ec86bb146ac538ac350ed0c73908326426d387eded0bcc9d077522"
+                "sha256:23c18d97bb50e05be1a54917ee45cc61d57cb96aedc06aabb2b02331edf0dbf0",
+                "sha256:88ed90632023e52a6495749c6732e61e08ec9f4f04e95484a5c37b9caf40283c"
             ],
-            "version": "==1.4.14"
+            "index": "pypi",
+            "version": "==1.4.15"
         },
         "idna": {
             "hashes": [
