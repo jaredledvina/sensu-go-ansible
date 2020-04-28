@@ -357,7 +357,6 @@
                 "sha256:d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a",
                 "sha256:dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc"
             ],
-            "index": "pypi",
             "version": "==7.1.2"
         },
         "click-completion": {
@@ -765,10 +764,11 @@
         },
         "sh": {
             "hashes": [
-                "sha256:ee445c1ab771a095a31302789ef086d0b7fdc07591fd29385d445fa5165dbd74",
-                "sha256:f00dfb38579ab661786daec7a7b9436facf77682f62160db5b66d58c8b2f270a"
+                "sha256:6f792e45b45d039b423081558904981e8ab49572b0c38009fcc65feaab06bcda",
+                "sha256:97a3d2205e3c6a842d87ebbc9ae93acae5a352b1bc4609b428d0fd5bb9e286a3"
             ],
-            "version": "==1.13.0"
+            "index": "pypi",
+            "version": "==1.13.1"
         },
         "shellingham": {
             "hashes": [
