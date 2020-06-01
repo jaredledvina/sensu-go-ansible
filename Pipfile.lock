@@ -435,7 +435,6 @@
                 "sha256:9f53e80371f2ac7c969eefda8efaabd4f77c6300f5f8fc4b634744a0db8fe5cc",
                 "sha256:de4e1de6c23f52b71c8a54ff558219f3783ff011b432f29360d84a8a31ba561c"
             ],
-            "index": "pypi",
             "version": "==1.4.18"
         },
         "idna": {
@@ -823,10 +822,11 @@
         },
         "wcwidth": {
             "hashes": [
-                "sha256:cafe2186b3c009a04067022ce1dcd79cb38d8d65ee4f4791b8888d6599d1bbe1",
-                "sha256:ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"
+                "sha256:70a7fd340fc54ad104b667c7f3c69cfdb52de0a9d2ad7dda94b93588efefb129",
+                "sha256:73be5d629d7e2e1f591837629afea5e8ee8b18052ac929c713c2dd90222dc1ae"
             ],
-            "version": "==0.1.9"
+            "index": "pypi",
+            "version": "==0.2.0"
         },
         "yamllint": {
             "hashes": [
