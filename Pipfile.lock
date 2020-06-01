@@ -822,11 +822,11 @@
         },
         "wcwidth": {
             "hashes": [
-                "sha256:70a7fd340fc54ad104b667c7f3c69cfdb52de0a9d2ad7dda94b93588efefb129",
-                "sha256:73be5d629d7e2e1f591837629afea5e8ee8b18052ac929c713c2dd90222dc1ae"
+                "sha256:3de2e41158cb650b91f9654cbf9a3e053cee0719c9df4ddc11e4b568669e9829",
+                "sha256:b651b6b081476420e4e9ae61239ac4c1b49d0c5ace42b2e81dc2ff49ed50c566"
             ],
             "index": "pypi",
-            "version": "==0.2.0"
+            "version": "==0.2.2"
         },
         "yamllint": {
             "hashes": [
