@@ -223,10 +223,10 @@
         },
         "ansible-lint": {
             "hashes": [
-                "sha256:b9fc9a6564f5d60a4284497f966f38ef78f0e2505edbe2bd1225f1ade31c2d8a",
-                "sha256:eb925d8682d70563ccb80e2aca7b3edf84fb0b768cea3edc6846aac7abdc414a"
+                "sha256:9f311c1f94057a8231c5d7b890bb9b8a15034d26c61d69b4e730fe105073ed49",
+                "sha256:eebfceb961e3c1c0c7a1ae41147f0858cfb744771421fc8f404d4f6cfb5a5d3a"
             ],
-            "version": "==4.2.0"
+            "version": "==4.3.0"
         },
         "anyconfig": {
             "hashes": [
@@ -257,10 +257,11 @@
         },
         "attrs": {
             "hashes": [
-                "sha256:08a96c641c3a74e44eb59afb61a24f2cb9f4d7188748e76ba4bb5edfa3cb7d1c",
-                "sha256:f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
+                "sha256:0ef97238856430dcf9228e07f316aefc17e8939fc8507e18c6501b761ef1a42a",
+                "sha256:2867b7b9f8326499ab5b0e2d12801fa5c98842d2cbd22b35112ae04bf85b4dff"
             ],
-            "version": "==19.3.0"
+            "index": "pypi",
+            "version": "==20.1.0"
         },
         "bcrypt": {
             "hashes": [
@@ -803,6 +804,15 @@
             ],
             "version": "==0.1.2"
         },
+        "typing-extensions": {
+            "hashes": [
+                "sha256:6e95524d8a547a91e08f404ae485bbb71962de46967e1b71a0cb89af24e761c5",
+                "sha256:79ee589a3caca649a9bfd2a8de4709837400dfa00b6cc81962a1e6a1815969ae",
+                "sha256:f8d2bd89d25bc39dabe7d23df520442fa1d8969b82544370e03d88b5a591c392"
+            ],
+            "markers": "python_version < '3.8'",
+            "version": "==3.7.4.2"
+        },
         "urllib3": {
             "hashes": [
                 "sha256:91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a",
@@ -815,7 +825,6 @@
                 "sha256:43add625c53c596d38f971a465553f6318decc39d98512bc100fa1b1e839c8dc",
                 "sha256:e0305af10299a7fb0d69393d8f04cb2965dda9351140d11ac8db4e5e3970451b"
             ],
-            "index": "pypi",
             "version": "==20.0.31"
         },
         "yamllint": {
