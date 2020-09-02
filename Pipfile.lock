@@ -226,10 +226,10 @@
         },
         "ansible-lint": {
             "hashes": [
-                "sha256:2e96ef1572cfae7a7fab3ec4d9cda4ae1fc2c38f6a430d772ea3576ab05fb570",
-                "sha256:e1b2a0e1ce75ec97a7d5ae325951e5980047644e6cdaa68b3ed0875f118f661b"
+                "sha256:bbe81074615ba80e0eb65ffea1ce3c9adb143574b38f3520371e4df63b4300bd",
+                "sha256:ef9390865563f6e0b6a1ebf2f53cfad5008da998cf0f53e54fdcd8c3a15b7285"
             ],
-            "version": "==4.3.3"
+            "version": "==4.3.4"
         },
         "anyconfig": {
             "hashes": [
@@ -435,10 +435,11 @@
         },
         "identify": {
             "hashes": [
-                "sha256:9f5fcf22b665eaece583bd395b103c2769772a0f646ffabb5b1f155901b07de2",
-                "sha256:b1aa2e05863dc80242610d46a7b49105e2eafe00ef0c8ff311c1828680760c76"
+                "sha256:e105a62fd3a496c701fd1bc4e24eb695455b5efb97e722816d5bd988c3344311",
+                "sha256:f9f84a4ff44e29b9cc23c4012c2c8954089860723f80ce63d760393e5f197108"
             ],
-            "version": "==1.4.29"
+            "index": "pypi",
+            "version": "==1.4.30"
         },
         "idna": {
             "hashes": [
@@ -562,7 +563,6 @@
                 "sha256:4f3e316fef2ac628b05097a637af35685183111d4bc1b5979bd397c2ab7b5898",
                 "sha256:7f36f4ba2c0d81d219f4595e35f70d56cc94f9ac40a6acdf51d6ca210ce65035"
             ],
-            "index": "pypi",
             "version": "==2.7.2"
         },
         "pathspec": {
