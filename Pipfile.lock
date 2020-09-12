@@ -435,10 +435,11 @@
         },
         "identify": {
             "hashes": [
-                "sha256:009f92ba753c467a99f6fd3eb395412cbc34077dd5a64313b62ba04297f2ab8e",
-                "sha256:0868312cb7402b48cf44fe3f568259f804ef4e983c143d11bf7a51ca311ebc34"
+                "sha256:587748963462930dfd1a3863aee2ea74fd7accaf6b30fa7bf8936af181820c9d",
+                "sha256:e8806705ef7800786a37f3ea476663023fe165995e60491a8616412a935c77ba"
             ],
-            "version": "==1.5.0"
+            "index": "pypi",
+            "version": "==1.5.1"
         },
         "idna": {
             "hashes": [
@@ -653,10 +654,10 @@
         },
         "pygments": {
             "hashes": [
-                "sha256:647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44",
-                "sha256:ff7a40b4860b727ab48fad6360eb351cc1b33cbf9b15a0f689ca5353e9463324"
+                "sha256:2594e8fdb06fef91552f86f4fd3a244d148ab24b66042036e64f29a291515048",
+                "sha256:2df50d16b45b977217e02cba6c8422aaddb859f3d0570a88e09b00eafae89c6e"
             ],
-            "version": "==2.6.1"
+            "version": "==2.7.0"
         },
         "pynacl": {
             "hashes": [
@@ -688,10 +689,10 @@
         },
         "pytest": {
             "hashes": [
-                "sha256:85228d75db9f45e06e57ef9bf4429267f81ac7c0d742cc9ed63d09886a9fe6f4",
-                "sha256:8b6007800c53fdacd5a5c192203f4e531eb2a1540ad9c752e052ec0f7143dbad"
+                "sha256:0e37f61339c4578776e090c3b8f6b16ce4db333889d65d0efb305243ec544b40",
+                "sha256:c8f57c2a30983f469bf03e68cdfa74dc474ce56b8f280ddcb080dfd91df01043"
             ],
-            "version": "==6.0.1"
+            "version": "==6.0.2"
         },
         "python-dateutil": {
             "hashes": [
@@ -737,11 +738,10 @@
         },
         "rich": {
             "hashes": [
-                "sha256:38d1cdef534309b937f046c9f84f2a3ac9e8d5723d3f1238362ba82d8c9636f8",
-                "sha256:fc96642323fecec140c919850172dcaf52c111b3abfd3588a09a63120c0a98c6"
+                "sha256:8555f056e76ee5dacecd9059e8f016abb85d3043274db6500b5f865b467005a2",
+                "sha256:b316b5e8b167cd562d4315cf6c80399c253df444143e2053f593372bb2056ea4"
             ],
-            "index": "pypi",
-            "version": "==6.1.1"
+            "version": "==6.1.2"
         },
         "ruamel.yaml": {
             "hashes": [
