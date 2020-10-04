@@ -708,7 +708,6 @@
                 "sha256:7a8190790c17d79a11f847fba0b004ee9a8122582ebff4729a082c109e81a4c9",
                 "sha256:8f593023c1a0f916110285b6efd7f99db07d59546e3d8c36fc60e2ab05d3be92"
             ],
-            "index": "pypi",
             "version": "==6.1.1"
         },
         "python-dateutil": {
@@ -870,10 +869,11 @@
         },
         "virtualenv": {
             "hashes": [
-                "sha256:3d427459dfe5ec3241a6bad046b1d10c0e445940e013c81946458987c7c7e255",
-                "sha256:9160a8f6196afcb8bb91405b5362651f302ee8e810fc471f5f9ce9a06b070298"
+                "sha256:35ecdeb58cfc2147bb0706f7cdef69a8f34f1b81b6d49568174e277932908b8f",
+                "sha256:a5e0d253fe138097c6559c906c528647254f437d1019af9d5a477b09bfa7300f"
             ],
-            "version": "==20.0.32"
+            "index": "pypi",
+            "version": "==20.0.33"
         },
         "yamllint": {
             "hashes": [
