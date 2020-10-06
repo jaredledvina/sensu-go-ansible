@@ -234,9 +234,10 @@
         },
         "ansible-base": {
             "hashes": [
-                "sha256:72c062ccdcec627542c8305ca7050cbdc651585a3fa27e3f536f82a27b5e0557"
+                "sha256:c79fe108e13b286bad21734208624aaef9dabb49bb4211b13bc96d88829e22ab"
             ],
-            "version": "==2.10.1"
+            "index": "pypi",
+            "version": "==2.10.2"
         },
         "ansible-lint": {
             "hashes": [
@@ -872,7 +873,6 @@
                 "sha256:35ecdeb58cfc2147bb0706f7cdef69a8f34f1b81b6d49568174e277932908b8f",
                 "sha256:a5e0d253fe138097c6559c906c528647254f437d1019af9d5a477b09bfa7300f"
             ],
-            "index": "pypi",
             "version": "==20.0.33"
         },
         "yamllint": {
