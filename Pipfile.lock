@@ -27,7 +27,6 @@
             "hashes": [
                 "sha256:35a208726b10fecbcf00c263ae4572b48f505b5796fb77a85c3e9c1036ea5e4f"
             ],
-            "index": "pypi",
             "version": "==2.10.3"
         },
         "certifi": {
@@ -257,15 +256,15 @@
             "hashes": [
                 "sha256:35a208726b10fecbcf00c263ae4572b48f505b5796fb77a85c3e9c1036ea5e4f"
             ],
-            "index": "pypi",
             "version": "==2.10.3"
         },
         "ansible-lint": {
             "hashes": [
-                "sha256:3844a424fcfae4b4a2e56c91f1b5870170c14d2a7c5807d987f785d699e9c48c",
-                "sha256:888cf2510d830de017e01ca4d5fd92abfb84458a2b2a47263a2d923a7dabc7ba"
+                "sha256:1012fc3f5c4c0c58eece515860f19c34c5088faa5be412eec6fae5b45bda9c4f",
+                "sha256:300e841f690b556a08d44902d6414283dc101079b27909e3a892f1cf1d10d7ff"
             ],
-            "version": "==4.3.6"
+            "index": "pypi",
+            "version": "==4.3.7"
         },
         "anyconfig": {
             "hashes": [
