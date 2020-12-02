@@ -489,11 +489,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:590690d61efdd716ff82c39ca9a9d4209252adfe288a4b5721181050acbd4175",
-                "sha256:d9b8a46a0885337627a6430db287176970fff18ad421becec1d64cfc763c2099"
+                "sha256:6112e21359ef8f344e7178aa5b72dc6e62b38b0d008e6d3cb212c5b84df72013",
+                "sha256:b0c2d3b226157ae4517d9625decf63591461c66b3a808c2666d538946519d170"
             ],
-            "markers": "python_version < '3.8'",
-            "version": "==3.1.0"
+            "index": "pypi",
+            "version": "==3.1.1"
         },
         "iniconfig": {
             "hashes": [
@@ -777,7 +777,6 @@
                 "sha256:13cdbb6b72798be9ef30caf460d3949bf057d9f073f73cc853908d50cc31229f",
                 "sha256:ca1008c18e91c2d0345764ddb871cc284feadc467241fbb468f14280b791388a"
             ],
-            "index": "pypi",
             "version": "==9.3.0"
         },
         "ruamel.yaml": {
