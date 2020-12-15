@@ -25,9 +25,10 @@
         },
         "ansible-base": {
             "hashes": [
-                "sha256:35a208726b10fecbcf00c263ae4572b48f505b5796fb77a85c3e9c1036ea5e4f"
+                "sha256:d4dad569864c08d8efb6ad99acf48ec46d7d118f8ced64f1185f8eac2c280ec3"
             ],
-            "version": "==2.10.3"
+            "index": "pypi",
+            "version": "==2.10.4"
         },
         "certifi": {
             "hashes": [
@@ -248,9 +249,10 @@
         },
         "ansible-base": {
             "hashes": [
-                "sha256:35a208726b10fecbcf00c263ae4572b48f505b5796fb77a85c3e9c1036ea5e4f"
+                "sha256:d4dad569864c08d8efb6ad99acf48ec46d7d118f8ced64f1185f8eac2c280ec3"
             ],
-            "version": "==2.10.3"
+            "index": "pypi",
+            "version": "==2.10.4"
         },
         "ansible-lint": {
             "hashes": [
@@ -477,11 +479,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:6112e21359ef8f344e7178aa5b72dc6e62b38b0d008e6d3cb212c5b84df72013",
-                "sha256:b0c2d3b226157ae4517d9625decf63591461c66b3a808c2666d538946519d170"
+                "sha256:5c5a2720817414a6c41f0a49993908068243ae02c1635a228126519b509c8aed",
+                "sha256:bf792d480abbd5eda85794e4afb09dd538393f7d6e6ffef6e9f03d2014cf9450"
             ],
             "markers": "python_version < '3.8'",
-            "version": "==3.1.1"
+            "version": "==3.3.0"
         },
         "iniconfig": {
             "hashes": [
@@ -711,10 +713,10 @@
         },
         "pytest": {
             "hashes": [
-                "sha256:4288fed0d9153d9646bfcdf0c0428197dba1ecb27a33bb6e031d002fa88653fe",
-                "sha256:c0a7e94a8cdbc5422a51ccdad8e6f1024795939cc89159a0ae7f0b316ad3823e"
+                "sha256:b12e09409c5bdedc28d308469e156127004a436b41e9b44f9bff6446cbab9152",
+                "sha256:d69e1a80b34fe4d596c9142f35d9e523d98a2838976f1a68419a8f051b24cec6"
             ],
-            "version": "==6.1.2"
+            "version": "==6.2.0"
         },
         "python-dateutil": {
             "hashes": [
@@ -765,7 +767,6 @@
                 "sha256:bde23a1761373fed2802502ff98292c5d735a5389ed96f4fe1be5fb4c2cde8ea",
                 "sha256:dfc1d6a394f97674163b2b2c24d12e15f85752ce5451043c4d3ce77dad16a07d"
             ],
-            "index": "pypi",
             "version": "==9.4.0"
         },
         "ruamel.yaml": {
