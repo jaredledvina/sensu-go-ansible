@@ -18,10 +18,10 @@
     "default": {
         "ansible": {
             "hashes": [
-                "sha256:eb1d08b9b98a60e90e7123a12f40770780f29f9d73168da55d449106a9f4d348"
+                "sha256:98e718aea82199be62db7731373d660627aa1e938d34446588f2f49c228638ee"
             ],
             "index": "pypi",
-            "version": "==2.10.3"
+            "version": "==2.10.4"
         },
         "ansible-base": {
             "hashes": [
@@ -241,10 +241,10 @@
     "develop": {
         "ansible": {
             "hashes": [
-                "sha256:eb1d08b9b98a60e90e7123a12f40770780f29f9d73168da55d449106a9f4d348"
+                "sha256:98e718aea82199be62db7731373d660627aa1e938d34446588f2f49c228638ee"
             ],
             "index": "pypi",
-            "version": "==2.10.3"
+            "version": "==2.10.4"
         },
         "ansible-base": {
             "hashes": [
@@ -466,7 +466,6 @@
                 "sha256:7aef7a5104d6254c162990e54a203cdc0fd202046b6c415bd5d636472f6565c4",
                 "sha256:b2c71bf9f5c482c389cef816f3a15f1c9d7429ad70f497d4a2e522442d80c6de"
             ],
-            "index": "pypi",
             "version": "==1.5.11"
         },
         "idna": {
