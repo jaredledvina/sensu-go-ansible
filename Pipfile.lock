@@ -684,10 +684,10 @@
         },
         "pygments": {
             "hashes": [
-                "sha256:ccf3acacf3782cbed4a989426012f1c535c9a90d3a7fc3f16d231b9372d2b716",
-                "sha256:f275b6c0909e5dafd2d6269a656aa90fa58ebf4a74f8fcf9053195d226b24a08"
+                "sha256:bc9591213a8f0e0ca1a5e68a479b4887fdc3e75d0774e5c71c31920c427de435",
+                "sha256:df49d09b498e83c1a73128295860250b0b7edd4c723a32e9bc0d295c7c2ec337"
             ],
-            "version": "==2.7.3"
+            "version": "==2.7.4"
         },
         "pynacl": {
             "hashes": [
@@ -775,7 +775,6 @@
                 "sha256:812a911cd85d32f484325f501fb8f84270b8e0a7af739d4bf1d3df42643e93a6",
                 "sha256:c91c2587dba9aa8dd30c5f090e700f54433ccd73e209f4737e10385c4c1cbf19"
             ],
-            "index": "pypi",
             "version": "==9.8.0"
         },
         "ruamel.yaml": {
@@ -897,10 +896,11 @@
         },
         "virtualenv": {
             "hashes": [
-                "sha256:205a7577275dd0d9223c730dd498e21a8910600085c3dee97412b041fc4b853b",
-                "sha256:7992b8de87e544a4ab55afc2240bf8388c4e3b5765d03784dad384bfdf9097ee"
+                "sha256:0c111a2236b191422b37fe8c28b8c828ced39aab4bf5627fa5c331aeffb570d9",
+                "sha256:14b34341e742bdca219e10708198e704e8a7064dd32f474fc16aca68ac53a306"
             ],
-            "version": "==20.3.0"
+            "index": "pypi",
+            "version": "==20.3.1"
         },
         "yamllint": {
             "hashes": [
