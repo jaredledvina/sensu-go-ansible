@@ -772,11 +772,11 @@
         },
         "rich": {
             "hashes": [
-                "sha256:0ec853f882613e75a5e46d545ddaa48cad235c616eaeb094792012fe22e8b2c6",
-                "sha256:7e594114b109dfcf4c242a5ae1b2767dbc49d0abc9c5f082eb7e558dd622bc90"
+                "sha256:c0d5903b463f015b254d6f52da82af3821d266fe516ae05fdc266e6abba5c3a8",
+                "sha256:d7732d12dfa91a2c06f89fa2b630a068ba12d39ad22a2078b477ef1948b38f3f"
             ],
             "index": "pypi",
-            "version": "==9.8.1"
+            "version": "==9.8.2"
         },
         "ruamel.yaml": {
             "hashes": [
