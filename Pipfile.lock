@@ -18,10 +18,10 @@
     "default": {
         "ansible": {
             "hashes": [
-                "sha256:9775229aae31336a624ca5afe5533fea5e49ef4daa96a96791dd9871b2d8b8d1"
+                "sha256:ae97002e4fb1ed3de947428ff43906c76c66751fe104721cf6b25fa115dbbe8d"
             ],
             "index": "pypi",
-            "version": "==2.10.5"
+            "version": "==2.10.6"
         },
         "ansible-base": {
             "hashes": [
@@ -236,7 +236,6 @@
                 "sha256:1b465e494e3e0d8939b50680403e3aedaa2bc434b7d5af64dfd3c958d7f5ae80",
                 "sha256:de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
             ],
-            "index": "pypi",
             "version": "==1.26.3"
         },
         "websocket-client": {
@@ -250,10 +249,10 @@
     "develop": {
         "ansible": {
             "hashes": [
-                "sha256:9775229aae31336a624ca5afe5533fea5e49ef4daa96a96791dd9871b2d8b8d1"
+                "sha256:ae97002e4fb1ed3de947428ff43906c76c66751fe104721cf6b25fa115dbbe8d"
             ],
             "index": "pypi",
-            "version": "==2.10.5"
+            "version": "==2.10.6"
         },
         "ansible-base": {
             "hashes": [
@@ -909,7 +908,6 @@
                 "sha256:1b465e494e3e0d8939b50680403e3aedaa2bc434b7d5af64dfd3c958d7f5ae80",
                 "sha256:de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
             ],
-            "index": "pypi",
             "version": "==1.26.3"
         },
         "virtualenv": {
