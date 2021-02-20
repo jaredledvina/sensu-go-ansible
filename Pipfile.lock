@@ -27,7 +27,6 @@
             "hashes": [
                 "sha256:c6b3bc3dc83ee510357cb7afc8c557c05ce38f6b40e9bc9dab13551b2944dfd4"
             ],
-            "index": "pypi",
             "version": "==2.10.6"
         },
         "certifi": {
@@ -272,7 +271,6 @@
             "hashes": [
                 "sha256:c6b3bc3dc83ee510357cb7afc8c557c05ce38f6b40e9bc9dab13551b2944dfd4"
             ],
-            "index": "pypi",
             "version": "==2.10.6"
         },
         "ansible-lint": {
@@ -816,10 +814,11 @@
         },
         "rich": {
             "hashes": [
-                "sha256:a8ee22199562278d2f78148cacb2f9460ccac362cd4a40f705505b41daae60e0",
-                "sha256:f8f08fdac6bd67dc2dd7fe976da702d748487aa9eb5d050c48b2321bc67ed659"
+                "sha256:1f7c481be658eb27f451c3f714aec5bc1fc2431c28f89848ef589c2392171f2e",
+                "sha256:86a157008d17c73ee03da80de91e09fc2f7713109ccd4e90496eeb3702bef638"
             ],
-            "version": "==9.11.0"
+            "index": "pypi",
+            "version": "==9.11.1"
         },
         "ruamel.yaml": {
             "hashes": [
