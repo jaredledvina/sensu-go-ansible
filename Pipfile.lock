@@ -502,11 +502,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:2a851a30a1fd847cedd68c7c6bfb90e765db6265852f574e9d88bb40f96924ab",
-                "sha256:31c5c29f17d064cc71bf6a005a8b25b3332787ab2e7362d5d258800ac825f471"
+                "sha256:080d666daa2faedcc2e96c0c87d3cdb76325261c51650016784834733faa7897",
+                "sha256:144acbe6ec34f170c4a362f52c2d03e82db7d012668ba57ff8f1e668905889b0"
             ],
             "index": "pypi",
-            "version": "==3.5.0"
+            "version": "==3.6.0"
         },
         "iniconfig": {
             "hashes": [
