@@ -491,7 +491,6 @@
                 "sha256:41b6bed56f30150b25ef4c2724688d9d202fcebc448ad243fd9df4e4856c81fc",
                 "sha256:63e8105ec44c16d96beb33a0ae5d5ed1bbefd72415ea7e9d684b2f9b4a1cabf9"
             ],
-            "index": "pypi",
             "version": "==1.6.0"
         },
         "idna": {
@@ -825,10 +824,11 @@
         },
         "rich": {
             "hashes": [
-                "sha256:27e3deb24555d7dad554afa871c7e77f16a0336a625ed78dd10de21193b4ec11",
-                "sha256:dc2499772c96bd2c488b34739425d1cdfa433bf394f4f2f5af5ca6f399171df0"
+                "sha256:594940d0d0386c28d6e95290a5df7e3871fe9e52af6b72d1062edc90d6068c35",
+                "sha256:b52c7b84c01eaed972ed4409a35d455bf6aaf8d730da3fd0c2266bf929d0242c"
             ],
-            "version": "==9.12.0"
+            "index": "pypi",
+            "version": "==9.12.1"
         },
         "ruamel.yaml": {
             "hashes": [
