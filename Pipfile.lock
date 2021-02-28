@@ -300,10 +300,10 @@
         },
         "arrow": {
             "hashes": [
-                "sha256:3d9c973acbd30f8a87cb816c4d1ac14fbcd44289c1448e8a8eb802ecc7504fad",
-                "sha256:ca68479d4b674e35179104f53e2bf72a730847bbd301e7c0b3642dd06e669797"
+                "sha256:7909d9fd30d32fa8fd173fdeb3f7125aaf6dedd1a837276fe1d8cea2c0e86d76",
+                "sha256:b1e106a0ab754e540f4aeb08747900830b688adef02d81240e65afc0e781a870"
             ],
-            "version": "==1.0.0"
+            "version": "==1.0.1"
         },
         "aspy.yaml": {
             "hashes": [
@@ -491,7 +491,6 @@
                 "sha256:7b435803dc79a0f0ce887887a62ad360f3a9e8162ac0db9ee649d5d24085bf30",
                 "sha256:ec4698722b9a8a6f2aa5f9ff9cc687956494f0ba734941659ad7f018cf457e44"
             ],
-            "index": "pypi",
             "version": "==1.6.1"
         },
         "idna": {
@@ -825,10 +824,11 @@
         },
         "rich": {
             "hashes": [
-                "sha256:493b4288273aa46475230733358696457e5df9215c898b164a324b7d9d694e88",
-                "sha256:df6d9921358c159d638763349bb023af75e9bf3486b1b8a0baba640f4fb60a48"
+                "sha256:77bd13c72350c4907540be33910c0ec13bebb68fba4986e055fb564338f9e94a",
+                "sha256:bc7087a7fcca8852784ccccc88d992c23efaf9d7e1dcca991a440d7a779352e2"
             ],
-            "version": "==9.12.2"
+            "index": "pypi",
+            "version": "==9.12.3"
         },
         "ruamel.yaml": {
             "hashes": [
