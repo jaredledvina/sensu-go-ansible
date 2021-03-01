@@ -303,7 +303,6 @@
                 "sha256:5df8e632e9158c48f42f68a742068bcfc1c0181cbe7543e4cda6089bb287a305",
                 "sha256:cb1b7bc3a07eb1c1e98ccc740627460c9891636642bcf03c4097b71d8bc5ca1d"
             ],
-            "index": "pypi",
             "version": "==1.0.2"
         },
         "aspy.yaml": {
@@ -489,10 +488,11 @@
         },
         "identify": {
             "hashes": [
-                "sha256:7b435803dc79a0f0ce887887a62ad360f3a9e8162ac0db9ee649d5d24085bf30",
-                "sha256:ec4698722b9a8a6f2aa5f9ff9cc687956494f0ba734941659ad7f018cf457e44"
+                "sha256:1c2014f6985ed02e62b2e6955578acf069cb2c54859e17853be474bfe7e13bed",
+                "sha256:8f9879b5b7cca553878d31548a419ec2f227d3328da92fe8202bc5e546d5cbc3"
             ],
-            "version": "==1.6.1"
+            "index": "pypi",
+            "version": "==1.6.2"
         },
         "idna": {
             "hashes": [
